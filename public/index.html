@@ -19,10 +19,11 @@
             flex-direction: column;
             justify-content: center;
         }
-        code {
+        * {
             font-family:'KingHwa_OldSong';
             font-weight:'400';
             color: #45301cbb;
+            transition: all ease .3s;
         }
         .banner {
             width: 100%;
@@ -30,7 +31,9 @@
         }
         .content {
             max-width: 800px;
-            margin: -0.5rem 2rem 1rem 2rem;
+            margin: auto;
+            margin-top: -0.5rem;
+            margin-bottom: 1.5rem;
             padding: .5rem;
             font-size: 1.2em;
             color: #392410;
@@ -55,6 +58,246 @@
             object-fit: cover;
             border: 1px solid #ccc;
             display: block;
+        }
+        
+        .auto-breakword > * {
+            text-overflow: unset !important;
+            overflow: unset;
+            white-space: pre-wrap !important;
+            word-break: break-all !important;
+        }
+
+        .auto-breakword {
+            white-space: pre-wrap !important;
+            word-break: break-all !important;
+        }
+
+        .nav-active {
+            text-decoration: underline !important;
+            filter: brightness(1.2) opacity(1) !important;
+            color: #000 !important;
+        }
+
+        .nav-object {
+            text-decoration: none;
+            color: #666;
+            filter: opacity(0.7) blur(0.25px);
+        }
+
+        .search-working {
+            color: #666;
+            transition: animation .2s ease;
+            animation: anim-search-working 2s infinite ease-in-out;
+        }
+
+        @keyframes anim-search-working {
+        0%, 100% {
+            filter: drop-shadow( 0 10px 4px rgba(255, 204, 0, 0.6));
+        }
+        50% {
+            filter: drop-shadow( 0 20px 8px rgba(255, 204, 0, 0.4));
+        }
+        }
+
+        .search-error {
+            color: #666;
+            transition: animation .2s ease;
+            animation: anim-search-error 2s infinite ease-in-out;
+        }
+
+        @keyframes anim-search-error {
+        0%, 100% {
+            filter: drop-shadow( 0 0 4px rgba(255, 0, 0, 0.6));
+        }
+        50% {
+            filter: drop-shadow( 0 0 8px rgba(255, 0, 0, 0.5));
+        }
+        }
+
+        #nav-sidebar {
+            display: flex;
+            flex-direction: column;
+            width: 16rem;
+            height: 100%;
+            position: fixed;
+            right: 0;
+            top: 0;
+            background-color: #8d3800bb;
+            backdrop-filter: blur(5px);
+            transition: width 0.3s;
+            overflow: auto;
+            overflow-x: hidden !important;
+            z-index:69;
+            color: #ddd;
+        }
+
+        #nav-sidebar-toc-list {
+            list-style: none;
+            padding: .25rem .75rem .25rem .5rem;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        #nav-sidebar-sub {
+            display: flex;
+            flex-direction: column;
+            width: 32rem;
+            height: 100%;
+            position: fixed;
+            right: 0;
+            top: 0;
+            background-color: #8d38007f;
+            backdrop-filter: blur(8px);
+            transition: width 0.3s;
+            overflow: auto;
+            overflow-x: hidden !important;
+            z-index:64;
+        }
+
+        #nav-sidebar-wrapper {
+            margin-top:auto;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            width: 16rem;
+            min-width: 16rem;
+            max-width: 16rem;
+            margin-bottom: 3rem;
+        }
+
+        #nav-sidebar-sub-wrapper {
+            margin-top:auto;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            width: 16rem;
+            max-width: 16rem;
+            min-width: 16rem;
+            margin-bottom: 0;
+        }
+
+        #nav-sidebar-sub-wrapper p{
+            margin:.125rem;
+        }
+
+        #nav-sidebar-wrapper > *, #nav-sidebar-sub-wrapper > * {
+            margin: 0 5% 0 5%;
+            min-width: 90%;
+            max-width: 90%;
+        }
+
+        #nav-sidebar-wrapper > button, #nav-sidebar-sub-wrapper > button {
+            appearance:none !important;
+            background-color:#f5f5f5;
+            border:none;
+            border-radius:0.75rem;
+            box-shadow:0px 1px 2px #ecb24866;
+            color:#2c2e31ff;
+            outline:2px solid transparent !important;
+        }
+
+        .nav-sidebar-collapsed{
+            width: 0 !important;
+            overflow: hidden;
+            overflow-x: hidden !important;
+        }
+
+        #nav-toggle-button {
+            position: fixed;
+            right: 28rem;
+            bottom: 3.5rem;
+            width: 6rem;
+            height: 3rem;
+            background-color: #e6bf7685;
+            backdrop-filter: blur(3px);
+            color: black;
+            border: none;
+            cursor: pointer;
+            border-radius: 1.5rem;
+            font-size: 1.5rem;
+            text-align: left;
+            transition: transform .3s, bottom .3s, right .3s, width .3s;
+            transform-origin: right;
+            display: block;
+            z-index: 60;
+            transform: rotate(0deg);
+            filter: drop-shadow(0 0 .4rem #bbb);
+        }
+
+        #nav-toggle-button-arrow {
+            transition: transform 0.3s, bottom 0.3s, right 0.3s;
+            transform-origin: center;
+            display: block;
+            width: fit-content !important;
+            bottom: 0;
+            transform: rotate(180deg);
+            margin-left: .5rem;
+        }
+
+        .nav-sidebar-collapsed-btn #nav-toggle-button-arrow {
+            display: block;
+            /* right: .5rem; */
+            margin-bottom: -1.25rem;
+            transform: rotate(270deg);
+        }
+
+        #nav-toggle-button.nav-sidebar-sub-collapsed-btn {
+            right: 12rem;
+            bottom: 3.5rem;
+            transform: rotate(0deg);
+        }
+
+        #nav-toggle-button.nav-sidebar-collapsed-btn.nav-sidebar-sub-collapsed-btn {
+            display: block;
+            right: .25rem;
+            bottom: 1rem;
+            width: 10rem;
+            transform: rotate(90deg);
+        }
+        
+        *::-webkit-scrollbar-track {
+            display: none;
+            background-color: rgba(255, 255, 255, 0);
+            /*
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+            */
+        }
+
+        *::-webkit-scrollbar {
+            width: .75rem;
+            background-color: rgba(255, 255, 255, 0);
+            position: fixed !important;
+            right: 1rem;
+            padding:2rem 1rem 2rem 0;
+            /*background-color: #F5F5F5;*/
+        }
+
+        *::-webkit-scrollbar-thumb {
+            border-radius: .625rem;
+            /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);*/
+            background-color: rgba(118, 118, 118, 0.56);
+            margin: 2rem 1rem 2rem 0;
+        }
+        pattern {
+            color: #705117;
+            color: #c58d28;
+            color: #e2ba71;
+            color: #f3e3c6;
+            color: #f6ead5;
+            color: #e2ba71;
+            color: #b07e24;
+            color: #7199e2;
+            color: #2455b0;
+            color: #e2ba71;
+            color: #b5e271;
+            color: #71e282;
+            color: #71e2d6;
+            color: #7199e2;
+            color: #9e71e2;
+            color: #e271d2;
+            color: #e2717d;
         }
     </style>
 </head>
@@ -120,8 +363,8 @@
 <img src="./img/5f99e508-e11b-4c7f-b51b-9a36d1ff4412.png" alt="密码菌一人大冒险"></img>
 <img src="./img/194baf4d-386d-4796-ba2e-7017e98dc356.png" alt="队长：Seven"></img>
 </div>
-### 8.18 20:30 第一日开始！
 
+<h3>8.18 20:30 第一日开始！</h3>
 <p>8.18 20:00-20:30 模拟炸服</p>
 <h4>8.18 20:49 完成「五音俱全」</h4>
 <div class="image-container">
@@ -181,9 +424,58 @@
 <div class="image-container">
 <img src="./img/b2b6bf3a-f5d7-4b3e-a6c5-a9f4493fb951.png"></img>
 </div>
+
+<h4>8.18 21:42 完成「一笔画」</h4>
+<h4>8.18 21:42 完成「一笔画」</h4>
+<h4>8.18 21:42 完成「一笔画」</h4>
+<h4>8.18 21:42 完成「一笔画」</h4>
+<h4>8.18 21:42 完成「一笔画」</h4>
+<h4>8.18 21:42 完成「一笔画」</h4>
+<h4>8.18 21:42 完成「一笔画」</h4>
+<h4>8.18 21:42 完成「一笔画」</h4>
+<h4>8.18 21:42 完成「一笔画」</h4>
+<h4>8.18 21:42 完成「一笔画」</h4>
+<h4>8.18 21:42 完成「一笔画」</h4>
+<h4>8.18 21:42 完成「一笔画」</h4>
+<h4>8.18 21:42 完成「一笔画」</h4>
+<h4>8.18 21:42 完成「一笔画」</h4>
+<h4>8.18 21:42 完成「一笔画」</h4>
+<h4>8.18 21:42 完成「一笔画」</h4>
+<h4>8.18 21:42 完成「一笔画」</h4>
+<h4>8.18 21:42 完成「一笔画」</h4>
+
     </div>
+    
+<div id="nav-sidebar" class="nav-sidebar-collapsed">
+    <!-- 边栏内容 -->
+    <div id="nav-sidebar-wrapper">
+        <button onclick='toggleSidebarSub("nav-sidebar-sub-group-1","nav-sidebar-sub","nav-sidebar-sub-wrapper");'>Test Sub Sidebar</button>
+        <hr />
+        <button onclick='toggleSidebarSub("nav-sidebar-toc","nav-sidebar-sub","nav-sidebar-sub-wrapper");'>Open Menu</button>
+        <div is="search-bar" target='nav-sidebar-toc-list'></div>
+        <ul id="nav-sidebar-toc-list" style="max-height:24rem;overflow-y: scroll!important;border-bottom: .125rem solid #000;" class="searchlist-breakword">
+            <li>当前页面不支持章节导航。</li>
+        </ul>
+    </div>
+</div>
+<button id="nav-toggle-button" onclick="toggleSidebar()"><div id="nav-toggle-button-arrow">&lt;</div></button>
+<!-- 二级菜单 -->
+<div id="nav-sidebar-sub">
+    <div id="nav-sidebar-sub-wrapper">
+
+        <div id="nav-sidebar-sub-group-1" class="nav-sidebar-group auto-breakword">
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+<script>
+
+</script>
     <script>
-        window.addEventListener('DOMContentLoaded', function () {
+        function imgresize() {
         const imagecs = document.querySelectorAll('.image-container');
         let maxHeight = 0;
         imagecs.forEach(imgs => {
@@ -194,12 +486,326 @@
                 totalWidth += img.naturalWidth * (maxHeight / img.naturalHeight);
             });
             images.forEach(img => {
-                img.style.height = maxHeight * (imgs.offsetWidth / totalWidth) + 'px';
-                img.style.width = (img.naturalWidth * (maxHeight / img.naturalHeight) / totalWidth * 100) + '%';
+                let h = min(maxHeight * (imgs.offsetWidth / totalWidth), maxHeight);
+                img.style.height = h + 'px';
+                img.style.width = (img.naturalWidth * (h / img.naturalHeight) / totalWidth * 100) + '%';
             });
 
         });
+        }
+        window.addEventListener('DOMContentLoaded', imgresize);
+        window.addEventListener("resize", imgresize);
+
+        async function performSearch(query, inputDOM, itemDOM, flags = 'gi') {
+        try {
+            const items = itemDOM.querySelectorAll('li');
+            const queryLower = query.toLowerCase();
+            while(itemDOM.innerHTML.includes('<mark class="highlight">')) { itemDOM.innerHTML = itemDOM.innerHTML.replace('<mark class="highlight">', '').replace('</mark>', ''); }
+            if (!queryLower.includes(' ')) {
+            items.forEach((li, index) => {
+                const text = (li.dataset.index || li.getAttribute('data-index') || li.textContent || li.innerHTML).trim();
+                const textLower = text.toLowerCase();
+                const regex = new RegExp(query, flags);
+                if (regex.test(textLower)) {
+                if (queryLower.length > 0) {
+                    li.innerHTML = li.innerHTML.replace(/(<[^>]+>)|(&\S{1,4};)|([^<&]+)/gi, function (_, tag, entity, text) {
+                    //console.log(`${tag} ${entity} ${text}`);
+                    if (tag) return tag;
+                    if (entity) return entity;
+                    if (!text) return text;
+                    return text.replace(regex, '<mark class="highlight">$&</mark>');
+                    });
+                    inputDOM.classList.remove('search-error');
+                }
+                li.style.display = 'list-item';
+                } else {
+                li.style.display = 'none';
+                }
+            });
+            } else {
+            const querykeywords = queryLower.split(' ');
+            items.forEach((li, index) => {
+                const text = (li.dataset.index || li.getAttribute('data-index') || li.textContent || li.innerHTML).trim();
+                const textLower = text.toLowerCase();
+                let willdisplay = true;
+                querykeywords.forEach((kw, index) => {
+                const regex = new RegExp(kw, flags);
+                if (regex.test(textLower)) {
+                    if (kw.length > 0) {
+                    li.innerHTML = li.innerHTML.replace(/(<[^>]+>)|(&\S{1,4};)|([^<&]+)/gi, function (_, tag, entity, text) {
+                        //console.log(`${tag} ${entity} ${text}`);
+                        if (tag) return tag;
+                        if (entity) return entity;
+                        if (!text) return text;
+                        return text.replace(regex, '<mark class="highlight">$&</mark>');
+                    });
+                    inputDOM.classList.remove('search-error');
+                    }
+                } else {
+                    willdisplay = false;
+                }
+                });
+                li.style.display = willdisplay ? 'list-item' : 'none';
+            });
+            }
+            inputDOM.classList.remove('search-working');
+        } catch (e) {
+            inputDOM.classList.remove('search-working');
+            inputDOM.classList.add('search-error');
+            console.log(`search-error:${e}`);
+        }
+        }
+
+        class SearchBar extends HTMLDivElement {
+        constructor() {
+            super();
+        }
+        connectedCallback() {
+            this.target = this.getAttribute('target');
+            this.inputId = this.getAttribute('inputid') || `searchbar-input-${Math.random().toString(16).slice(2)}`;
+            this.baseColor = this.getAttribute('color') || '#2c2e31ff';
+            this.shadowColor = this.getAttribute('shadowcolor') || '#11182726';
+            this.defaultText = this.getAttribute('default') || '';
+            this.placeholderText = this.getAttribute('placeholder') || 'Search...';
+            this.innerHTML = `<svg style="color:${this.baseColor};height:1.25rem;left:1.25rem;opacity:.6;position:absolute;width:1.25rem;z-index:1;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0"></path></svg><input style="padding:0 .5rem 0 2.5rem !important;width:100%;appearance:none !important;background-color:#f5f5f5;border:none;border-radius:0.75rem;box-shadow:0px -1px 2px ${this.shadowColor};color:${this.baseColor};outline:2px solid transparent !important;min-height:2.25rem !important;font-size:.875rem;line-height:1.25rem;margin:0;padding-block:1px;padding-inline:2px;overflow-clip-margin:0px !important;overflow:clip !important;box-sizing:border-box;" id="${this.inputId}" value="${this.defaultText}" class="searchbar-input" type="text" placeholder="${this.placeholderText}" autocomplete="off">
+            `;
+            this.inputDOM = this.querySelector('input');
+            this.style += "display:flex !important;padding:.25rem .5rem .25rem .5rem;box-sizing:border-box;align-items:center;position:relative;line-height:1.15;display:flex !important;";
+            const targetEL = this.target;
+            const inputDOMEL = this.inputDOM;
+            //console.log(targetEL);
+            document.addEventListener('DOMContentLoaded', () => {
+            //console.log(targetEL);
+            let debounceTimer;
+            const targetDOMEL = document.getElementById(targetEL);
+            this.inputDOM.addEventListener('input', async (event) => {
+                const query = event.target.value;
+                inputDOMEL.classList.add('search-working');
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(async () => {
+                await performSearch(query, inputDOMEL, targetDOMEL);
+                }, 300);
+            });
+            });
+        }
+        }
+
+        customElements.define('search-bar', SearchBar, { extends: 'div' });
+
+        /* Cookie Utils */
+
+        function setCookieBool(key, value) {
+        var d = new Date();
+        d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
+        document.cookie = `${key}=${(value ? 'true' : 'false')};expires=${d.toUTCString()};path=/`;
+        }
+
+        function setCookie(key, value) {
+        var d = new Date();
+        d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
+        document.cookie = `${key}=${value};expires=${d.toUTCString()};path=/`;
+        }
+
+        function getCookieBool(key, auto = false) {
+        var name = `${key}=`;
+        var ca = decodeURIComponent(document.cookie).split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            while (c.charAt(0) == ' ') { c = c.substring(1); }
+            if (c.indexOf(name) == 0) { return c.substring(name.length, c.length) === 'true'; }
+        }
+        return auto; // 如果没有找到l项，默认返回False
+        }
+
+        function getCookie(key, auto = null) {
+        var name = `${key}=`;
+        var ca = decodeURIComponent(document.cookie).split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            while (c.charAt(0) == ' ') { c = c.substring(1); }
+            if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+        }
+        return auto; // 如果没有找到l项，默认返回null
+        }
+
+        function toggleSidebar(id = 'nav-sidebar', toggleBtn = 'nav-toggle-button') {
+        var sidebar = document.getElementById(id);
+        var tbtn = document.getElementById(toggleBtn);
+        if (sidebar.classList.contains('nav-sidebar-collapsed')) {
+            sidebar.classList.remove('nav-sidebar-collapsed');
+            tbtn.classList.remove('nav-sidebar-collapsed-btn');
+            setCookieBool('navsidebar', true);
+        } else {
+            sidebar.classList.add('nav-sidebar-collapsed');
+            tbtn.classList.add('nav-sidebar-collapsed-btn');
+            closeSidebarSub();
+            setCookieBool('navsidebar', false);
+        }
+        refreshSidebarBtn();
+        }
+
+        function toggleSidebarSub(currentid, id = 'nav-sidebar-sub', wrapperid = 'nav-sidebar-sub-wrapper', toggleBtn = 'nav-toggle-button') {
+        var sidebar = document.getElementById(id);
+        var parent = document.getElementById(wrapperid);
+        var htm = document.getElementById(currentid);
+        var tbtn = document.getElementById(toggleBtn);
+        if (sidebar.classList.contains('nav-sidebar-collapsed')) {
+            sidebar.classList.remove('nav-sidebar-collapsed');
+            for (let i = 0; i < parent.children.length; i++) {
+            parent.children[i].style.display = "none";
+            }
+            htm.style.display = "block";
+            sidebar.classList.remove('nav-sidebar-collapsed');
+            tbtn.classList.remove('nav-sidebar-sub-collapsed-btn');
+        } else {
+            if (htm.style.display == "none") {
+            for (let i = 0; i < parent.children.length; i++) {
+                console.log(parent.children[i]);
+                parent.children[i].style.display = "none";
+            }
+            htm.style.display = "block";
+            } else {
+            sidebar.classList.add('nav-sidebar-collapsed');
+            tbtn.classList.add('nav-sidebar-sub-collapsed-btn');
+            }
+        }
+        refreshSidebarBtn();
+        }
+
+        function closeSidebarSub(id = 'nav-sidebar-sub') {
+            var sidebar = document.getElementById(id);
+            sidebar.classList.add('nav-sidebar-collapsed');
+            refreshSidebarBtn();
+        }
+
+        function refreshSidebarBtn(id = 'nav-toggle-button', sidebarid = 'nav-sidebar', sidebarsubid = 'nav-sidebar-sub') {
+            var sidebar = document.getElementById(sidebarid);
+            var sidebarsub = document.getElementById(sidebarsubid);
+            var tbtn = document.getElementById(id);
+            tbtn.classList.toggle('nav-sidebar-collapsed-btn', sidebar.classList.contains('nav-sidebar-collapsed'));
+            tbtn.classList.toggle('nav-sidebar-sub-collapsed-btn', sidebarsub.classList.contains('nav-sidebar-collapsed'));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => { refreshSidebarBtn(); });
+
+        /* nav toc */
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+        var selectors = [
+            '.content',
+            'body .container',
+            'body'
+        ];
+
+        var content = null;
+
+        // 根据选择器找到实际的文章内容容器
+        for (var i = 0; i < selectors.length; i++) {
+            content = document.querySelector(selectors[i]);
+            if (content) break;
+        }
+
+        // 如果没有找到文章内容容器，则输出错误信息
+        if (!content) {
+            console.error("目录生成器无法找到内容容器。");
+            return;
+        }
+
+        var headings = Array.from(content.querySelectorAll('h1, h2, h3, h4, h5, h6')).filter(function (heading) {
+            return !heading.closest('#nav-sidebar, #nav-sidebar-sub, .card, .card-gallery');
         });
+
+        var tocList = document.querySelector('#nav-sidebar-toc-list');
+        tocList.innerHTML = '';
+
+        // 计算目录中最小的标题等级（如h1、h2、h3等）
+        let minLevel = 7;
+        headings.forEach((heading) => {
+            let level = parseInt(heading.tagName.substring(1));
+            if (level < minLevel) {
+            minLevel = level;
+            }
+        });
+        headings.forEach(function (heading, index) {
+            var id = 'nav-menu-heading-' + index;
+            heading.id = id;
+
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            a.href = '#' + id;
+            a.textContent = heading.textContent;
+            a.classList.add('nav-object');
+            li.appendChild(a);
+            var level = parseInt(heading.tagName.substring(1));
+            li.style.marginLeft = (level - minLevel) * 0.2 + 'rem';
+            //li.style.marginRight = 0.5 + 'rem';
+            tocList.appendChild(li);
+        });
+
+        tocList.addEventListener('click', function (event) {
+            if (event.target.tagName.toLowerCase() === 'a') {
+            event.preventDefault();
+            var targetId = event.target.getAttribute('href').substring(1);
+            var targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                // 平滑滚动到目标元素
+                window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth'
+                });
+
+                // 更新浏览器历史记录
+                history.pushState(null, null, '#' + targetId);
+            }
+            }
+        });
+
+        function highlightCurrentHeading() {
+            let currentHeadingId = null;
+            const offset = 100;  // 滚动时的偏移量
+
+            // 查找当前视口中的标题
+            for (let i = 0; i < headings.length; i++) {
+            const rect = headings[i].getBoundingClientRect();
+            if (rect.top <= offset) {
+                currentHeadingId = headings[i].id;
+            } else {
+                break;
+            }
+            }
+            let targetLabel = null;
+
+            // 高亮当前标题的目录项
+            tocList.querySelectorAll('a').forEach(function (a) {
+            if (a.getAttribute('href').substring(1) === currentHeadingId) {
+                a.classList.add('nav-active');
+                targetLabel = a;
+            } else {
+                a.classList.remove('nav-active');
+            }
+
+            tocList.scrollTo({
+                top: targetLabel.offsetTop,
+                behavior: 'smooth'
+            });
+
+            });
+        }
+
+        // 监听滚动事件以更新当前高亮的目录项
+        window.addEventListener('scroll', highlightCurrentHeading);
+        highlightCurrentHeading();  // 初始化高亮
+
+        });
+
+
+        closeSidebarSub();
+        if (getCookieBool('navsidebar')) {
+            toggleSidebar();
+        }
+        refreshSidebarBtn();
     </script>
 </body>
 </html>
