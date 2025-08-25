@@ -8,11 +8,6 @@
     <noscript>
         <link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002/result.css">
     </noscript>
-
-<script>
-  // 确保 preload 的 onload 事件被正确处理
-  // （上面的 onload 属性已经处理了）
-</script>
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <style>
         body {
@@ -43,6 +38,8 @@
         }
         .content {
             max-width: 800px;
+            width:auto;
+            width: 90%;
             margin: auto;
             margin-top: -0.5rem;
             margin-bottom: 1.5rem;
@@ -363,13 +360,14 @@
                 crossorigin="anonymous"
                 async>
             </script>
-            <p style="margin:auto">若无显 请等待 <a href="javascript:;" onclick='document.querySelector("iframe.giscus-frame").scrollTo({top:99999})''>显输入</a></p>
+            <p style="margin:auto" align="center">若无显 请等待 <a href="javascript:;" onclick='document.querySelector("iframe.giscus-frame").scrollTo({top:99999})''>显输入</a></p>
         </div>
         <div id="nav-sidebar-sub-group-2" class="nav-sidebar-group auto-breakword" sytle="padding:1rem;">
             <button onclick='linkact("https://ccbc16.cipherpuzzles.com/")' class="nav-sidebar-btn" style="margin: 0.5rem 5% 0 5%;min-width: 90%; max-width: 90%;">西拾陆</button>
             <button onclick='linkact("https://triddles.ccbcarchive.com/")' class="nav-sidebar-btn" style="margin: 0.5rem 5% 0 5%;min-width: 90%; max-width: 90%;">三字谜</button></a>
             <button onclick='linkact("https://brackets.ccbcarchive.com/")' class="nav-sidebar-btn" style="margin: 0.5rem 5% 0 5%;min-width: 90%; max-width: 90%;">说带括</button></a>
             <button onclick='linkact("https://eterill.xyz/")' class="nav-sidebar-btn" style="margin: 0.5rem 5% 0 5%;min-width: 90%; max-width: 90%;">吾博客</button></a>
+            <button onclick='linkact("https://github.com/EternalIllusion/CCBC16-QiDaQiJi-Web")' class="nav-sidebar-btn" style="margin: 0.5rem 5% 0 5%;min-width: 90%; max-width: 90%;">开源库</button></a>
             <button onclick='linkact("https://qm.qq.com/q/itWk4lAGQM")' class="nav-sidebar-btn" style="margin: 0.5rem 5% 0 5%;min-width: 90%; max-width: 90%;">加群聊</button></a>
         </div>
     </div>
@@ -386,9 +384,7 @@
                 console.error('Invalid href');
                 return;
             }
-
             const url = /^https?:\/\//i.test(href) ? href : 'https://' + href;
-
             const a = document.createElement('a');
             a.href = url;
             a.target = '_blank';
@@ -401,10 +397,21 @@
         function imgresize() {
             const imageContainers = document.querySelectorAll('.image-container');
             const maxHeight = 480;
-
+            const maxHeightSingleA = 360;
             imageContainers.forEach(container => {
                 const images = container.querySelectorAll('img');
                 if (images.length === 0) return;
+                if (images.length === 1) {
+                    const img = images[0];
+                    const maxHeightSingle = Math.min(maxHeightSingleA, img.naturalHeight*2);
+                    let h = Math.min(maxHeightSingle, maxHeightSingle * (container.offsetWidth / (img.naturalWidth * (maxHeightSingle / img.naturalHeight))));
+                    let w = img.naturalWidth * (h / img.naturalHeight);
+                    img.style.height = h + 'px';
+                    img.style.maxHeight = h + 'px';
+                    img.style.width = w + 'px';
+                    img.style.maxWidth = w + 'px';
+                    return;
+                }
                 let totalNaturalWidth = 0;
                 images.forEach(img => {
                     totalNaturalWidth += img.naturalWidth * (maxHeight / img.naturalHeight);
@@ -415,8 +422,9 @@
                 images.forEach(img => {
                     const scaledWidth = img.naturalWidth * (actualHeight / img.naturalHeight);
                     img.style.height = actualHeight + 'px';
+                    img.style.maxHeight = actualHeight + 'px';
                     img.style.width = scaledWidth + 'px';
-                    img.style.objectFit = 'cover';
+                    img.style.maxWidth = scaledWidth + 'px';
                 });
             });
         }
@@ -676,7 +684,7 @@
             a.classList.add('nav-object');
             li.appendChild(a);
             var level = parseInt(heading.tagName.substring(1));
-            li.style.marginLeft = (level - minLevel) * 0.2 + 'rem';
+            li.style.marginLeft = (level - minLevel) * 0.5 + 'rem';
             //li.style.marginRight = 0.5 + 'rem';
             tocList.appendChild(li);
         });
