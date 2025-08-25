@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>七大歧记</title>
-    <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002/result.css' /> 
+    <link rel="preload" href="https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002/result.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!--<link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002/result.css" media="print" onload="this.media='all'; this.onload=null;">-->
+    <noscript>
+        <link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002/result.css">
+    </noscript>
+
+<script>
+  // 确保 preload 的 onload 事件被正确处理
+  // （上面的 onload 属性已经处理了）
+</script>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <style>
         body {
             margin: 0;
@@ -22,8 +32,10 @@
         * {
             font-family:'KingHwa_OldSong';
             font-weight:'400';
-            color: #45301cbb;
             transition: all ease .3s;
+        }
+        code {
+            color: #45301cbb;
         }
         .banner {
             width: 100%;
@@ -41,9 +53,15 @@
         #nav {
             margin:auto;
         }
+
         a {
             color: inherit;
         }
+
+        .giscus-frame{
+            max-height: 90vh !important;
+        }
+
         .image-container {
             display: flex;
             width: 100%;
@@ -122,7 +140,7 @@
             position: fixed;
             right: 0;
             top: 0;
-            background-color: #8d3800bb;
+            background-color: #f6ead5c4;
             backdrop-filter: blur(5px);
             transition: width 0.3s;
             overflow: auto;
@@ -146,7 +164,7 @@
             position: fixed;
             right: 0;
             top: 0;
-            background-color: #8d38007f;
+            background-color: #f3e3c6b3;
             backdrop-filter: blur(8px);
             transition: width 0.3s;
             overflow: auto;
@@ -181,12 +199,14 @@
         }
 
         #nav-sidebar-wrapper > *, #nav-sidebar-sub-wrapper > * {
-            margin: 0 5% 0 5%;
+            margin: 0.5rem 5% 0 5%;
             min-width: 90%;
             max-width: 90%;
         }
 
-        #nav-sidebar-wrapper > button, #nav-sidebar-sub-wrapper > button {
+        #nav-sidebar-wrapper > button, #nav-sidebar-sub-wrapper > button, .nav-sidebar-btn {
+            margin-left: 1rem;
+            margin-right: 1rem;
             appearance:none !important;
             background-color:#f5f5f5;
             border:none;
@@ -208,9 +228,10 @@
             bottom: 3.5rem;
             width: 6rem;
             height: 3rem;
-            background-color: #e6bf7685;
+            background-color: #705117b0;
             backdrop-filter: blur(3px);
-            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #f6ead5;
             border: none;
             cursor: pointer;
             border-radius: 1.5rem;
@@ -311,9 +332,9 @@
 <div id="nav-sidebar" class="nav-sidebar-collapsed">
     <!-- 边栏内容 -->
     <div id="nav-sidebar-wrapper">
-        <button onclick='toggleSidebarSub("nav-sidebar-sub-group-1","nav-sidebar-sub","nav-sidebar-sub-wrapper");'>Test Sub Sidebar</button>
+        <button onclick='toggleSidebarSub("nav-sidebar-sub-group-1","nav-sidebar-sub","nav-sidebar-sub-wrapper");'>站内信</button>
         <hr />
-        <button onclick='toggleSidebarSub("nav-sidebar-toc","nav-sidebar-sub","nav-sidebar-sub-wrapper");'>Open Menu</button>
+        <button onclick='toggleSidebarSub("nav-sidebar-sub-group-2","nav-sidebar-sub","nav-sidebar-sub-wrapper");'>传送门</button>
         <div is="search-bar" target='nav-sidebar-toc-list'></div>
         <ul id="nav-sidebar-toc-list" style="max-height:24rem;overflow-y: scroll!important;border-bottom: .125rem solid #000;" class="searchlist-breakword">
             <li>当前页面不支持章节导航。</li>
@@ -325,8 +346,31 @@
 <div id="nav-sidebar-sub">
     <div id="nav-sidebar-sub-wrapper">
 
-        <div id="nav-sidebar-sub-group-1" class="nav-sidebar-group auto-breakword">
-
+        <div id="nav-sidebar-sub-group-1" class="nav-sidebar-group auto-breakword" sytle="padding:0.125rem;">
+            <script src="https://giscus.app/client.js"
+                data-repo="EternalIllusion/Web-Giscus"
+                data-repo-id="R_kgDOPj1mtA"
+                data-category="Announcements"
+                data-category-id="DIC_kwDOPj1mtM4CukJr"
+                data-mapping="url"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="bottom"
+                data-theme="preferred_color_scheme"
+                data-lang="zh-CN"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async>
+            </script>
+            <p style="margin:auto">若无显 请等待 <a href="javascript:;" onclick='document.querySelector("iframe.giscus-frame").scrollTo({top:99999})''>显输入</a></p>
+        </div>
+        <div id="nav-sidebar-sub-group-2" class="nav-sidebar-group auto-breakword" sytle="padding:1rem;">
+            <button onclick='linkact("https://ccbc16.cipherpuzzles.com/")' class="nav-sidebar-btn" style="margin: 0.5rem 5% 0 5%;min-width: 90%; max-width: 90%;">西拾陆</button>
+            <button onclick='linkact("https://triddles.ccbcarchive.com/")' class="nav-sidebar-btn" style="margin: 0.5rem 5% 0 5%;min-width: 90%; max-width: 90%;">三字谜</button></a>
+            <button onclick='linkact("https://brackets.ccbcarchive.com/")' class="nav-sidebar-btn" style="margin: 0.5rem 5% 0 5%;min-width: 90%; max-width: 90%;">说带括</button></a>
+            <button onclick='linkact("https://eterill.xyz/")' class="nav-sidebar-btn" style="margin: 0.5rem 5% 0 5%;min-width: 90%; max-width: 90%;">吾博客</button></a>
+            <button onclick='linkact("https://qm.qq.com/q/itWk4lAGQM")' class="nav-sidebar-btn" style="margin: 0.5rem 5% 0 5%;min-width: 90%; max-width: 90%;">加群聊</button></a>
         </div>
     </div>
 </div>
@@ -337,25 +381,57 @@
 
 </script>
     <script>
-        function imgresize() {
-            const imagecs = document.querySelectorAll('.image-container');
-            let maxHeight = 0;
-            imagecs.forEach(imgs => {
-                const maxHeight = 480;
-                const images = imgs.querySelectorAll('img');
-                let totalWidth = 0;
-                images.forEach(img => {
-                    totalWidth += img.naturalWidth * (maxHeight / img.naturalHeight);
-                });
-                images.forEach(img => {
-                    let h = min(maxHeight * (imgs.offsetWidth / totalWidth), maxHeight);
-                    img.style.height = h + 'px';
-                    img.style.width = (img.naturalWidth * (h / img.naturalHeight) / totalWidth * 100) + '%';
-                });
+        function linkact(href) {
+            if (!href || typeof href !== 'string') {
+                console.error('Invalid href');
+                return;
+            }
 
+            const url = /^https?:\/\//i.test(href) ? href : 'https://' + href;
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+        function imgresize() {
+            const imageContainers = document.querySelectorAll('.image-container');
+            const maxHeight = 480;
+
+            imageContainers.forEach(container => {
+                const images = container.querySelectorAll('img');
+                if (images.length === 0) return;
+                let totalNaturalWidth = 0;
+                images.forEach(img => {
+                    totalNaturalWidth += img.naturalWidth * (maxHeight / img.naturalHeight);
+                });
+                const containerWidth = container.offsetWidth;
+                const scale = containerWidth / totalNaturalWidth;
+                const actualHeight = Math.min(maxHeight, maxHeight * scale);
+                images.forEach(img => {
+                    const scaledWidth = img.naturalWidth * (actualHeight / img.naturalHeight);
+                    img.style.height = actualHeight + 'px';
+                    img.style.width = scaledWidth + 'px';
+                    img.style.objectFit = 'cover';
+                });
             });
         }
-        window.addEventListener('DOMContentLoaded', imgresize);
+        window.addEventListener('DOMContentLoaded', function () {
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            lazyImages.forEach(img => {
+                img.addEventListener('load', function() {
+                    imgresize();
+                });
+                img.addEventListener('error', function() {
+                    console.error('图片加载失败:', this.src);
+                });
+            });
+            imgresize();
+        });
         window.addEventListener("resize", imgresize);
 
         async function performSearch(query, inputDOM, itemDOM, flags = 'gi') {
@@ -522,7 +598,7 @@
         } else {
             if (htm.style.display == "none") {
             for (let i = 0; i < parent.children.length; i++) {
-                console.log(parent.children[i]);
+                //console.log(parent.children[i]);
                 parent.children[i].style.display = "none";
             }
             htm.style.display = "block";
@@ -647,13 +723,21 @@
             } else {
                 a.classList.remove('nav-active');
             }
-
-            tocList.scrollTo({
-                top: targetLabel.offsetTop,
-                behavior: 'smooth'
             });
 
-            });
+            if (targetLabel) {
+                const labelRect = targetLabel.getBoundingClientRect();
+                const tocRect = tocList.getBoundingClientRect();
+                
+                // 计算应滚动到的位置（相对于 tocList 内容）
+                const relativeTop = labelRect.top - tocRect.top + tocList.scrollTop;
+                
+                tocList.scrollTo({
+                    top: relativeTop - 36, // -10 是留点上边距
+                    behavior: 'smooth',
+                    block: 'nearest' // 可选：避免不必要的滚动
+                });
+            }
         }
 
         // 监听滚动事件以更新当前高亮的目录项

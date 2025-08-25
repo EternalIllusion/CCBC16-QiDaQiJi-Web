@@ -2,6 +2,16 @@
 const fs = require('fs');
 const path = require('path');
 const marked = require('marked');
+const cheerio = require('cheerio');
+
+function addLazyLoading(html) {
+  const $ = cheerio.load(html);
+  $('img:not(.banner)').each(function() {
+    $(this).attr('loading', 'lazy');
+  });
+  return $.html();
+}
+
 
 // 定义路径
 const markdownDir = path.join(__dirname, '../markdown');
@@ -24,14 +34,15 @@ function readTemplate(templatePath) {
 }
 
 // 读取 Markdown 文件并转换为 HTML
+// 在 convertMarkdownToHtml 函数中使用自定义渲染器
 function convertMarkdownToHtml(markdownPath) {
-    try {
-        const markdownContent = fs.readFileSync(markdownPath, 'utf8');
-        return marked.parse(markdownContent); // 使用 marked 解析 Markdown
-    } catch (error) {
-        console.error(`Error reading or converting Markdown file: ${markdownPath}`, error);
-        return null;
-    }
+  try {
+    const markdownContent = fs.readFileSync(markdownPath, 'utf8');
+    return addLazyLoading(marked.parse(markdownContent)); // 使用自定义 renderer
+  } catch (error) {
+    console.error(`Error reading or converting Markdown file: ${markdownPath}`, error);
+    return null;
+  }
 }
 
 // 生成最终的 HTML 文件

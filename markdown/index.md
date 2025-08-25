@@ -60,7 +60,7 @@
 <img src="./img/194baf4d-386d-4796-ba2e-7017e98dc356.png" alt="队长：Seven"></img>
 </div>
 
-### 8.18 20:30 第一日开始！
+## 🚩8.18 20:30 第一日开始！
 
 8.18 20:00-20:30 模拟炸服
 
@@ -144,20 +144,99 @@
 </div>
 
 #### 8.18 21:42 完成「一笔画」
-#### 8.18 21:42 完成「一笔画」
-#### 8.18 21:42 完成「一笔画」
-#### 8.18 21:42 完成「一笔画」
-#### 8.18 21:42 完成「一笔画」
-#### 8.18 21:42 完成「一笔画」
-#### 8.18 21:42 完成「一笔画」
-#### 8.18 21:42 完成「一笔画」
-#### 8.18 21:42 完成「一笔画」
-#### 8.18 21:42 完成「一笔画」
-#### 8.18 21:42 完成「一笔画」
-#### 8.18 21:42 完成「一笔画」
-#### 8.18 21:42 完成「一笔画」
-#### 8.18 21:42 完成「一笔画」
-#### 8.18 21:42 完成「一笔画」
-#### 8.18 21:42 完成「一笔画」
-#### 8.18 21:42 完成「一笔画」
-#### 8.18 21:42 完成「一笔画」
+
+8.18 22:21 得到：SEND NAZO “仰” 开始出题
+
+8.18 22:23 "我们要做一个 善良的人，与人方便 与己方便"
+
+8.18 22:25 《哪吒闹海》
+
+<div class="image-container">
+<img src="./img/ae165293-42da-41a8-949d-7a3854622a34.png"></img>
+<img src="./img/be3284f3-1f83-41e6-99c1-801fec5833c5.png"></img>
+<img src="./img/0feb03d5-d2be-42f5-89df-5448758361ec.png"></img>
+</div>
+
+解析：痛仰乐队
+
+8.18 22:29 在CCBC官方群內发言：“这谁出的题啊，太好了吧”
+
+<div class="image-container">
+<img src="./img/e581e53b-f28b-4b16-a276-7ddd9eed669e.jpg"></img>
+</div>
+
+8.18 22:35 开始出备选方案2
+
+8.18 22:38 "出孬题我可是太擅长了"
+
+8.18 22:40 "我可太喜欢这种题了，我可以在这出一天”
+
+8.18 22:42 "我的目标是 把千字谜所有题目都做出来"
+
+<div class="image-container">
+<img src="./img/3f50562c-93c3-4b84-ba1f-c98ffed63ebc.png"></img>
+<img src="./img/9d82dbb5-ed54-46ce-8288-bf5eceabba99.png"></img>
+</div>
+
+#### 8.18 22:43 直播琵琶，完成「四方谜」
+
+我看是我欲因之梦吴越
+
+<div class="image-container">
+<img src="./img/caa7b11e-49af-4148-9844-887303ee4a2a.png"></img>
+</div>
+8.18 22:53 “相辅相成”毫无头绪
+
+8.18 22:59 “让我们来看看是谁出的题”“原来是你小子”
+
+8.18 23:00 把东京塔🗼认成法国埃菲尔铁塔
+
+<div class="image-container">
+<img src="./img/b1554937-dd3e-44ed-afa8-5d41316a1c33.png"></img>
+</div>
+8.18 23:06 看到黄色+感叹号，认为是马里奥问号箱
+
+<div class="image-container">
+<img src="./img/4067fae9-9c0e-4636-88a3-328e150ed4ce.png"></img>
+</div>
+8.18 23:08 完成emoji填空 提交👍💯👏
+
+<div class="image-container">
+<img src="./img/6c818612-3880-408a-b7f2-7238a303abac.png"></img>
+</div>
+8.18 23:14 错误地认为弹幕透露的“莫斯”是自己的实力
+
+<div class="image-container">
+<img src="./img/6c818612-3880-408a-b7f2-7238a303abac.png"></img>
+</div>
+
+#### 8.18 23:16 完成「恶魔斯基」
+
+#### 8.18 23:50 完成「数字」
+
+#### 8.18 23:53 明日目标：完成序章（未能达成）
+
+## 8.19 20:30 第二日开始！
+
+8.19 20:32 觉醒前世记忆，以惊人的注意力找到霓虹七色的代表图 “我有印象字是我P的”
+
+8.19 20:42 “一不小心撇到弹幕”（一不小心琵琶了）
+
+8.19 21:20 “怎么做了一个小时还没做出来一道题”
+
+#### 8.19 21:24 完成「霓虹七色」
+
+<div class="image-container">
+<img src="./img/9e5a4811-c5cc-4fb8-946e-be6b3c808479.png"></img>
+<img src="./img/656d9243-38be-4a71-a5c3-56db8202e9bd.png"></img>
+<img src="./img/656d9243-38be-4a71-a5c3-56db8202e9bd.png"></img>
+</div>
+<div class="image-container">
+<img src="./img/64ad93f6-9512-421b-86da-0a94428ce28f.png"></img>
+<img src="./img/aca36bb9-8183-45af-b97c-07468aeb5c1c.jpg" alt="琵琶"></img>
+<img src="./img/ee9c17d2-d2fa-4b83-ac15-22227bde1379.jpg"></img>
+</div>
+<div class="image-container">
+<img src="./img/f37dff29-bdb9-4fa6-a85c-d88eb7ba8e8a.png"></img>
+<img src="./img/cbdcf443-7a89-43d5-b036-d68f535f72c4.png"></img>
+</div>
