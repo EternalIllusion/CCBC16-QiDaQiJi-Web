@@ -956,7 +956,7 @@
 <blockquote>
 <p>七大超话来的，谁是刘亦菲😡</p>
 </blockquote>
-<p>8.20 22:37 感谢直播间的一百多名观众不离不弃</p>
+<h4>8.20 22:37 感谢直播间的一百多名观众不离不弃</h4>
 <p>8.20 22:39 根据观众建议填出“功守道”后发现什么都没连出去 “你个骗子”</p>
 <p>8.20 22:42"我会根据精神状态判断要不要直播到完赛"</p>
 <p>8.20 22:47 “对！为什么没有北大，这严谨吗？”</p>
@@ -992,7 +992,7 @@
 <p>8.20 22:56“明日歌......明日什么歌呢？是歌嘛？”</p>
 <p>《明日歌是五字的歌曲吗》</p>
 <p>8.20 22.57 成功在sc诱导下填出“同性恋”</p>
-<p>8.20 22:58 “山东有什么子？女乃子吗？不会有这么下流的词吧”</p>
+<p>8.20 22:58 “山东有什么子？乃子吗？不会有这么下流的词吧”</p>
 <div class="image-container">
 <img src="./img/56be415e-c968-4dbd-b80f-6537a1310927.jpg" loading="lazy">
 </div>
@@ -1006,7 +1006,8 @@
 <ul>
 <li><input checked="" disabled="" type="checkbox"> 《前大远程》</li>
 </ul>
-<p>8.20 23:01 “群众的眼睛是雪亮的” 通过浮想联翩</p>
+<h4>8.20 23:01 完成「浮想联翩」</h4>
+<p>“群众的眼睛是雪亮的” </p>
 <blockquote>
 <p>耗时2h31min👍💯👏</p>
 </blockquote>
@@ -1123,7 +1124,7 @@
 
 <p>8.21 00:13 播放《左小祖咒去乃子房》，作为下播曲</p>
 <p>8.21 00:14 又给本页点了一次赞，感谢送礼物的观众和透露答案的弹幕</p>
-<p>8.21 00:15 结束直播，七大辛苦啦，今天要早点休息哦</p>
+<h4>8.21 00:15 结束直播，七大辛苦啦，今天要早点休息哦</h4>
 <div class="image-container">
 <img src="./img/381720d6-9bc1-47fb-8618-7659475e9899.png" loading="lazy">
 </div>
@@ -1217,6 +1218,8 @@
 </script>
     <script>
         let isTOCNavigating = false;
+        let lastTOCDestination = 0;
+        let timesTOCNavigatingOK = 0;
         function linkact(href) {
             if (!href || typeof href !== 'string') {
                 console.error('Invalid href');
@@ -1548,37 +1551,46 @@ tocList.addEventListener('click', function (event) {
             top: initialScrollPosition,
             behavior: 'smooth'
         });
+        lastTOCDestination = initialScrollPosition;
 
         // 监听滚动结束并校正位置
         let scrollTimeout;
         const checkScrollEndAndCorrectPosition = () => {
             clearTimeout(scrollTimeout);
             scrollTimeout = setTimeout(() => {
-                const rect = targetElement.getBoundingClientRect();
-                // 如果目标元素不在视口内，则重新调整滚动位置
-                if (rect.top > 0 || rect.bottom < window.innerHeight) {
+                const initialScrollPositionNew = targetElement.getBoundingClientRect().top + window.scrollY - 80; // 80px 偏移量
+                if (lastTOCDestination!== initialScrollPositionNew) {
+                    timesTOCNavigatingOK = 0;
                     console.log('Adjusting scroll position due to layout changes');
-                    const initialScrollPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80; // 80px 偏移量
                     window.scrollTo({
-                        top: initialScrollPosition,
+                        top: initialScrollPositionNew,
                         behavior: 'smooth'
                     });
+                    lastTOCDestination = initialScrollPositionNew;
                 } else {
-                    console.log('Target is in view, no need for adjustment');
-                    isTOCNavigating = false;
-                    history.pushState(null, null, '#' + targetId);
+                    timesTOCNavigatingOK += 1;
+                    console.log('Target Seems is in view');
+                    if (timesTOCNavigatingOK >= 2) {
+                        isTOCNavigating = false;
+                        history.pushState(null, null, '#' + targetId);
+                    }
                 }
-            }, 300); // 假设滚动动画大约需要300ms，根据实际情况调整
+            }, 75);
         };
 
-        // 开始监听滚动
         window.addEventListener('scroll', checkScrollEndAndCorrectPosition, { passive: true });
-        checkScrollEndAndCorrectPosition(); // 立即调用一次以处理快速加载的情况
+        checkScrollEndAndCorrectPosition();
 
-        // 清理监听器
         setTimeout(() => {
             window.removeEventListener('scroll', checkScrollEndAndCorrectPosition);
-        }, 1000); // 假设最长等待时间为1秒，根据实际情况调整
+            clearTimeout(scrollTimeout);
+            if (isTOCNavigating){
+                console.log('Target is in view, no need for adjustment');
+                isTOCNavigating = false;
+                history.pushState(null, null, '#' + targetId);
+            }
+            
+        }, 2000); // 假设最长等待时间为1秒，根据实际情况调整
     }
 });
 
