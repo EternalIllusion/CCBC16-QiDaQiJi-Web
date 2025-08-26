@@ -941,7 +941,7 @@
 >
 > （以上是打招呼的内容）
 
-## 第四日 凳子茶几小抽屉
+## 🚩第四日 凳子茶几小抽屉
 
 8.21 13:00 群史官们力捧七大成为主播
 <div class="image-container">
@@ -1463,6 +1463,395 @@
 8.22 00:06 进行感谢，“祝大家睡个好梦”，随后秒下播
 <div class="image-container">
 <img src="./img/3a33ecd9-162e-4a66-abab-47734ba03145.png"></img>
+</div>
+
+---
+
+## 🚩第五日 智能识别希望文
+8.22 16:15 史官更新了本文档的封面图
+<div class="image-container">
+<img src="./img/d0cca334-570f-448e-9b86-15556a5937be.png"></img>
+</div>
+
+8.22 20:03 宣布直播延迟的消息
+<div class="image-container">
+<img src="./img/aa79e195-10a9-4ec4-87af-945d7c915a22.png"></img>
+</div>
+<div class="image-container">
+<img src="./img/bfb4b4e7-4b52-4681-82a1-43e1ab046278.png"></img>
+</div>
+
+8.22 21:05 七大抵达直播间
+<div class="image-container">
+<img src="./img/59ee7cf3-a213-4909-9a81-3d0b1d0600bc.png"></img>
+</div>
+<div class="image-container">
+<img src="./img/20250826-203956.png"></img>
+</div>
+
+8.22 21:06 展示今天白天Roll出的作品，讲解概率的来源（七大的数学小课堂）
+<div class="image-container">
+<img src="./img/f13b6348-ad1d-4659-9405-fcd0bea2c7f1.png"></img>
+</div>
+
+8.22 21:08 说明 roll 题不用编程不用 AI 也是可以手算的
+
+> 七大用他的毅力征服了「你想Roll出怎样的比赛」
+
+8.22 21:09 回到 link 题
+
+8.22 21:11 思考是否要打开旷野之息在游戏里实地调查“我是不是该打开游戏玩儿一下”
+
+（借解谜之意偷偷玩儿一下下）
+
+8.22 21:12 “但是我现在就算打开旷野之息你们也看不到对不对” “所以我要不要打呢”
+
+8.22 21:19 对自己的游戏记忆陷入怀疑“我怎么完全没有印象啊”
+
+8.22 21:20 “你这百度，我刚想夸夸你，真是一点也不能相信呀” 
+<div class="image-container">
+<img src="./img/83e89641-1a57-426b-b6d2-eaa9ae4875ca.png"></img>
+</div>
+
+然后打开 deepseek
+<div class="image-container">
+<img src="./img/00a6fcdb-a24a-4852-bd38-6e57e97e4f34.jpg"></img>
+</div>
+
+8.22 21:22 “哦，我有点印象了”
+
+8.22 21:23 “哇塞，这都知道，真不愧是你啊，deepseek”
+
+8.22 21:30 “AI 又不太行了吗”
+
+8.22 21:31 “幸亏我没有打开旷野之息自己找好吗，自己找更难找到”
+
+> 差点就玩儿上旷野之息了
+>
+> 是这样，游戏区-小七Official
+
+8.22 21:32 翻阅起高清地图
+
+8.22 21:34 尝试在地图上看出来瀑布
+
+8.22 21:35 询问 AI 无果，填入“东部蓄水湖”
+
+> 恭喜七大获得成就：《塞尔达传说：迪普西克》👍💯👏
+
+<div class="image-container">
+<img src="./img/85171632-8471-43d8-a96f-c77d769a2188.png"></img>
+</div>
+
+8.22 21:38 “哎呀，我真是读题太不认真了”
+<div class="image-container">
+<img src="./img/7533286e-e5ae-4094-b898-2e16cb75c9f2.png"></img>
+</div>
+
+8.22 21:41 因为字数不一致，选择性跳过正确答案 “这个AI太不严谨了”
+<div class="image-container">
+<img src="./img/7a796824-8ed4-4de9-b9f7-0e748848a880.png"></img>
+</div>
+
+8.22 21:45 “完全不知道这个 AI 在想什么”
+<div class="image-container">
+<img src="./img/ac2f12c9-4eba-4eff-b6ba-47f4ee0a07f9.png"></img>
+<img src="./img/00a6fcdb-a24a-4852-bd38-6e57e97e4f34.jpg"></img>
+</div>
+
+8.22 21:51 狭路相逢，标新立异
+<div class="image-container">
+<img src="./img/4f3581dc-538e-4913-a924-049cafe407c4.png"></img>
+</div>
+<div class="image-container">
+<img src="./img/ae15541c-edac-4d6b-a293-c45724f5aedf.png"></img>
+</div>
+
+8.22 21:55 “我正在干什么？解谜吗？我在直播。”
+
+8.22 21:59 找不到“占”字
+<div class="image-container">
+<img src="./img/7bb4d063-aa23-4866-aaf4-1505d8b1c77d.png"></img>
+</div>
+
+8.22 22:04 将“白”放在“拍”下面没有连上，怀疑出 bug 了
+
+8.22 22:06 “有类似这样的纸笔谜题吗”
+
+8.22 22:06 “哇这个真的好难啊，有点想要放弃了”
+
+8.22 22:07 “这个真的正常……这样说好像评论区都不正常一样”“这样说要被写进语录里了”
+
+8.22 22:08 找到“占”字
+
+8.22 22:09 “这题的答出率真的这么高吗？”
+
+8.22 22:10 “哇塞大家都好厉害”（棒读）
+<div class="image-container">
+<img src="./img/09ad1bdc-c94f-41bd-aaf5-9089055ea609.png"></img>
+</div>
+
+8.22 22:13 试图连接“春日影”，“弹幕一直在说‘春日影’，这怎么连呢”
+
+8.22 22:14 “啊，春日影是梗吗，是什么梗，是一首歌吗？”
+<div class="image-container">
+<img src="./img/a0adb198-d3a1-4eec-96c5-1091798ed54b.png"></img>
+</div>
+
+8.22 22:14 注意到直播间没有BGM（“我说怎么这么干呢”）
+
+#### 8.22 22:14 演奏《春日影》
+
+> 又看一集（
+
+8.22 22:18 “我感觉这个唱的有气无力的，是不是声优在刻意用假声唱”
+
+8.22 22:19 “粉丝不要喷我啊，有这首歌的粉丝吗，叫什么，CRYCHIC，不会读”
+
+8.22 22:20 用 Excel 辅助   //?
+<div class="image-container">
+<img src="./img/2010a071-1629-4bc0-8866-fa6ac701fe5f.png"></img>
+</div>
+
+8.22 22:22 “我现在把这首歌单曲循环，特别能表达我现在的心声” 
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="86" src="//music.163.com/outchain/player?type=2&id=2052454512&auto=1&height=66"></iframe>
+
+8.22 22:23 “哎呀~唉哈哈——填不对嘛~”
+
+> 可爱捏
+
+8.22 22:24 “还是弹幕厉害啊”
+
+8.22 22:25 “没有弹幕怎么解 puzzle 啊”“还得是弹幕啊”（x2）
+<div class="image-container">
+<img src="./img/fd4ff5e0-eab4-4d6e-8c72-73f849abf9a8.png"></img>
+<img src="./img/5153fadd-c506-404d-9713-d71763ca1960.png"></img>
+</div>
+
+8.22 22:26 在弹幕帮助下拼出一个区域
+<div class="image-container">
+<img src="./img/aa6f6b84-b696-4a6d-a980-266ce1af9e85.png"></img>
+<img src="./img/9d76c40a-a5a0-4e67-98dd-e90454b2362a.jpg"></img>
+</div>
+
+8.22 22:26 认为此形状是小狗
+<div class="image-container">
+<img src="./img/503a4198-1e4a-4682-8c2e-c652ad5355e4.jpg"></img>
+</div>
+
+8.22 22:31 “嗯，合理” “那我们再找两个的，把两个的拿过来”
+<div class="image-container">
+<img src="./img/22d4e4d9-03a9-45b8-950b-f0e1f3014055.png"></img>
+</div>
+
+8.22 22:32 寻找上面是口右边是立的字未果，将标新立异改为另当别论成功连出
+
+8.22 22:35 怀疑上面第一个拼出来的区域没连上的两个填错了，重新找旷野之息高清地图
+
+8.22 22:36 听弹幕的“把更有价值的事情先做了”，继续连线
+
+8.22 22:41 “这算 Link it all 了吗？应该算吧”
+<div class="image-container">
+<img src="./img/22d4e4d9-03a9-45b8-950b-f0e1f3014055.png"></img>
+</div>
+
+8.22 22:42 再次确认“狭路相逢”应该是对的
+
+8.22 22:44 “还是弹幕吧，弹幕可太懂了”
+
+8.22 22:47 念弹幕：“主播好帅”“你们这都能看出来吗”
+
+8.22 22:52 寻找下半边是“卜”的字，找到“下”，成功连上
+<div class="image-container">
+<img src="./img/22d4e4d9-03a9-45b8-950b-f0e1f3014055.png"></img>
+<img src="./img/368c36e7-8c95-482a-99ad-439c005d87b6.png"></img>
+</div>
+
+8.22 22:53 测试系统智能性，如右上图填入“卞” “唉，真的好智能耶”（判断不了是不是“下”字了）
+
+8.22 22:55 回应弹幕：“不会很好拼的，因为它太散太多了”
+<div class="image-container">
+<img src="./img/3682aa7f-d3e8-459b-b6e6-6832f4c14396.png"></img>
+</div>
+
+8.22 22:56 上个厕所出个恭，马上回来
+<div class="image-container">
+<img src="./img/781e8e32-33e2-478c-970f-78bad7a8bbe7.png"></img>
+<img src="./img/e4e3a5c0-3dbb-4b76-bfbf-2d42342018cd.png"></img>
+</div>
+
+8.22 22:57 我在上厕所出恭比赛中取得了1分钟的好成绩，你也来试试吧！
+
+8.22 22:58 温姐加入琵琶队 “温姐好急，温姐来了吗” “那把它们挨得近一点，别把温姐急到了”
+<div class="image-container">
+<img src="./img/52994fad-a53d-4f3f-ae28-61bf30812e7a.png"></img>
+</div>
+
+8.22 22:58 关于史记发表重要指示：“上厕所出恭就没必要记了吧，人有三急”
+<div class="image-container">
+<img src="./img/52994fad-a53d-4f3f-ae28-61bf30812e7a.png"></img>
+</div>
+
+8.22 23:02 温姐透露珍贵史料
+<div class="image-container">
+<img src="./img/8d5b22ed-08cb-4ab8-8453-9ef08c20aa30.png"></img>
+</div>
+
+8.22 23:03 “折蛋白质是个什么鬼啊”
+
+8.22 23:04 邀请温姐“科普”本题是如何实现的“如何实现你的宏伟构想”
+
+8.22 23:05 解释本题是温姐编的“温姐出的题都是自己编的啊”“温姐是一个合格的程序员”
+<div class="image-container">
+<img src="./img/f802de9d-05cf-4f67-90d1-ae833879f36c.png"></img>
+</div>
+
+8.22 23:06 由于某史官对本题大不敬，当场判处：“把他拖出去，这个cff_0102，看看他比赛中是不是也用的这个id，把他加入黑名单”（史官-1）
+<div class="image-container">
+<img src="./img/2a0870f9-c92b-4c94-8f71-a4104bf0776a.png"></img>
+</div>
+<div class="image-container">
+<img src="./img/cd17bc9b-9abd-4163-ba1b-dde5838eea14.png"></img>
+</div>
+
+8.22 23:12 纪实
+<div class="image-container">
+<img src="./img/cddf7fb7-7810-48d9-bd9c-498ead8949ea.png"></img>
+</div>
+<div class="image-container">
+<img src="./img/76a4f195-b92d-4544-81a4-9085f3a13d82.png"></img>
+</div>
+
+> 可恶啊，四符号怎么你们了（
+
+8.22 23:14 七大以钢琴考级为例给观众讲育儿哲学
+
+8.22 23:17 “还得是弹幕啊”
+
+8.22 23:18 由于在第79空（第5宫的右上角）中填入“丝”，认为15空（79空的下面）是“天”，思考“？下天”是什么提取方式
+
+8.22 23:19 认为工具网站的广告很糟糕，遂刷新（
+
+8.22 23:20 在日语网站中寻找汉字
+<div class="image-container">
+<img src="./img/9a77e399-97e0-49d8-9f56-da9c7faad53e.png"></img>
+</div>
+
+8.22 23:22 通过百度 AI，认为驿站的主人是“金卢比”
+
+8.22 23:24 由于卡题卡了很久，想放一首《时间都去哪了》
+
+8.22 23:25 七大没有反应过来他的直播没声了只剩下微弱的BGM了
+<div class="image-container">
+<img src="./img/fa072469-7d5d-4b57-b667-804643d1b5b1.png"></img>
+</div>
+
+8.22 23:28 “现在有声音了吗，歪歪歪？”七大翻弹幕终于意识到没声音了随后恢复
+
+8.22 23:30 不知道“布”的上半边是什么字
+
+8.22 23:30 “上面是个文下面是个布是什么字”    “ε=(´ο｀*)))唉，哎↑呀↓”
+
+8.22 23:31 认为广告太恶心了用表格窗口挡住
+
+8.22 23:32 “什么叫希下文，（搜索）啊，西夏文，是这个西夏吗”
+
+8.22 23:33 “希腊文吗，也不对啊” “弹幕已经蠢蠢欲动了”
+
+8.22 23:34 询问 deepseek
+<div class="image-container">
+<img src="./img/72af67c3-5392-43f0-87e7-8b8b15da3a84.png"></img>
+</div>
+
+8.22 23:35 搜到“希卡”，感谢弹幕 好烟花我飞沙
+<div class="image-container">
+<img src="./img/3e302ea5-b99c-474f-a825-0c60b0bd3369.png"></img>
+</div>
+<div class="image-container">
+<img src="./img/958f5d94-2f27-45f5-832d-66bc1825c153.png"></img>
+</div>
+
+8.22 23:36 搜到相关文献，感谢贡献者 天使猪乐乐
+
+8.22 23:37 有重大进展，与温姐同乐
+<div class="image-container">
+<img src="./img/9ce719fc-37da-4acf-b535-aaeee88a4c29.png"></img>
+</div>
+
+8.22 23:38 “万万没想到这个希卡文字还能这么出题，还是温姐太强了啊”
+
+8.22 23:39 不会用 nutri
+<div class="image-container">
+<img src="./img/601223f8-ed16-43f4-b034-707fc58ae93d.png"></img>
+</div>
+
+8.22 23:40 感觉 nu 到的第一个答案"METAL FOIL"不对
+
+8.22 23:40 觉得"METAL COIL"很对，提交发现不对
+
+8.22 23:41 抱着试一试的心态提交"METAL FOIL
+
+#### 8.22 23:41  完成「Link it all」
+
+8.22 23:42 打开“复习资料”
+
+8.22 23:43 试图在复习资料的第1小题里回答 0 1 以及整串数字
+
+8.22 23:43 百度搜索第一题题面搜到“圆周率x位”，尝试提交 "π" 不对
+
+8.22 23:44 “至少我们知道这是圆周率就好了”
+<div class="image-container">
+<img src="./img/e2b48433-6dc9-4fb9-95f3-0518eee402d0.png"></img>
+</div>
+
+8.22 23:45 发现并不是圆周率，“再也不在百度搜东西了，这个百度，我宣布你不行”
+<div class="image-container">
+<img src="./img/4ecec197-78cb-426e-89d1-51e0af6c3a2e.png"></img>
+</div>
+
+8.22 23:46 征求明天上播时间，看弹幕询问“6:28是什么梗”（是GPH开赛时间）
+
+8.22 23:48 “睡一个好觉，睡到自然醒，吃一个早饭，把中午的外卖一点，在群里一通知，大概上午11:30，我们就开播，一边吃一边解，一边吃一边解，你们看的下饭，我也一边吃饭，我觉得这个计划妙哉”
+
+8.22 23:49 观看本文，播放下播の小曲（舒缓一点的，适合于睡觉的）
+<div class="image-container">
+<img src="./img/b3d8bf55-9508-4c7e-8b24-fefbbb69ddfd.png"></img>
+</div>
+
+8.22 23:51 评价封面图“设计比较平淡，没有体现出歧路的感觉，和解谜的关系不是很大，文字不够突出，……（某被拉入CCBC黑名单的史官：同传好难根本记不下来），和logo的关系也不是特别的协调”，声称第二天要“检查作业”
+
+> 群史官们收到了 这就开始操刀改
+>
+> 求七大指导 向七大学习
+
+#### 8.22 23:52 亲自操刀编撰史记
+
+8.22 23:53 “我表示好吧，这个百度永远不值得信任”
+<div class="image-container">
+<img src="./img/7bb054bb-8141-4aee-b451-d4d5ce432a7e.png"></img>
+</div>
+
+8.22 23:53 “今天好像比较平淡，因为我们一直在搜索”
+
+8.22 23:54 评价 meme 图“哇，好可爱啊”
+
+8.22 23:55 七大忘记今天应该取消点赞后再重新点赞
+
+#### 8.22 23:56 明天目标：努力见到指南区meta，基础目标：至少解出两道题，下午一道，晚上一道
+
+8.22 23:57 “感谢大家的陪伴，明天就是周末了，预计明天十一点，如果起早了，可能会更早一点，大家晚安”
+
+8.22 23:58 “还有两分钟结束今天，大家晚安，好吧” 对各位观众（依次点名）道晚安，“大家晚…”随后下播
+
+---
+8.23 00:01 史官讨论封面的修改
+<div class="image-container">
+<img src="./img/20250826-205808.png"></img>
+</div>
+
+8.23 01:26 七大决定帮助群史官们完成封面的设计（原来是做GPH么）【数据删除】
+<div class="image-container">
+<img src="./img/f5e355f6-41a0-4943-bfbe-f1b9ac82e250.jpg"></img>
 </div>
 
 ---
