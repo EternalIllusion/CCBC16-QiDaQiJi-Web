@@ -1,54 +1,59 @@
 # 写在最前
 
-<img src="./img/01284437-3de8-41cc-9791-43fbd2cfce8e.png"></img>
+“西十六之精妙，自四方、当立则初现，至千字、末谜（FM）则大成……”
 
-本页面名称由来（鸣谢~~红~~温姐）
+“七大者，密吧创始人……今做西十六，七时浮想联翩，上歧路、下难题。……弹幕有琵琶者，行提示与七大……常崩溃，言名言、述误思。”
 
-> 群史官群：`141546185`
+“西十六之参赛者，七大直播观者等，始在文档撰七大事件，以时间为轴，以名言为文，自称史官……”
+
+“故七大之歧路，仍持续之；弹幕之琵琶，未终结之；史官之记载，亦未完之。”
 
 -----
 
 > 感谢`👍💯👏`以下史官·`七之蚁`参与编辑`（排名不分先后，先到先得）`：
 
-- 几何星空`（下届CCBC17不会有这里面的题吧）`
-
-- shiveords`（肉脯脯/家里有个零食店）`
-
-- dao__li `（《七大云》栏目常驻史官）`
-
-- 落堀
-
-- Sigma
-
-- 噬梦浊流`（队内名称为llhhkl）（不要藏题不要藏题）`
-
-- addmeal
-
-- CeI₂NK₇
-
-- cyx.`(思路挺广的新史官)`
-
-- sky `(& aqua?)（Reviver Team / cff_0102）`
-
-- （某不愿透露姓名史官）
-
-- 苍穹玥夜
-
-- yswyyy
-
-- Copy&Paste
-
-- JZE
-
-- GreasyPig
-
-- 蓝矾
-
-- Tellurium
-
-- 空城
-
-- EterIll `(网页化进行中)`
+<ul class="multilist">
+<li><p>几何星空<code>（下届CCBC17不会有这里面的题吧）</code></p>
+</li>
+<li><p>shiveords<code>（肉脯脯/家里有个零食店）</code></p>
+</li>
+<li><p>dao__li <code>（《七大云》栏目常驻史官）</code></p>
+</li>
+<li><p>落堀</p>
+</li>
+<li><p>Sigma</p>
+</li>
+<li><p>噬梦浊流<code>（队内名称为llhhkl）（不要藏题不要藏题）</code></p>
+</li>
+<li><p>addmeal</p>
+</li>
+<li><p>CeI₂NK₇</p>
+</li>
+<li><p>cyx.<code>(思路挺广的新史官)</code></p>
+</li>
+<li><p>sky <code>(&amp; aqua?)（Reviver Team / cff_0102）</code></p>
+</li>
+<li><p>（某不愿透露姓名史官）</p>
+</li>
+<li><p>苍穹玥夜</p>
+</li>
+<li><p>yswyyy</p>
+</li>
+<li><p>Copy&amp;Paste</p>
+</li>
+<li><p>JZE</p>
+</li>
+<li><p>GreasyPig</p>
+</li>
+<li><p>蓝矾</p>
+</li>
+<li><p>Tellurium</p>
+</li>
+<li><p>空城</p>
+</li>
+<li><p>EterIll <code>(网页化进行中)</code></p>
+</li>
+</ul>
 
 
 
@@ -60,7 +65,7 @@
 <img src="./img/194baf4d-386d-4796-ba2e-7017e98dc356.png" alt="队长：Seven"></img>
 </div>
 
-## 🚩8.18 20:30 第一日开始！
+## 🚩第一日 一道好题的诞生
 
 8.18 20:00-20:30 模拟炸服
 
@@ -215,7 +220,7 @@
 
 #### 8.18 23:53 明日目标：完成序章（未能达成）
 
-## 🚩8.19 20:30 第二日开始！
+## 🚩第二日 吧主七大的自尊
 
 8.19 20:32 觉醒前世记忆，以惊人的注意力找到霓虹七色的代表图 “我有印象字是我P的”
 
@@ -465,9 +470,9 @@
 
 8.20 00:56  “江波座”“江波座你在哪啊”“江波几江波几”`（注：人家是波江座）`
 
-#### 🏁 8.20 00:56 完成序章meta（ohhhhhhhhh）[META0]
+#### 🏁 8.20 00:56 完成序章meta[META0]
 
-“前进！！！！！！”
+“前进！！！！！！”`（ohhhhhhhhh）`
 <div class="image-container">
 <img src="./img/a22b3bab-c8c0-491e-b90f-907f0fc95ede.png"></img>
 </div>
@@ -577,7 +582,8 @@
 
 8.20 01:30 CCBC官方群七大大发言：**"😭我要朝谐星路线发展了"**
 
-> C1314:一道好题的诞生 BV1Nj411f7xQ
+> C1314:一道好题的诞生 [BV1Nj411f7xQ](https://www.bilibili.com/video/BV1Nj411f7xQ/)
+
 <div class="image-container">
 <img src="./img/25d966b7-c4cc-46a6-b519-cf29e0e0338f.png"></img>
 </div>
@@ -595,3 +601,340 @@
 #### 8.20 03:00 七大下了，七大晚安~
 
 > 8.19日-8.20日凌晨 更新——完 `（真的是20日么[doge]）`
+
+## 🚩第三日 全果体与乃子房
+
+> 由于不可抗力因素，本节部分词语进行和谐，阅读时请自行补回偏旁，网站尽可能保证不影响阅读。
+
+`8.20 20:23 史官其一发表奋斗宣言，要与七大比速度（注：在21:26左右便已完成）`
+<div class="image-container">
+<img src="./img/62026b5f-65b7-41a2-a1d7-b9a766324bdc.png"></img>
+</div>
+
+8.20 20.30 晚上场开始，准时！敬业！主播也加入最新指示：
+<div class="image-container">
+<img src="./img/fa89a891-ea89-4184-8e03-574336a8791f.png"></img>
+<img src="./img/f9a9117c-2843-43f3-bde6-568cb53a9db5.png"></img>
+</div>
+
+8.20 20:38“其实这道题后面会出现什么主播还是有概念的”（回来了，我的前世记忆）
+
+8.20 20:40 DeepSeek给出错误结果，“我没有想到会卡在这里”
+<div class="image-container">
+<img src="./img/acf92a9a-8d57-402e-a8fb-2483eace53cd.png"></img>
+</div>
+
+8.20 20:49 “真的有人会专心看我解这种题目吗”
+
+8.20 20:52 被弹幕诱导搜索“白复生”
+
+8.20 20:59 “诶，又有一个红色了，不对，那是我点的”
+
+8.20 21:05 觉醒前世记忆“难道它就要出来了吗？”看着“大卫”填写了“生XX”
+
+8.20 21:13 开始尝试中国各个省级行政区，以及广深、石家庄（因为BGM放的草东）
+
+8.20 21:20 发现自己翻成了1952年的省级行政区划表
+
+8.20 21:28 搜索“呐喊 台湾”搜到了不能搜的话题，立刻关闭网页
+
+8.20 21:32 “有点拨云见日的感觉”
+
+8.20 21:37 填出“全裸体” “那这个就是那个吧”
+<div class="image-container">
+<img src="./img/9a372a39-6357-4307-a7ea-c78095b20cd9.png"></img>
+</div>
+
+8.20 21:39 “要是再搜这个直播间是不是就没了”
+
+8.20 21:43 开始尝试各种前世记忆“背一下”（然而失败）
+
+8.20 21:49 “水浒（xǔ）传（chuán）”
+<div class="image-container">
+<img src="./img/4b7ca8dc-908f-4977-9b8b-07a58bd583f7.png"></img>
+</div>
+
+8.20 21:57 指出“孙悟空”应该和“桃子”相连
+
+8.20 21:59 “唐僧是少林寺的什么人”
+<div class="image-container">
+<img src="./img/7d8965f0-1fb0-4001-a46c-45219d096b36.png"></img>
+</div>
+
+8.20 22:02 填出“性交”但是找不到在哪
+
+8.20 22:07 “是白臂膊吗？我当时背的就是白胳膊” “你在哪里？小白”
+
+8.20 22:11 尝试基于鲁迅构建坐标系通灵
+<div class="image-container">
+<img src="./img/521653a1-ec45-46cf-a5e3-10c3327ea04d.png"></img>
+</div>
+
+> 与此同时，Σ胜利归来（注：Σ此时已经将roll用AI计算概率做出）
+<div class="image-container">
+<img src="./img/29e067ae-4b8c-4db9-98d5-b9c2670bfaf2.png"></img>
+</div>
+
+8.20 22:12 “直觉告诉我不是这么做，因为弹幕里没有那么多叹号” 接着弹幕就出现了一大堆叹号
+<div class="image-container">
+<img src="./img/10c1d7b3-df46-42cd-84c7-676ee56bcb36.png"></img>
+</div>
+
+8.20 22:15 尝试搜索其它词😰
+<div class="image-container">
+<img src="./img/9c948276-e393-483b-89c7-b255b4b11f19.png"></img>
+</div>
+
+8.20 22:18 弹幕中感叹号依然如潮水般翻涌，基于“牛顿三定律”的搜索提出了“七大定律”
+
+8.20 22:20 尝试“球形闪电”
+
+8.20 22:20 “你们不要刷屏了好不好，这这这太多叹号了，刷的我意识模糊了都”
+
+于是弹幕在感叹号中掺杂了问号
+<div class="image-container">
+<img src="./img/f1b5345c-f804-4d6a-8d87-6459bcc3e91a.png"></img>
+</div>
+
+8.20 22:25 尝试“变性人”
+
+8.20 22:25 “相亲为什么不连恋人？” “还是不够严谨嘛，出题组”
+<div class="image-container">
+<img src="./img/3a4c9c50-97cc-4e96-a109-21901067157c.png"></img>
+</div>
+
+8.20 22:30 “秦始皇是什么人呢？阉人，秦始皇是个男人，是个古人”
+
+> “浮想联翩”已控制监管者(username:Seven)120分钟
+
+8.20 22:34 "对不起刘亦菲，改天请你吃饭”
+
+> 七大超话来的，谁是刘亦菲😡
+
+8.20 22:37 感谢直播间的一百多名观众不离不弃
+
+8.20 22:39 根据观众建议填出“功守道”后发现什么都没连出去 “你个骗子”
+
+8.20 22:42"我会根据精神状态判断要不要直播到完赛"
+
+8.20 22:47 “对！为什么没有北大，这严谨吗？”
+
+8.20 22:48 向deepseek询问“与性交有关的词语”
+<div class="image-container">
+<img src="./img/7c9908e7-cae5-4df1-a8a9-355a6b9530fb.png"></img>
+</div>
+
+ “他不知道”
+#### 8.20 22:49 收到了今天第一条倒付费站内信，随后提交答案“rainbow”，回答错误
+> 怎么还有 LGPH#1 的事
+<div class="image-container">
+<img src="./img/ebc8bb95-31c4-44d1-80d7-14ea78159a57.png"></img>
+</div>
+<div class="image-container">
+<img src="./img/9d7eed3c-3653-4a44-a2e1-d7bef00e650a.png"></img>
+</div>
+<div class="image-container">
+<img src="./img/09664334-e339-43b9-8e51-5540c1f4a956.png"></img>
+</div>
+
+8.20 22:50 “嗷↓ 嗷↑ 嗷↑ 嗷↑ 嗷↑ 嗷↑” 填出最后一个所需的生开头三字词语，感谢提示弹幕
+
+“感谢这位——槡之东兮苨之南，感谢你节省了大家的时间”
+
+七大终于找到了自己求之不得的生殖器
+
+> ？？？(好怪啊)
+
+> 这下真是小七妹子了（
+
+8.20 22:56“明日歌......明日什么歌呢？是歌嘛？”
+
+《明日歌是五字的歌曲吗》
+
+8.20 22.57 成功在sc诱导下填出“同性恋”
+
+8.20 22:58 “山东有什么子？女乃子吗？不会有这么下流的词吧”
+<div class="image-container">
+<img src="./img/56be415e-c968-4dbd-b80f-6537a1310927.jpg"></img>
+</div>
+
+七大最后也没有找到自己求之不得的奶子
+
+> 这下是小七飞机场了（
+
+8.20 22:59 “明日歌远，那是个啥” “明日歌是个什么”
+
+8.20 23:00 “什么是远五字，明日何其多吗”
+
+- [x] 《前大远程》
+
+8.20 23:01 “群众的眼睛是雪亮的” 通过浮想联翩
+
+> 耗时2h31min👍💯👏
+
+8.20 23:02 “弹幕想听什么歌么？ 随便放一个吧”
+
+8.20 23:03 本想尝试●■★▲ “我感觉这个应该很难”，后在弹幕建议下进入“三星Galaxy”
+
+8.20 23:04 “我们来直接看提示！”
+
+“我们先来做五分钟，如果一个点都没有我们就来看提示，说实话规则都没看懂”
+<div class="image-container">
+<img src="./img/4dc25802-2817-473f-8817-91ceccd31a3f.png"></img>
+</div>
+
+8.20 23:05 尝试理解 Penpa+ 的使用方法
+
+ “这有没有中文啊我@们来看一下”
+
+8.20 23:11 询问弹幕要不要开三星galaxy hint2 表示开了的话巨简单 “好吧，那我们还是继续做一下吧”遂放弃开hint 2（暂时
+<div class="image-container">
+<img src="./img/88e87a37-df86-4517-bb37-2eb058a97cc0.jpg"></img>
+</div>
+
+> 与此同时，史官群内对于（三星、图寻、是猫咪耶）后补提示喂饭吃一事展开了激烈的讨论
+
+（史官群对二进制饺子的提取hint的改动有着极其激烈的反应）
+8.20 23:27 “它难道是韩文吗？（看到弹幕琵琶）啊，真的是韩文啊”
+<div class="image-container">
+<img src="./img/fa7805f1-259a-425a-9898-29ca08a9aa22.png"></img>
+</div>
+
+“我是先说的韩文，再看了眼弹幕，好吧”
+
+8.20 23:35 意识到纸笔“还是有一定逻辑的”重新出发
+
+8.20 23:39 以为直播间来片哥了
+
+> 史官差点没一个[哭笑] “我还以为是广告哥呢，差点ban了”
+
+<div class="image-container">
+<img src="./img/0aab87aa-b35f-47c5-8b02-aea6a131153c.png"></img>
+<img src="./img/5ba7ab3d-883a-43ad-8c2d-ab8160261e06.png"></img>
+</div>
+<div class="image-container">
+<img src="./img/074a84cc-f115-411e-bc5e-49e49fb22453.png"></img>
+</div>
+
+8.20 23:41 “你们看下这是不是一个星星的位置”（最后一行第二个）（那里画了个X）（事实上是星星）
+<div class="image-container">
+<img src="./img/074a84cc-f115-411e-bc5e-49e49fb22453.png"></img>
+<img src="./img/43782816-9e31-4e74-8f73-a3e4eedf07ae.png"></img>
+</div>
+        
+> 支持正义制裁
+
+8.20 23:47 推不出来质疑弹幕给的信息是否正确“这里真的是星星吗”
+<div class="image-container">
+<img src="./img/381c140c-7012-402c-90f9-1286e9a2b45d.png"></img>
+</div>
+
+8.20 23:47 “真的扣了么？（查询信用点）没关系 扣我也还有很多”
+<div class="image-container">
+<img src="./img/6142effa-6cc5-4a04-ac9f-8de8e40872e4.png"></img>
+</div>
+
+8.20 23:48 dodomos 准备录解析
+<div class="image-container">
+<img src="./img/bb1fa86e-74bf-4d5d-a3ef-0173cd04627a.png"></img>
+</div>
+
+8.20 23:49 回复弹幕“是呀，如果我都能做的出来的话那么大家看我录的也能做得出来”
+<div class="image-container">
+<img src="./img/a3286955-bfcb-4905-8c0f-6dfa976670da.png"></img>
+</div>
+
+> “先假设吧”还在质疑，还在不相信（
+
+8.20 23:54 “来吧 弹幕帮我检查一下有没有错的 我感觉是没有了”询问弹幕目前是否全对得到否定回答后直接撤回到五分钟前
+<div class="image-container">
+<img src="./img/2d3acb08-53d5-4b5e-a828-0ca68e5d70b4.png"></img>
+</div>
+
+> 与此同时，塞德莎（莎佬）也开始了直播进行三星解谜 （在约75min后，塞德莎成功解出三星）
+<div class="image-container">
+<img src="./img/80f99046-d56e-45ff-b995-dc2818bba288.jpg"></img>
+<img src="./img/e6f7a755-5b3d-4486-92f3-10c40513c533.png"></img>
+</div>
+
+8.20 23:58 再次请求弹幕信检查
+<div class="image-container">
+<img src="./img/9d7a1428-ec8f-4e23-87c3-6588b68c7ae5.png"></img>
+<img src="./img/5aa024fb-a520-4e4c-8e91-a826bbb60aef.png"></img>
+</div>
+
+---
+
+8.20 00:02 “我感觉明天（实为今天）很快就能解出来” “还是温姐对我好啊”
+<div class="image-container">
+<img src="./img/ae1bd2b1-1583-4473-89db-b36478fc5ffd.png"></img>
+</div>
+
+8.21 00:03 厕遁，一回来就看到弹幕说是错解，“这也能错？”
+
+8.21 00:07 决定看史记（后立刻被弹幕叫走检查三星galaxy）
+<div class="image-container">
+<img src="./img/8a050e21-743c-489f-beef-f8d8962fca05.png"></img>
+<img src="./img/7bfd80dd-f43e-4f64-9042-b01c4af01384.png"></img>
+</div>
+
+8.21 00:09 决定看完史记后下播（下面 Penpa+ 的正计时已经悄无声息来到1小时了）
+
+“所以秦始皇是什么人来着” “秦始皇你是什么人！” “有没有弹幕告诉我”
+
+“秦始皇为什么是异人，他有超能力吗”
+
+8.21 00:12 “乃子怎么了，你们不知道北京有一个地方叫乃子房吗”
+<div class="image-container">
+<img src="./img/e4a55ae5-7969-4545-a56e-6d7f7c5502ce.png"></img>
+<img src="./img/55a50ae3-15ee-458b-8360-decf0f452ba3.png"></img>
+</div>
+
+8.21 00:13 播放《左小祖咒去乃子房》，作为下播曲
+
+8.21 00:14 又给本页点了一次赞，感谢送礼物的观众和透露答案的弹幕
+
+8.21 00:15 结束直播，七大辛苦啦，今天要早点休息哦
+<div class="image-container">
+<img src="./img/381720d6-9bc1-47fb-8618-7659475e9899.png"></img>
+</div>
+<div class="image-container">
+<img src="./img/dd54a760-c3b8-475d-8729-75171d4028f9.png"></img>
+</div>
+
+> 1.这里真的什么也没有吗？ `已解锁(50信用点)` 
+>
+> 是的，请先看别人的留言。
+
+8.21 00:19 热烈欢送七大上床
+<div class="image-container">
+<img src="./img/3aa5978c-3773-4279-885f-817e24ca74d1.png"></img>
+</div>
+
+8.21 00:20 七大 狡辩 解释 昨天三点才睡的原因
+<div class="image-container">
+<img src="./img/89f3ae87-38eb-4b42-85be-07736d387714.png"></img>
+</div>
+<div class="image-container">
+<img src="./img/da05e4ba-d142-41f2-ba74-b80c891c406b.png"></img>
+</div>
+
+---
+
+> 你来的真早！
+>
+> 我来啦～
+>
+> nihaoya!
+>
+> 嘿嘿~
+>
+> hihi~~
+>
+> orz史官都太勤奋了
+>
+> 就位(  【没准备好】
+>
+> 就位了
+>
+> （以上是打招呼的内容）

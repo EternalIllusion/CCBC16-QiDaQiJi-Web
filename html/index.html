@@ -55,6 +55,19 @@
             color: inherit;
         }
 
+        ul > li > p {
+            margin-top:0;
+            margin-bottom:0;
+        }
+
+        blockquote {
+            border-left: .25rem solid #b07e24;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: .5rem;
+            color: inherit;
+        }
+
         .giscus-frame{
             max-height: 90vh !important;
         }
@@ -317,6 +330,46 @@
             color: #e271d2;
             color: #e2717d;
         }
+        
+        .multilist{
+            list-style: none;
+            padding: 1rem !important;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: .125rem;
+            width: 100%;
+        }
+
+        .multilist{
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @media screen and (max-width: 648px) {
+            .multilist{
+                grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+            }
+        }
+
+        .multilist li {
+            margin: .2rem !important;
+            align-items: center;
+            text-align: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        .multilist li > * {
+            margin: 0 ;
+            padding: 0 ;
+        }
+
+        @media screen and (min-width: 1945px){
+            .multilist li{
+                max-width: 648px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -333,7 +386,7 @@
         <hr />
         <button onclick='toggleSidebarSub("nav-sidebar-sub-group-2","nav-sidebar-sub","nav-sidebar-sub-wrapper");'>传送门</button>
         <div is="search-bar" target='nav-sidebar-toc-list'></div>
-        <ul id="nav-sidebar-toc-list" style="max-height:24rem;overflow-y: scroll!important;border-bottom: .125rem solid #000;" class="searchlist-breakword">
+        <ul id="nav-sidebar-toc-list" style="max-height:24rem;overflow-y: scroll!important;border-bottom: .125rem solid #000;" class="multilist-breakword">
             <li>当前页面不支持章节导航。</li>
         </ul>
     </div>
@@ -379,6 +432,7 @@
 
 </script>
     <script>
+        let isTOCNavigating = false;
         function linkact(href) {
             if (!href || typeof href !== 'string') {
                 console.error('Invalid href');
@@ -688,23 +742,24 @@
             //li.style.marginRight = 0.5 + 'rem';
             tocList.appendChild(li);
         });
-
+        
         tocList.addEventListener('click', function (event) {
             if (event.target.tagName.toLowerCase() === 'a') {
             event.preventDefault();
             var targetId = event.target.getAttribute('href').substring(1);
             var targetElement = document.getElementById(targetId);
-
+            isTOCNavigating = true;
+            console.log('TOC navigating started');
             if (targetElement) {
                 // 平滑滚动到目标元素
                 window.scrollTo({
                 top: targetElement.offsetTop,
                 behavior: 'smooth'
                 });
-
                 // 更新浏览器历史记录
                 history.pushState(null, null, '#' + targetId);
             }
+            
             }
         });
 
