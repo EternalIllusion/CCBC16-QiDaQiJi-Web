@@ -142,7 +142,11 @@
             filter: drop-shadow( 0 0 8px rgba(255, 0, 0, 0.5));
         }
         }
-
+        .insp-highlight {
+            outline: 2px solid #ff0000 !important; /* 使用 !important 确保覆盖原有样式 */
+            background-color: rgba(255, 0, 0, 0.1) !important;
+            cursor: pointer !important;
+        }
         #nav-sidebar {
             display: flex;
             flex-direction: column;
@@ -433,14 +437,15 @@
             </div>
             <div id="nav-sidebar-sub-group-3" class="nav-sidebar-group auto-breakword" sytle="padding:0.125rem;">
                 <script src="./js/playback.js"></script>
-                <p>输入格式如 <code>8.10 11:45</code> 抑或是 <code>8.10 11:45:14</code></p>
+                <p>输入格式如 <code>8.10 11:45</code> 抑或是 <code>8.10 11:45:14</code>或点击快速定位后点击时间文字</p>
+                <button id="playback-insp" class="nav-sidebar-btn" style="margin: 0.5rem 5% 0.5rem 5%;min-width: 90%; max-width: 90%;">快速定位</button>
                 <input id="playback-input" type="text" placeholder="输入时间点（月.日 时:分(:秒)）" style="margin:0 5% 0 5% !important;padding:0 5% 0 5%;width:90%;appearance:none !important;background-color:#f5f5f5;border:none;border-radius:0.75rem;box-shadow:0px -1px 2px #11182726;color:#2c2e31ff;outline:2px solid transparent !important;min-height:2.25rem !important;font-size:.875rem;line-height:1.25rem;margin:0;padding-block:1px;padding-inline:2px;overflow-clip-margin:0px !important;overflow:clip !important;box-sizing:border-box;" autocomplete="off">
                 <div id="playback-status-div" style="margin:0.5rem 5% 0 5%;min-width: 90%; max-width: 90%; font-size: 0.8rem; color: #555;display: none;">
                     <p>匹配状态：<span id="playback-status-message"></span></p>
                     <p>BVid：<span id="playback-status-bvid"></span></p>
-                    <p>链接：<a id="playback-link" target="_blank" href="#" rel="noopener noreferrer">点击前往</a></p>
+                    <a id="playback-link" target="_blank" href="#" rel="noopener noreferrer" style="justify-content: center;align-items: center;"  class="nav-sidebar-btn">跳转定位观看</a>
                 </div>
-                <button onclick="document.getElementById('playback-input').value && (()=>{const result= getPlaybackURL(document.getElementById('playback-input').value); document.getElementById('playback-status-message').textContent = result.message;document.getElementById('playback-status-div').style.display='flex'; if(result.success){ document.getElementById('playback-status-bvid').textContent = result.details.bvid; document.getElementById('playback-link').href = result.details.url;} else { document.getElementById('playback-status-bvid').textContent = ''; document.getElementById('playback-link').href = '#';}})()" class="nav-sidebar-btn" style="margin: 0.5rem 5% 0 5%;min-width: 90%; max-width: 90%;">获取链接</button>
+                <button id="playback-get" onclick="getPlaybackLink()" class="nav-sidebar-btn" style="margin: 0.5rem 5% 0 5%;min-width: 90%; max-width: 90%;">获取链接</button>
             </div>
         </div>
     </div>
@@ -511,6 +516,110 @@
             imgresize();
         });
         window.addEventListener("resize", imgresize);
+
+        function getPlaybackLink(){
+            document.getElementById('playback-input').value && (()=>{const result= getPlaybackURL(document.getElementById('playback-input').value); document.getElementById('playback-status-message').textContent = result.message;document.getElementById('playback-status-div').style.display='flex'; if(result.success){ document.getElementById('playback-status-bvid').textContent = result.details.bvid; document.getElementById('playback-link').href = result.details.url;} else { document.getElementById('playback-status-bvid').textContent = ''; document.getElementById('playback-link').href = '#';}})()
+        }
+
+        /* 元素审查工具 */
+        (function() {
+            let isInspecting = false;
+            let currentHighlightedElement = null;
+
+            const toggleButton = document.getElementById('playback-insp');
+
+            // 开始/停止检查模式
+            toggleButton.addEventListener('click', function() {
+                isInspecting = !isInspecting;
+                if (isInspecting) {
+                    startInspecting();
+                } else {
+                    stopInspecting();
+                }
+            });
+
+            function startInspecting() {
+                toggleButton.textContent = '取消快速定位';
+
+                document.addEventListener('mouseover', handleMouseOver);
+                document.addEventListener('mouseout', handleMouseOut);
+                document.addEventListener('click', handleClick, true);
+            }
+
+            function stopInspecting() {
+                toggleButton.textContent = '快速定位';
+                
+                document.removeEventListener('mouseover', handleMouseOver);
+                document.removeEventListener('mouseout', handleMouseOut);
+                document.removeEventListener('click', handleClick, true);
+
+                if (currentHighlightedElement) {
+                    currentHighlightedElement.classList.remove('insp-highlight');
+                    currentHighlightedElement = null;
+                }
+            }
+
+            function handleMouseOver(e) {
+                if (isInspecting) {
+                    if (e.target !== toggleButton && !toggleButton.contains(e.target)) {
+                        if (currentHighlightedElement) {
+                            currentHighlightedElement.classList.remove('insp-highlight');
+                        }
+                        e.target.classList.add('insp-highlight');
+                        currentHighlightedElement = e.target;
+                    }
+                }
+            }
+
+            function handleMouseOut(e) {
+                if (isInspecting) {
+                    // 只有当鼠标离开当前高亮的元素时才移除高亮
+                    // 注意：mouseover 和 mouseout 会冒泡，所以需要检查 relatedTarget
+                    if (e.target === currentHighlightedElement && !isDescendant(currentHighlightedElement, e.relatedTarget)) {
+                         // 不立即移除，让新的mouseover事件来处理
+                         // 或者如果relatedTarget不在当前元素内，则移除
+                         // 这里简单处理，依靠mouseover覆盖
+                    }
+                }
+            }
+
+            function handleClick(e) {
+                if (isInspecting) {
+                    if (e.target !== toggleButton && !toggleButton.contains(e.target)) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const selectedElement = e.target;
+                        const textContent = getElementText(selectedElement);
+                        const pbstr = findPlaybackTimeStr(textContent);
+                        if (pbstr){
+                            document.getElementById('playback-input').value = pbstr;
+                            getPlaybackLink();
+                            stopInspecting();
+                        }
+                    }
+                }
+            }
+
+            function getElementText(element) {
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    return element.value || '';
+                }
+                return element.textContent.trim() || element.innerText.trim() || '';
+            }
+            
+            function isDescendant(parent, child) {
+                 if (!child) return false;
+                 let node = child.parentNode;
+                 while (node != null) {
+                     if (node == parent) {
+                         return true;
+                     }
+                     node = node.parentNode;
+                 }
+                 return false;
+            }
+
+        })();
 
         async function performSearch(query, inputDOM, itemDOM, flags = 'gi') {
         try {

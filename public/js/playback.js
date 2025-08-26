@@ -1,5 +1,6 @@
 /**
  * 根据目标时间和直播回放数据计算B站回放URL
+ * copilot太好用了你们知道吗
  * @param {string} targetDateTimeStr - 目标日期时间字符串 (e.g., "8.21 22:33" or "8.21 22:33:05")
  * @returns {Object} 包含success, message, details的对象。details在成功时包含url, p, t等信息。
  */
@@ -177,7 +178,7 @@ function getPlaybackURL(targetDateTimeStr) {
                 const url = `https://www.bilibili.com/video/${data.bvid}/?p=${foundPlayback.index}&t=${elapsedSecondsInVideo}`;
                 return {
                     success: true,
-                    message: `找到匹配的回放分P (直播日期: ${data.date})。`,
+                    message: `成功定位回放时间。`,
                     details: {
                         p: foundPlayback.index,
                         t: elapsedSecondsInVideo,
@@ -193,14 +194,14 @@ function getPlaybackURL(targetDateTimeStr) {
         // --- 9. 如果遍历完所有数据都未找到匹配项 ---
         return {
             success: false,
-            message: `未找到匹配的回放分P。目标时间 ${targetDateTimeStr} 不在任何已知的直播回放时间段内。`,
+            message: `未匹配到回放。 ${targetDateTimeStr}不在任何已知的直播回放时间段内。`,
             details: null
         };
 
     } catch (error) {
         return {
             success: false,
-            message: `计算出错: ${error.message}`,
+            message: `定位错误: ${error.message}`,
             details: null
         };
     }
@@ -224,4 +225,19 @@ console.log(calculatePlaybackUrl("8.23 22:00"));
 console.log(calculatePlaybackUrl("7.30 20:00"));
 // 输出: {success: false, message: "未找到匹配的回放分P。目标时间 7.30 20:00 不在任何已知的直播回放时间段内。", details: null}
 
+*/
+function findPlaybackTimeStr(str) {
+    const regex = /\b(\d{1,2})\.(\d{1,2})\s+(\d{1,2}):(\d{2})(?::(\d{2}))?\b/;
+    const match = str.match(regex);
+    if (match) {
+        return match[0];
+    }
+    return null; 
+}
+
+// 示例使用
+/*
+const text = "今天有个会议 8.21 20:00 开始，还有一次在 9.5 14:30:45。";
+const result = findFirstDateTime(text);
+console.log(result); // 输出: "8.21 20:00"
 */
