@@ -743,25 +743,60 @@
             tocList.appendChild(li);
         });
         
-        tocList.addEventListener('click', function (event) {
-            if (event.target.tagName.toLowerCase() === 'a') {
-            event.preventDefault();
-            var targetId = event.target.getAttribute('href').substring(1);
-            var targetElement = document.getElementById(targetId);
-            isTOCNavigating = true;
-            console.log('TOC navigating started');
-            if (targetElement) {
-                // 平滑滚动到目标元素
-                window.scrollTo({
-                top: targetElement.offsetTop,
-                behavior: 'smooth'
-                });
-                // 更新浏览器历史记录
-                history.pushState(null, null, '#' + targetId);
-            }
-            
-            }
+
+tocList.addEventListener('click', function (event) {
+    if (event.target.tagName.toLowerCase() === 'a') {
+        event.preventDefault();
+        const targetId = event.target.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (!targetElement) {
+            console.warn(`Element #${targetId} not found`);
+            return;
+        }
+
+        isTOCNavigating = true;
+        console.log('TOC navigating started');
+
+        // 滚动到初始计算的位置
+        const initialScrollPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80; // 80px 偏移量
+        window.scrollTo({
+            top: initialScrollPosition,
+            behavior: 'smooth'
         });
+
+        // 监听滚动结束并校正位置
+        let scrollTimeout;
+        const checkScrollEndAndCorrectPosition = () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const rect = targetElement.getBoundingClientRect();
+                // 如果目标元素不在视口内，则重新调整滚动位置
+                if (rect.top > 0 || rect.bottom < window.innerHeight) {
+                    console.log('Adjusting scroll position due to layout changes');
+                    const initialScrollPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80; // 80px 偏移量
+                    window.scrollTo({
+                        top: initialScrollPosition,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    console.log('Target is in view, no need for adjustment');
+                    isTOCNavigating = false;
+                    history.pushState(null, null, '#' + targetId);
+                }
+            }, 300); // 假设滚动动画大约需要300ms，根据实际情况调整
+        };
+
+        // 开始监听滚动
+        window.addEventListener('scroll', checkScrollEndAndCorrectPosition, { passive: true });
+        checkScrollEndAndCorrectPosition(); // 立即调用一次以处理快速加载的情况
+
+        // 清理监听器
+        setTimeout(() => {
+            window.removeEventListener('scroll', checkScrollEndAndCorrectPosition);
+        }, 1000); // 假设最长等待时间为1秒，根据实际情况调整
+    }
+});
 
         function highlightCurrentHeading() {
             let currentHeadingId = null;
