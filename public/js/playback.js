@@ -79,6 +79,14 @@ function getPlaybackURL(targetDateTimeStr) {
                 { "22:33:12": "2:02:05" }
             ]
         },
+        {
+            "date": "8.26",
+            "bvid": "BV1RVvTzJEnP",
+            "playbacks": [
+                { "20:29:00": "2:00:11" },
+                { "22:29:12": "1:20:43" }
+            ]
+        },
     ];
     /**
      * 将 HH:mm:ss 或 HH:mm 格式的时间字符串转换为总秒数

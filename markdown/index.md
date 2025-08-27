@@ -1601,6 +1601,8 @@
 
 #### 8.22 22:14 演奏《春日影》
 
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="86" data-src="//music.163.com/outchain/player?type=2&id=2097486090&auto=0&height=66"></iframe>
+
 > 又看一集（
 
 8.22 22:18 “我感觉这个唱的有气无力的，是不是声优在刻意用假声唱”
@@ -1614,7 +1616,7 @@
 
 #### 8.22 22:22 “我现在把这首歌单曲循环，特别能表达我现在的心声” 
 
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="86" src="//music.163.com/outchain/player?type=2&id=2052454512&auto=1&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="86" data-src="//music.163.com/outchain/player?type=2&id=2052454512&auto=0&height=66"></iframe>
 
 8.22 22:23 “哎呀~唉哈哈——填不对嘛~”
 
@@ -1856,7 +1858,7 @@
 
 ---
 
-## 第六日 🚩超管笑点不解析
+## 🚩第六日 超管笑点不解析
 > *有史官要去打 GPH 了
 >
 > *有另一个史官也要去打 GPH 了
@@ -2461,3 +2463,825 @@
 </div>
 
 ---
+
+## 🚩第七日 图寻看我必秒之
+
+8.24 19:50 评点小蚂蚁`(对本人编写网页所提出的见解)`
+<div class="image-container">
+<img src="./img/67940c09-17a7-4170-a8f6-38678dda838b.png"></img>
+</div>
+
+8.24 20:04 开始使用PS分析高楼大厦
+
+8.24 【本段记录缺失】
+
+8.24 20:39 PS崩了，祈祷自动保存
+
+8.24 20:43 “给我发礼物相当于是给陈睿叔叔打钱了”
+
+8.24 20:44 “你要真想给钱，你懂的吧，私下……没有中间商赚差价”
+<div class="image-container">
+<img src="./img/1af3ce57-9474-4e90-9817-fd17781ac8a9.png"></img>
+</div>
+
+8.24 20:55 每日一遍“还得是弹幕啊”
+
+8.24 20:57 “发什么问号啊，有什么好发的”“我感觉我已经这个战鹰附体了”
+
+8.24 20:59 “上面肯定有人泄答案了吧，诶，但是我不看，因为我知道我做得没有错”
+
+8.24 20:59 上个厕所，“弹幕想一想为什么是FACE呢”
+
+8.24 21:00 上厕所结束，“为什么呢，有没有弹幕想知道的呢？有没有弹幕想起来的呢？”
+
+8.24 21:01 认为提取方式是象形
+
+8.24 21:03 看到弹幕提示康托 “康托跟这个有什么关系呢”
+
+8.24 21:04 “康托展开不就是那个，保险箱的那个什么东西吗，旅行箱密码的序列，它（本题）跟康托有什么关系呢”
+<div class="image-container">
+<img src="./img/eb972576-1ef0-486b-9c1a-e0f8e64d16da.png"></img>
+</div>
+
+8.24 21:09 拒绝开提示“我感觉它不是那种一点都想不到的”“如果是这种题（【打卡】）我肯定秒开提示的”
+
+8.24 21:15 “如果到九点二十我们还瞪不出来，我们就开提示，现在是九点15，我们瞪五分钟”“弹幕不要琵琶啊，给主播一首歌的时间”
+
+8.24 21:20 没瞪出来，开提示
+
+8.24 21:22 质疑“这个合理吗，这个提取方式”
+<div class="image-container">
+<img src="./img/87a02aa4-cb54-4188-81c6-bb44de7d34f6.png"></img>
+</div>
+
+8.24 21:27 得到“limiantu”
+
+8.24 21:28 提交得到里程碑，发现只需要翻译成英文就好了，“吐血了”
+
+8.24 21:29 “不行我一定要把这个立面图画出来好吧，不画出来不死心好吧”
+
+#### 8.24 21:30  完成「高楼大厦」
+
+8.24 21:31 评价【就是为了这点醋】 ：“毫无思路好吧”
+
+8.24 21:31 “脑子像香蕉，脑子像比特币，脑子像曲奇”
+<div class="image-container">
+<img src="./img/8592a536-1760-410d-90ad-d82efcdea674.png"></img>
+</div>
+
+8.24 21:32 开始数各个物品的数量，数出来后“这说明了什么呢？”
+
+8.24 21:33 搜索“脑子像香蕉”
+
+8.24 21:33 弹幕建议搜索ft “是群里的梗吗？”
+
+8.24 21:34 不知道一堆 ≤26 的数可以用来干什么
+<div class="image-container">
+<img src="./img/eb68b09d-9851-42e4-ba10-6a49d7fc830d.png"></img>
+<img src="./img/abe8c1dd-2033-44d0-af61-de9d2a5ea84d.png"></img>
+</div>
+
+8.24 21:35 “你要理解一下老年人好吗，老年人是这样的”
+<div class="image-container">
+<img src="./img/a23123af-1c8d-40a9-b436-0a8f3b7ff924.png"></img>
+</div>
+
+8.24 21:36 研究图片“这还有一个水印没去掉唉”（第八张图的“豆包AI生成”）
+
+8.24 21:36 搜索“脑子像香蕉”得到奇怪的视频，开始数数
+<div class="image-container">
+<img src="./img/4f043c80-ffde-42ac-b838-12361d0068fc.png"></img>
+</div>
+
+8.24 21:38 在弹幕提示下搜索“大脑是这样变化的 香蕉”，毫无结果
+<div class="image-container">
+<img src="./img/f979f38f-5dcf-48e5-9029-878211d01be2.png"></img>
+</div>
+
+8.24 21:39 在B站搜索，并没有注意到重要的视频，开始看《大香蕉》
+<div class="image-container">
+<img src="./img/ffbebd02-4e9c-4e29-bb99-c700e08d4171.png"></img>
+<img src="./img/7ddcf73e-3424-484b-9ab0-4c705e660f4a.png"></img>
+</div>
+
+8.24 21:41 “没有啊”
+<div class="image-container">
+<img src="./img/293af1f3-d687-4128-8c0e-8cbc532cfdb5.png"></img>
+</div>
+
+8.24 21:41 “这是什么新梗吗”
+<div class="image-container">
+<img src="./img/8f26073d-c601-47e5-9307-3dea59f370ed.png"></img>
+</div>
+
+8.24 21:42 看不懂相关视频“我不理解啊~”
+
+8.24 21:42 “啊？这也能A1Z26吗”
+<div class="image-container">
+<img src="./img/f23a32e8-ba13-4390-b96a-1e0c11566ef6.png"></img>
+</div>
+
+8.24 21:43 得到“chubbtemu”，搜到“Chubbyemu”，“这是什么啊，还是b站百大up主吗，这是下一个毕导吗”
+
+8.24 21:45 研究如何读“chubbyemu”
+
+8.24 21:45 开始记录患者的名字“我感觉是这个东西”
+
+8.24 21:46 “还有人吃比特币吗？”
+
+8.24 21:51 “我怕我的直播间又突然的爆炸，好吧”
+
+8.24 21:52 “我有点不太明白为什么这么专业的视频有这么高的播放量，还不是中文的，难道B站都是生物生吗，还是拿这个当故事会看的。都是脑部啊，血腥什么的，老实说我不太了解，不太了解，好吧”
+
+8.24 21:54 “这也太烦了吧，学单词，一辈子也用不到”
+
+8.24 21:54 “我们要不要直接开一下解析，跳过前半部分，好吧”
+
+8.24 21:55 “关键这个数字它太多了好吧”
+
+8.24 21:55 做不出来，哀嚎，“我不想做这道题好吧，我放弃做这道题”
+
+8.24 21:57 在弹幕提示下看“复习资料”，然后认为表格内的1-12数字是元素
+
+8.24 21:58 看解析，没看明白
+
+8.24 22:00 “这也有点太抽象了，我宣布这题是个孬题，好吧，我看看是谁出的，ES，是你吗ES，孬题不做，好吧，我宣布这是一个孬题”“本届第一孬题出现了”
+
+> 骂几口谜读弊读弊，崩崩崩崩
+
+8.24 22:01 “讲道理好吧，我做的这么多题，有哪题是一下做出来的呢，不都是做不出来”
+
+8.24 22:02 发现原来是自己数错了所以得到的是 chubbtemu
+
+8.24 22:03 继续研究解析
+
+8.24 22:05 “不管了，放弃思考，ES我对不起你，提交一下”，随后通过此题，想看提示发现提示还没解锁
+
+> 七琵七琵卡琶卡琶，读弊读弊答吧答吧
+
+8.24 22:06 “回想起来我好像看过他那个视频好吧，但是好像有点看不下去”
+
+8.24 22:07 “我觉得我要快速把这个图寻先做出来，因为这个我已经准备很久了”“这不手到擒来手拿把掐”
+<div class="image-container">
+<img src="./img/9c008e28-dcfc-4cca-b278-39f5a17e0cb4.jpg"></img>
+</div>
+
+8.24 22:08 使用前世记忆
+
+8.24 22:09 相信前世记忆 “讲道理好嘛，这我要是记不住，那也太假了好嘛”
+<div class="image-container">
+<img src="./img/c6f31917-fd14-4aef-b2a9-369fc79b8bee.png"></img>
+</div>
+
+8.24 22:09 欣赏清明上河图绘画的精细，“哥俩好，你们在看什么，看这个，船，还有人落水了吗，谁落水了，没有画落水的地方，这个船是要撞了是吧，这里有个人要伸手，是要拉这个船是吗”
+
+8.24 22:12 提取完所有的字，继续欣赏清明上河图
+
+8.24 22:13 “哪一个是个词呢”
+<div class="image-container">
+<img src="./img/c0294694-4f04-48b6-8685-4ca4d780708f.png"></img>
+</div>
+
+8.24 22:14 尝试直接提交（搜索）ansictan 达成成就
+<div class="image-container">
+<img src="./img/b39e7e7d-89b4-45e5-ac0f-c4e5110eb01b.png"></img>
+</div>
+
+8.24 22:15 “这个人长得好狰狞啊” “没有错啊” “ans, ic, tangent，哪个更像词一点呢”
+<div class="image-container">
+<img src="./img/083e4377-80d2-4343-afca-93c585ee1412.png"></img>
+</div>
+
+8.24 22:16 发现自己把孫（孙）认成了操，变成了“操羊店”
+<div class="image-container">
+<img src="./img/851b7b69-ae32-4521-944a-06cdfb0d21ff.png"></img>
+</div>
+
+8.24 22:18 搜索“ans is tan”
+<div class="image-container">
+<img src="./img/dd442819-db02-4ba6-99ab-dafddad9913d.png"></img>
+</div>
+
+8.24 22:19 继续检查自己是不是错哪了
+
+8.24 22:20 继续研究 “ans is tan” 是什么意思，询问 deepseek
+<div class="image-container">
+<img src="./img/523b2698-acb4-447e-91dc-d55bbcb7aa91.png"></img>
+</div>
+
+#### 8.24 22:21  完成「图寻」
+
+8.24 22:21（尴尬的咳嗽声）“我以为又是我的一个知识盲区了，一个奇怪的什么三角函数，不提”
+
+8.24 22:22 回去研究指南区 meta “这个图不是我做的，但是这个图做得挺好看的”“这要是我做的图我还用在这拼吗？我直接一个拿(qián)来(shì)主(jì)义(yì)”
+
+8.24 22:30 “怎么拼呢，怎么拼呢这是”随后拿起一块一直旋转
+<div class="image-container">
+<img src="./img/36822891-eb4c-473a-b7b2-5125e267b3ad.png"></img>
+</div>
+
+8.24 22:32 再次觉醒前世记忆“是要折那个东南西北是吧”“中间有一个罗盘啊，而且是那么方着的，而且你们都折了那么多东南西北了，这又是个指南区，讲道理是在这里折的”
+
+8.24 22:34 “又要开始脑子里折了” 然后认为应该要看折完后四个角分别是什么
+<div class="image-container">
+<img src="./img/cb7d7ffd-35c0-494c-a379-6e5c8d3e78f5.png"></img>
+</div>
+
+8.24 22:41 “诶呀这种事情不要啊” “诶好像今天时间还早” 然后打开 就是为了这点醋
+
+8.24 22:43 “有没有人吃播吃这个（三歧真巨口鱼）的，想看一下好吧”
+
+8.24 22:45 突然想起来今天是 dota 的决赛
+
+8.24 22:46 “那首先得有二进制吧”
+
+8.24 22:50 非常有礼貌的七大
+<div class="image-container">
+<img src="./img/a391b4c6-ce47-43b7-99ce-31d4ae719c8e.png"></img>
+</div>
+
+8.24 22:52 “哇这些词都好怪啊，查询出题组的心理状态，我觉得以后出题应该加一个心理辅导，不光辅导出题组的心理，还要辅导内测，参赛选手的心理”
+
+8.24 22:54 “讲道理好吧，下届出题组都有谁，你们想一想”
+
+8.24 22:57 看看提示，发现提示内容是“怎么做”
+
+8.24 22:57 “我肯定是没有藏题的啊，毕竟我都不是出题组”
+
+8.24 23:02 得知七大语录被整理到另一个文档（页面）里了
+
+8.24 23:03 发现“积极参加”不是成语
+
+8.24 23:06 想要抓紧时间看比赛
+
+8.24 23:09 开 五彩斑斓的无字天书（？）
+
+8.24 23:12 一眼读出《论语》
+<div class="image-container">
+<img src="./img/b6a462e8-d2e3-498a-a8bc-ffb1a910bbab.png"></img>
+</div>
+
+8.24 23:16 “灰什么黑黑黑”
+<div class="image-container">
+<img src="./img/c115e24d-d3e3-4d2e-9df4-782f712f7ffe.png"></img>
+</div>
+
+8.24 23:30 “还得是弹幕呀”——周瑜打黄盖，一个愿打一个愿挨
+<div class="image-container">
+<img src="./img/8a16fdfe-5143-4b11-b1aa-ab7f8f07de08.png"></img>
+</div>
+
+8.24 23:49 觉得这个题会浪费很久的时间所以就决定开提示
+<div class="image-container">
+<img src="./img/52969c8b-10b7-4f2b-adaa-392208b7fc54.png"></img>
+</div>
+
+8.24 23:50 “真的吗，我觉得四体不分，五谷不勤…四体不勤五体不体……”
+
+8.24 23:53 点名表扬
+<div class="image-container">
+<img src="./img/c8f7d37b-7aac-4265-8cb8-bd06a7749ebb.png"></img>
+</div>
+
+8.24 23:58 “据说夸一下AI能提高它的效率”
+
+> 8.25 0:26 “这个到底是不是真的，有人去验证一下吗？”
+
+8.24 23:59 收到史官分享的简化版
+<div class="image-container">
+<img src="./img/763c2625-2cf5-4cbc-a5c6-d6160d8c6e14.png"></img>
+</div>
+
+---
+
+8.25 00:00 “几何星空是舰长吗？”
+
+8.25 00:01 “舰长啊，不过你这给我空的也太多了”
+<div class="image-container">
+<img src="./img/df66ac70-da4c-481a-90da-46a58f6ef59c.png"></img>
+</div>
+
+8.25 00:03 DeepSeek根据错误的问题回答了正确的答案 “唉，我是个傻——子”
+<div class="image-container">
+<img src="./img/552984be-7e35-419d-946a-e5e2c3344071.png"></img>
+</div>
+
+8.25 00:06 没有深度思考的结果
+<div class="image-container">
+<img src="./img/22f84a69-c061-4763-b98f-b337b899e00b.png"></img>
+</div>
+
+8.25 00:08 询问 GPT 仍然看不懂字数给出四字成语，随后询问豆包得到如下回答
+<div class="image-container">
+<img src="./img/a5dd7c64-7263-48ec-bc6e-fa3c449fccfe.png"></img>
+<img src="./img/8cca0c18-ba79-49aa-889e-7a4074ad33e2.png"></img>
+</div>
+
+8.25 00:10 询问 Gemini 未果，暴论“我宣布这一轮的AI比拼，所有的AI都是笨蛋”
+<div class="image-container">
+<img src="./img/305d0be0-cadd-48e9-b83f-f8dbf54d9472.png"></img>
+</div>
+
+8.25 00:11 经过弹幕提示自己看出“八九不离十”，气笑了
+
+8.25 00:21 完成“五彩斑斓的无字天书”
+
+8.25 00:21 打开本文，发现头图更新，“这就是经过精心设计的”
+
+8.25 00:22 “史官不在，史官都已经睡了，史官看比赛去了”
+
+8.25 00:23 “Chubbyemu 是哪国人，印度？”（实际上是 chubby + emu）
+
+8.25 00:23 搜索有没有“操羊店”这个东西 “我记得好像有，没有吗？”
+<div class="image-container">
+<img src="./img/c84e6954-80db-4096-a3e6-698117d57837.png"></img>
+</div>
+
+8.25 00:24 评价“这是 deepseek 最有用的一集，好吧”
+
+8.25 00:25 在 bilibili 搜索三歧真巨口鱼的吃播
+
+8.25 00:26 思考“夸一下AI能提高效率”是不是真的，建议大家验证一下
+
+8.25 00:26 “gachi？什么叫gachi？舰长吗？什么叫gachi？”
+
+8.25 00:27 七大点赞了本文
+
+8.25 00:28 七大刷新了一次点赞
+
+8.25 00:28 播放下播の小曲，“感谢大家这么晚了还陪着我做题，感谢群里面的小伙伴们”
+
+8.25 00:29 打开“是猫咪耶”，“最烦的就是这种PDF题”，“一点也不想做好吧”
+
+8.25 00:30 “明天主攻这点醋”，晚安后下播
+
+---
+
+## 🚩第八日 张先生和小黑子
+
+8.25 20:00 七大没有选择八点开播，看来是有更有趣的事情
+<div class="image-container">
+<img src="./img/521f50b5-2e64-49d0-8523-04f60ba7c2ee.png"></img>
+</div>
+
+8.25 20:30 小七official ASMR开播啦！
+
+8.25 20:36 使用PS尝试解决“藏宝图”讲究一个精确
+<div class="image-container">
+<img src="./img/80c4d21b-5eec-4051-9751-39b4c2bd0862.png"></img>
+<img src="./img/fb938c29-bcee-4ab3-a703-b432a0fb2112.png"></img>
+</div>
+
+8.25 20:36 高低杠与随机的走一千米
+<div class="image-container">
+<img src="./img/a54132f5-0758-41c6-b906-8f50a6083b28.png"></img>
+</div>
+
+8.25 20:40 七大制作心中的藏宝图ing
+<div class="image-container">
+<img src="./img/7cfcbf93-f36a-46bb-886a-776ada09f14f.png"></img>
+</div>
+
+8.25 20:43 树边的帐篷
+<div class="image-container">
+<img src="./img/8fd56d97-619f-4ca5-8d91-7c2444f6814c.png"></img>
+</div>
+> 好可爱呀啊啊啊啊啊
+
+8.25 20:44 “哇我这个藏宝图画的也太好了”
+<div class="image-container">
+<img src="./img/94b9424a-6569-4e64-b5c2-b550f5eecb64.png"></img>
+<img src="./img/ebf4d1ad-d88a-4484-82e0-505175b96ef8.png"></img>
+</div>
+
+8.25 20:45 “何出此言？”
+<div class="image-container">
+<img src="./img/da9e251d-b4ad-404f-a442-6563bca464a7.png"></img>
+</div>
+
+> 七大也很温柔的好嘛          明明是很可爱(
+
+> 发起投票：温柔 or 可爱 （评论该块进行投票）
+
+8.25 20:46 开始疯狂搜索emoji
+<div class="image-container">
+<img src="./img/a6787f12-216a-42e6-9c0c-c1acdb8b12dc.png"></img>
+</div>
+
+8.25 20:49 试图看看年份折纸“天呢 好复杂”
+
+8.25 20:50 为了在PS中分析年份折纸，删去了之前的地图草稿（伏笔？）
+
+8.25 20:51 展现pixel perfect的图片处理技术
+<div class="image-container">
+<img src="./img/bd0990c4-7194-49e9-9938-592dcfbcdd7c.png"></img>
+</div>
+
+“欸对，欸不对，欸对不对，我已经不相信我自己了”““难得我没有输错”
+
+8.25 20:55 “969是多少年？…………是多少行”
+
+8.25 20:57 “数的我，眼睛都快瞎了”
+<div class="image-container">
+<img src="./img/a43453cb-d170-431e-a96b-35b1b0a01131.png"></img>
+</div>
+
+8.25 20:58 “这是中心点么 应该不是”
+
+8.25 20:59 “Excel没有PS灵活”
+
+8.25 21:00 “诗人  张先生  年，是一个姓张的诗人吗？”
+
+> 事实上的断句是:张先 生年
+<div class="image-container">
+<img src="./img/140113ac-e4e2-446e-91e0-63f0a7b2bc9a.png"></img>
+</div>
+
+8.25 21:01 “哇，大家看到没有，这肯定是我们选手搜出来的结果”（画面被PS完全挡住）
+<div class="image-container">
+<img src="./img/17ada472-b3a5-42a4-a67e-b34c734cd0d2.png"></img>
+</div>
+
+8.25 21:08 聪明的表示出折到背后
+<div class="image-container">
+<img src="./img/9167a272-8407-470c-864b-4603050ac94c.png"></img>
+</div>
+
+8.25 21:09 “沿网络线……”
+<div class="image-container">
+<img src="./img/978f5c02-f739-41de-b043-8826c4e235cf.png"></img>
+</div>
+
+8.25 21:10 “哇，大家看，我只是搜了一个guoji唉，这是为什么呢？国际稻米年这么有名吗，大家都在搜”
+<div class="image-container">
+<img src="./img/081f140d-5240-43c0-b1d4-05b7e8990861.png"></img>
+</div>
+
+> 互联网怪谈：每年8月的某个星期，搜索引擎总会被一些神秘的词语占据……
+
+8.25 21:13 “你如果不加后面那个表情包，那我就信你了”
+<div class="image-container">
+<img src="./img/b1640ffa-c9b8-4d95-af4d-850e4b31582a.png"></img>
+</div>
+
+8.25 21:14 “‘怎么第二次折的跟我不一样’——那就是我错了呗”
+<div class="image-container">
+<img src="./img/3dc99ade-7647-411d-abe2-5077c59e6f8e.png"></img>
+</div>
+
+8.25 21:17 高超的折纸技术 “坏了坏了”
+<div class="image-container">
+<img src="./img/d1d6ecb1-a73c-4eb9-80f0-f29361dee406.png"></img>
+</div>
+
+8.25 21:20 批判excel “行高列宽的单位不一样也太离谱了”
+<div class="image-container">
+<img src="./img/4fb289e0-456c-4b87-8041-bb3a229a04fa.png"></img>
+</div>
+
+8.25 21:22 发现自己948年标的离得很远“怎么离这么远，太离谱啦！（超大声）”
+
+8.25 21:24 自信的七大完全没注意到弹幕看不到自己的PS
+
+> 七大缺个导播，帮着七大切屏幕
+
+8.25 21:26 “沿网络线……斯，怎么个骨折呢”“对对对对对”
+<div class="image-container">
+<img src="./img/b5b14e23-7d6d-4229-8af0-66bc87c97f9a.png"></img>
+</div>
+
+8.25 21:30 “哇塞 我这么一搜，哇塞这是为什么呢，真的有这么多人CCBC么”
+<div class="image-container">
+<img src="./img/95d63439-9b62-4927-9b1a-6ad5d12739b2.png"></img>
+</div>
+
+8.25 21:33 又双叒叕忘记来回切屏
+
+8.25 21:38 “对的折错了”“嗯~这种事情不要啊~”
+<div class="image-container">
+<img src="./img/924acf61-8b09-4268-b7b5-d1d59edf8741.png"></img>
+</div>
+
+8.25 21:39 “我感觉我确实需要一台打印机，虽然其实我家里有打印机”
+
+> 七大在思考的时候，会自动变成震动模式：“嗯嗯嗯嗯嗯~~~~~~”
+
+8.25 21:52 “诶↑呀↓~（超长音）”
+<div class="image-container">
+<img src="./img/63eddc91-698d-4c8a-979b-d053f6f4031f.png"></img>
+</div>
+
+8.25 21:55 会是1929吗？“诶↑呀↓~（到吸气）”“啊~~~~~”
+
+> 此刻七大发出尖锐的爆鸣声
+<div class="image-container">
+<img src="./img/a7f4897a-b78e-4090-972f-cada67ddcc85.png"></img>
+</div>
+
+8.25 21:58 不自信起来“朋友们，现在这一步折的有什么问题么” //日常求助弹幕
+
+8.25 22:02 超大声的：“我不行了”决定开启hint
+
+8.25 22:03  夸赞hint7“这也太贴心了”
+
+8.25 22:03 根据hint7提交“1099”得到年份折纸答案2“glutenfree”，后被弹幕提醒跳关了“啊，这是答案不对么？”
+
+> 彼时的七大并不知道，这道题有一个非常重要的巧思，如果按照glutenfree会导致跳过很好玩儿的一个“翻转”填词的过程，叶老师拼命凑得词，被一个hint给跳关了
+
+8.25 22:05 根据弹幕提示提交“839”得到年份折纸答案1“thereafter”
+
+8.25 22:06 “好吧”
+<div class="image-container">
+<img src="./img/4f71e9c3-5da5-4355-afc8-34d4d9c58d66.png"></img>
+</div>
+
+8.25 22:07 开始思考周游谜
+
+8.25 22:13 寻找写有一个英文字母的蓝色方形标志，疑似恶魔斯基的记忆ℹ️
+<div class="image-container">
+<img src="./img/323c05c8-bbf8-4431-9653-96c6cfd1483e.png"></img>
+</div>
+
+8.25 22:16 通过“utopi”发现关键“乌托邦”，随后搜索“乌托邦主义utopianism”发现为十字英文，自信发言：“一定是这个了好吧”，回答错误（注：正答为utopiahymn，乌托邦赞美诗）
+
+8.25 22:19 EXIT的第二个字母为“I”（及时纠正）
+
+8.25 22:21 为防止直播间消失 手绘二维码
+<div class="image-container">
+<img src="./img/55eb955f-d1ad-4054-88b0-ab72273da593.png"></img>
+</div>
+
+8.25 22:29 不小心相信了错误答案“这到底是个啥呀”
+<div class="image-container">
+<img src="./img/34fdd527-aa4e-4b87-90cc-e0136e59b1c5.png"></img>
+</div>
+
+“还得是弹幕啊”（2/1）
+
+8.25 22:30 巧妙跳过 乌托邦赞美诗
+<div class="image-container">
+<img src="./img/ba608db6-006f-4e00-bf99-043c468ae48f.png"></img>
+</div>
+
+8.25 22:32 展示百度琵琶的证据
+
+> 七大已经熟练地掌握使用百度进行琵琶
+<div class="image-container">
+<img src="./img/cbb65d64-e599-4812-85c5-fcc58cac0008.png"></img>
+<img src="./img/0d97def3-df56-43ec-bc4a-a0f9f92b3da1.png"></img>
+</div>
+
+8.25 22:36 在弹幕的琵琶下 七大惊人的注意力注意到六种夸克
+<div class="image-container">
+<img src="./img/10404be4-5e76-401d-b6af-e629ed3c29ca.png"></img>
+<img src="./img/362aa202-d389-4759-9fc0-0675edbd7599.png"></img>
+</div>
+
+8.25 22:38 学习了nutrimatic的使用“好神奇呀”
+<div class="image-container">
+<img src="./img/a7d81826-b61b-4e73-9f76-41c1308957b9.png"></img>
+</div>
+
+8.25 22:39 “叶的题真的很厚啊，感觉他做了一套题就好像做了一个区的一样”“这整道题就好像一个比赛的体量”
+
+8.25 22:41 惊人的注意力，注意到题目中引号是反的，原来是显示问题，令人忍俊不禁
+<div class="image-container">
+<img src="./img/3853c538-ac1f-4665-b76f-f799764324dc.png"></img>
+</div>
+
+8.25 22:46 不是我喜欢的信息，直接删除
+<div class="image-container">
+<img src="./img/436da72b-cb07-47f3-84da-eb6c6ae3c993.png"></img>
+</div>
+
+8.25 22:47 “又是你们疯狂语录，疯狂截图的部分”
+
+8.25 22:48 画出了有头发的天
+<div class="image-container">
+<img src="./img/6a56e14a-52f1-47bc-ad3a-3d0b73d0719b.png"></img>
+</div>
+<div class="image-container">
+<img src="./img/616301a1-44f1-4299-8cd3-26e046c77123.png"></img>
+<img src="./img/99d77bc6-4a58-4402-b754-dcc0d5a4d1d3.png"></img>
+</div>
+
+8.25 22:54 “被三叉戟插中脑袋的人……是‘厌’吗？”
+<div class="image-container">
+<img src="./img/3fe7d3b0-2c28-4bcd-a826-a8fd8da06227.png"></img>
+</div>
+
+8.25 22:56 “这个不就是 只因你太美 吗”
+<div class="image-container">
+<img src="./img/7cc7158a-8c0f-4ec1-9df0-b570ca234e37.png"></img>
+</div>
+
+8.25 22:59 “是个杯子，很合理好吧”
+<div class="image-container">
+<img src="./img/7f313288-c930-4551-b8c3-beefbff6d632.png"></img>
+</div>
+
+8.25 23:00 感觉这题有很多梗
+
+8.25 23:03 “还得是我的队友啊”
+
+8.25 23:04 “标记有叉的位置为什么不是这个‘叉’字呢”
+
+> 因为那是成就哦~
+
+8.25 23:11 “你看，又是 jī”
+<div class="image-container">
+<img src="./img/317753d3-f77e-4fc6-9e7a-8d4e8e12b641.png"></img>
+</div>
+
+8.25 23:18 七大看了“队友”的思路之后表示那你加油！
+<div class="image-container">
+<img src="./img/e8122511-3b2a-43f6-987a-8ccd8f06485c.png"></img>
+</div>
+
+8.25 23:26 一直存在的“小黑子”
+<div class="image-container">
+<img src="./img/65126fe5-0406-4ae0-9071-dfe2f415b57a.png"></img>
+</div>
+
+8.25 23:28 “我认为，作为队友，你应该说‘这题我秒了，我们做下一道题吧’”
+
+> 作为七大的队友，我很荣幸
+
+8.25 23:30 “啧啧啧啧，哎呀呀呀呀”
+
+8.25 23:36 “‘不要啊’——不要啊，什么不要啊”（娇声）
+
+8.25 23:42 《这个图画的非常好》
+<div class="image-container">
+<img src="./img/db348e61-b301-4d58-8657-f159974f6c3e.png"></img>
+</div>
+
+8.25 23:43 在饺子里试图填写：LEISHMANIA“啊啊啊啊啊”
+
+> 深夜憋笑
+
+8.25 23:47 “还要倒着看的吗，不要搞这么复杂呀”
+
+8.25 23:48 “嗯哼哼哼哼~~……我被C16虐惨辣”（哭腔）
+
+8.25 23:52 “不能一个个试，我们要有规律地穷举”
+
+8.25 23:53 七大选择了弹幕最多的打法，将两个折纸答案一起来用&*%￥#@……
+<div class="image-container">
+<img src="./img/82623bc5-46cd-4771-8bbf-3f50f1192524.png"></img>
+</div>
+
+8.25 23:55 “我不能说这道题是孬题，我只能说这道题是目前我做得最…来气的一道题”
+<div class="image-container">
+<img src="./img/72b6ac86-0e94-4211-a28d-8b5883111f05.png"></img>
+</div>
+
+8.25 23:57 “使用工具网站得到答案，你看这个解题的方式就很不美，很不优雅”
+
+8.25 23:58 “这也太谐音了”pia~no~
+<div class="image-container">
+<img src="./img/72b6ac86-0e94-4211-a28d-8b5883111f05.png"></img>
+</div>
+
+8.25 23:58 “我欣赏不了这道题，我能欣赏到藏宝图，他这个想法是很好，[没听清]”“年份折纸还可以，就是最后没搞懂”“这个呢…还可以”“解题笔记呢，就有点，感受不到，脑回路对不上”“至于这个中文传译嘛，我觉得一言难尽”
+
+8.25 23:59 在解析的帮助下通过“只说明书”
+
+#### 8.25 23:59 琵琶「只说明书」
+
+8.26 00:00 “我宣布这道题是个孬题，本届比赛中第一孬题出现了”“你要说它凑得生硬呢，也不生硬，就是有点太厚了，不是我的菜”
+
+8.26 00:02 欣赏七大歧记网站 “虽然我看不明白，但是我觉得很好”
+
+#### 8.26 00:02 解锁第三区 “这下有的做了”
+
+8.26 00:02 “我好想做最后一区啊~我不想做前面的区啊~做不到最后一区好像有蚂蚁在身上爬呀~”
+<div class="image-container">
+<img src="./img/1b9288ea-2324-492a-9b27-26a118e30c31.png"></img>
+</div>
+
+8.26 00:03 前世记忆大爆发，开始速通「伽利略的密室逃脱」的点击交互部分，重复强调“速通选手来了啊”
+
+8.26 00:04 第一次失误，在没有开门的情况下退出了场景1
+
+> Scene 2   + 2.00s 1:02.00
+
+8.26 00:05 根据前世记忆跳过水蒸气提取，直接获得塔的部件
+
+> Vapor skip   -3.00s 1:57.00
+<div class="image-container">
+<img src="./img/a71fbc03-ed9d-487b-a86a-89308db026d5.png"></img>
+</div>
+
+8.26 00:06 第二次失误“纸条~~~嗯~完了，这个不记得了” “是哪本来着”
+
+> 收到来自弹幕的队友好心提示
+<div class="image-container">
+<img src="./img/f6f3ca11-b662-4691-a638-3748be7d1761.png"></img>
+</div>
+
+> Function&Booklet   +10.00s 4:10.00
+
+8.26 00:08 放大镜打滑，忘记epursi代表什么
+
+> POINT   +0.50s 5:00.50
+>
+> 前世记忆中断
+
+8.26 00:09 试图召唤前世记忆“前世的记忆，回来啊，前世的记忆——”
+
+> 我摊牌了~不装了~我要开始画Voronoi 图了
+
+8.26 00:10 “不装了好吧”“大家想看的应该不是这样的解法”
+
+> 前无古人后无来者的流程！
+>
+> FULL SKIP    -30.00s(*时间正在流逝…) 6:30.00
+>
+> ……Failed
+
+8.26 00:11 七大：前面记得，后面记得，中间忘了，答案不知道
+
+8.26 00:11 “唉，是这么解的吗？”
+
+> E-pur-si-muove   +60.00s(*时间正在流逝…) 8:00.00
+
+8.26 00:13 “完啦 我不记得了 这要怎么做来着”
+
+8.26 00:14 在弹幕的提示下，终于找到名言
+<div class="image-container">
+<img src="./img/d4aabfe3-3ade-41bf-8faf-dfa911fa6de1.png"></img>
+</div>
+
+8.26 00:15 七大感概“速通失败” 等待并观察月亮
+
+> 七大心里：我那前世记忆呢
+>
+> Moon Observation   +300.00s 12:00.00
+>
+> 正在播放：Waiting for the moon
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="86" data-src="//music.163.com/outchain/player?type=2&id=2099609187&auto=0&height=66"></iframe>
+
+8.26 00:17 “快转呐”“让我们欣赏一下这个钟摆动画”
+
+> 七大厚脸皮的说：我们进度就是这么快
+>
+> Moon Copy   +360.00s 14:00.00
+
+8.26 00:19 “插到你的脑袋上 这动画做的怎么样”
+
+> Galileo's Note   +420.00s 16:00.00
+>
+> END
+>
+> 总结：速通成功地失败了
+
+8.26 00:20 “我看看答案是什么呢？”
+
+> 再次使用解析
+>
+> BGM:《新宝岛》 "怎么放了个这个歌"
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="86" data-src="//music.163.com/outchain/player?type=2&id=1386415746&auto=0&height=66"></iframe>
+
+8.26 00:20 “非常圆满(其实并非)地算是做出来一道题，可以光荣下播了”通过“”
+
+#### 8.26 00:21 通过「Galileo's Escapement Room」
+
+8.26 00:23 七大帮忙修改了一处错字，感谢七大!
+
+8.26 00:23 “诶，今天没有小蚂蚁”（实际上在下面这里记着
+
+8.26 00:30 “唉”（一声长叹）
+
+8.26 00:30 感谢陪伴，感谢ES，感谢弹幕，感谢蚂蚁，感谢琵琶
+
+8.26 00:31 “紧张忙碌的周一已经结束了，我们已经迎来了周二”
+
+8.26 00:31 “明天饺子么”（昨天也是这么说的）(再次立出包饺子的flag，当心立——啊)
+
+8.26 00:31 发表火药区之后决定的战略方针：“直接梭哈”(明天决心一路琵琶+提示)
+
+> 警惕消费主义的馅饼
+
+8.26 00:32 “那么今天就到此结束” 随后下播
+
+> 怎么直播还戛然而止呢
+<div class="image-container">
+<img src="./img/19ab6aba-57c7-441a-b9d4-9e5edd69b692.png"></img>
+</div>
+
+8.26 00:33 七大在群中发布CCBC Font
+
+> 字体已上传网页，[下载链接](./CCBCFONT.OTF)
+<div class="image-container">
+<img src="./img/a54c4a3e-7388-4253-baf5-4c76646a54cc.png"></img>
+</div>
+
+伟大，无需多言！！！！！！！！
+
+8.26 00:36 饥渴难耐的史官
+<div class="image-container">
+<img src="./img/9cac78ed-015a-4500-8240-944da4cbfa27.png"></img>
+</div>

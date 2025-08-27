@@ -531,13 +531,12 @@
                 <script src="./js/playback.js"></script>
                 <p>输入格式如 <code>8.10 11:45</code> 抑或是 <code>8.10 11:45:14</code>或点击快速定位后点击时间文字</p>
                 <button id="playback-insp" class="nav-sidebar-btn" style="margin: 0.5rem 5% 0.5rem 5%;min-width: 90%; max-width: 90%;">快速定位</button>
-                <input id="playback-input" type="text" placeholder="输入时间点（月.日 时:分(:秒)）" style="margin:0 5% 0 5% !important;padding:0 5% 0 5%;width:90%;appearance:none !important;background-color:#f5f5f5;border:none;border-radius:0.75rem;box-shadow:0px -1px 2px #11182726;color:#2c2e31ff;outline:2px solid transparent !important;min-height:2.25rem !important;font-size:.875rem;line-height:1.25rem;margin:0;padding-block:1px;padding-inline:2px;overflow-clip-margin:0px !important;overflow:clip !important;box-sizing:border-box;" autocomplete="off">
+                <input id="playback-input" type="text" placeholder="输入时间点（月.日 时:分(:秒)）" style="margin:0 5% 0 5% !important;padding:0 5% 0 5%;width:90%;appearance:none !important;background-color:#f5f5f5;border:none;border-radius:0.75rem;box-shadow:0px -1px 2px #11182726;color:#2c2e31ff;outline:2px solid transparent !important;min-height:2.25rem !important;font-size:.875rem;line-height:1.25rem;margin:0;padding-block:1px;padding-inline:2px;overflow-clip-margin:0px !important;overflow:clip !important;box-sizing:border-box;" autocomplete="off" onchange="getPlaybackLink()" onkeyup="if(event.key==='Enter'){getPlaybackLink();}" onblur="getPlaybackLink()">
                 <div id="playback-status-div" style="margin:0.5rem 5% 0 5%;min-width: 90%; max-width: 90%; font-size: 0.8rem; color: #555;display: none;">
                     <p>匹配状态：<span id="playback-status-message"></span></p>
                     <p>BVid：<span id="playback-status-bvid"></span></p>
                     <a id="playback-link" target="_blank" href="#" rel="noopener noreferrer" style="justify-content: center;align-items: center;"  class="nav-sidebar-btn">跳转定位观看</a>
                 </div>
-                <button id="playback-get" onclick="getPlaybackLink()" class="nav-sidebar-btn" style="margin: 0.5rem 5% 0 5%;min-width: 90%; max-width: 90%;">获取链接</button>
             </div>
         </div>
     </div>
@@ -606,6 +605,11 @@
                 });
             });
             imgresize();
+            document.querySelectorAll('iframe').forEach(iframe => {
+                if (iframe.dataset.src) {
+                    iframe.src = iframe.dataset.src;
+                }
+            });
         });
         window.addEventListener("resize", imgresize);
 
