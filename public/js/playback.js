@@ -52,7 +52,7 @@ function getPlaybackURL(targetDateTimeStr) {
             "date": "8.23",
             "bvid": "BV1AKezzHEyM",
             "playbacks": [
-                { "20:30:00": "1:17:25" }
+                { "20:01:00": "1:17:25" }
             ]
         },
         {

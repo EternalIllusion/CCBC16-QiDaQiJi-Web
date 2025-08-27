@@ -2,17 +2,21 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 ,user-scalable=no">
     <title>七大歧记</title>
     <link rel="preload" href="https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002/result.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <!--<link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002/result.css" media="print" onload="this.media='all'; this.onload=null;">-->
     <noscript>
         <link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002/result.css">
     </noscript>
+    <meta name="description" content="七大歧记 - 七大直播挑战CCBC16纪实">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <style>
         body {
             margin: 0;
             padding: 0;
+            width: 100vw;
+            width: 100%;
             min-height: 100vh;
             background-image: url('./img/bg.png');
             background-repeat: repeat-y;
@@ -23,6 +27,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            overflow-x: hidden;
         }
         body * {
             font-family:'KingHwa_OldSong';
@@ -47,6 +52,8 @@
             padding: .5rem;
             font-size: 1.2em;
             color: #392410;
+            display: flex;
+            flex-direction: column;
         }
         #nav {
             margin:auto;
@@ -63,10 +70,11 @@
 
         blockquote {
             border-left: .25rem solid #b07e24;
-            margin-left: 0;
-            margin-right: 0;
-            padding-left: .5rem;
+            margin: .5rem 0 .5rem 0;
+            padding: .25rem .5rem .25rem .5rem;
             color: inherit;
+            display: flex;
+            flex-direction: column;
         }
 
         .giscus-frame{
@@ -379,15 +387,99 @@
                 max-width: 648px !important;
             }
         }
+
+        viewport {
+            width: device-width;
+        }
+
+        #viewportwidthwarning {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffcc00;
+            color: #000;
+            text-align: center;
+            padding: 0.125rem;
+            font-size: 0.5rem;
+            z-index: 1000;
+        }
+
+        @media screen and (max-width: 648px){
+            #nav-sidebar {
+                width: 40vw;
+                height: 100%;
+                right: 0;
+                top: 0;
+                z-index:69;
+            }
+
+            #nav-sidebar-sub {
+                width: 80vw;
+                height: 100%;
+                right: 0;
+                top: 0;
+                z-index:64;
+            }
+
+            #nav-sidebar-wrapper {
+                width: 40vw;
+                min-width: 40vw;
+                max-width: 40vw;
+                margin-bottom: 1.5rem;
+            }
+
+            #nav-sidebar-sub-wrapper {
+                width: 40vw;
+                max-width: 40vw;
+                min-width: 40vw;
+                margin-bottom: 1.5rem;
+            }
+            
+            #nav-sidebar-wrapper > button, #nav-sidebar-sub-wrapper > button, .nav-sidebar-btn {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+
+            #nav-toggle-button {
+                position: fixed;
+                right: calc(80vw - 4rem);
+                bottom: 3.5rem;
+                width: 6rem;
+                height: 3rem;
+                border-radius: 1.5rem;
+                font-size: 1.5rem;
+                z-index: 60;
+            }
+
+            #nav-toggle-button.nav-sidebar-sub-collapsed-btn {
+                right: calc(40vw - 4rem);
+                bottom: 3.5rem;
+            }
+
+            #nav-toggle-button.nav-sidebar-collapsed-btn.nav-sidebar-sub-collapsed-btn {
+                right: .25rem;
+                bottom: 1rem;
+                width: 10rem;
+            }
+
+            #viewportwidthwarning {
+                display: block;
+            }
+            
+        }
     </style>
 </head>
 <body>
     <img src="./img/banner.png" alt="Banner" class="banner">
         <div id="nav"><a href="./index.html" target="_blank" rel="noopener noreferrer">七大歧记</a>|<a href="./said.html" target="_blank" rel="noopener noreferrer">《七大云》</a>|<a href="./anno.html" target="_blank" rel="noopener noreferrer">重要讲话</a>|<a href="./hist.html" target="_blank" rel="noopener noreferrer">更新历史</a></div>
-    <div class="content">
+    <div class="content auto-breakword">
         ${content}
     </div>
     
+    <div id="viewportwidthwarning">网页展示不正常，可能会出现显示问题，推荐在桌面浏览器打开本网页</div>
+
     <div id="nav-sidebar" class="nav-sidebar-collapsed">
         <!-- 边栏内容 -->
         <div id="nav-sidebar-wrapper">
@@ -540,6 +632,7 @@
 
             function startInspecting() {
                 toggleButton.textContent = '取消快速定位';
+                isInspecting = true;
 
                 document.addEventListener('mouseover', handleMouseOver);
                 document.addEventListener('mouseout', handleMouseOut);
@@ -548,7 +641,8 @@
 
             function stopInspecting() {
                 toggleButton.textContent = '快速定位';
-                
+                isInspecting = false;
+
                 document.removeEventListener('mouseover', handleMouseOver);
                 document.removeEventListener('mouseout', handleMouseOut);
                 document.removeEventListener('click', handleClick, true);
