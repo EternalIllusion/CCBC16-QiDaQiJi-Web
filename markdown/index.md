@@ -3495,3 +3495,196 @@
 </div>
 
 （历史以来下播最早纪录）
+
+## 🚩第十日 离奇失踪的史官
+
+> 写在前面的备注：史官之史官の记录：群内开始了一场“关于如何让小七套皮直播”的大讨论
+💡 
+> 本日内容缺失
+>
+> 1.这里真的什么都没有吗 已解锁(0信用点)
+>
+> 是的，先看看其他日的内容吧
+
+#### 8.27 22:15 解锁造纸区
+
+23:32 “我们来愉快地看看今天的史官都记录了什么。”
+
+> 今天的史记就是没多少史记
+> 愉快下播 //疑似七大真迹
+
+
+## 🚩十一日 七封弹幕杀房管
+
+> 一些神秘力量导致昨日的记录无法被呈现，过会补上
+>
+> 今天会有多少小蚂蚁嘞
+
+8.28 20:30 准时出现，看到群里的皮套，可惜没有摄像头，只能给大家吃鸡蛋
+<div class="image-container">
+<img src="./img/97ef7791-6f12-4219-85da-3ae132a060b7.png"></img>
+</div>
+
+8.28 20:32 神秘的第三只胳膊
+<div class="image-container">
+<img src="./img/e36e1df5-95bd-44b0-ab13-4accea566be9.png"></img>
+</div>
+
+8.28 20:34 “感谢哈神投喂的小花花的、人气票呀、……”开始谢榜
+
+8.28 20:35 奇怪的？七大晚安？
+<div class="image-container">
+<img src="./img/d3c29524-49b0-4b66-a168-6446722925de.png"></img>
+</div>
+
+
+8.28 20:38 哈神提供直播新思路
+<div class="image-container">
+<img src="./img/bd03da4c-3704-418e-9b4a-bb3883e2215b.png"></img>
+</div>
+
+8.28 20:39 差点错过的正确答案
+<div class="image-container">
+<img src="./img/65ad9c21-2b0e-48bf-b7ba-acc0cab81a5e.png"></img>
+</div>
+
+8.28 20:41 “琵老板可还行”
+<div class="image-container">
+<img src="./img/25fefdb0-1eb1-492a-b1f4-db5981dd30cb.png"></img>
+</div>
+
+8.28 20:42 “简单又逻辑通顺，非常好”
+<div class="image-container">
+<img src="./img/fede1705-232b-428d-afda-3036e1a13a06.png"></img>
+</div>
+
+8.28 20:47 “叠？”
+<div class="image-container">
+<img src="./img/452927c9-80f3-4801-9c5f-ffa7f03f6046.png"></img>
+<img src="./img/a6ec3ba0-6b6f-4089-b7be-d0983aca0c9d.png"></img>
+<img src="./img/e73a6434-6d7a-484f-984d-8f17444dfb29.jpg"></img>
+</div>
+
+> 与此同时，群里的一位史官为七大发表重大讲话页面生成了一份头图
+<div class="image-container">
+<img src="./img/324338cb-5cdf-4399-9dca-b7c9afb09994.jpg"></img>
+</div>
+
+8.28 20:53  “与其被弹幕琵琶，不如自己琵琶”遂打开红桃四提示
+
+8.28 20:54 “讲道理他应该画一个线……哦他画了”
+<div class="image-container">
+<img src="./img/4bd2c345-3ce7-4702-a9bd-c46e1f6d84c2.png"></img>
+</div>
+
+8.28 20:57 七大直接进行魔改
+<div class="image-container">
+<img src="./img/a2b70358-6e4c-42c6-91b0-44e546f576c9.png"></img>
+</div>
+
+8.28 20:58 后缀（zhuo）
+<div class="image-container">
+<img src="./img/07de0089-895f-4b47-b124-df2786383318.png"></img>
+<img src="./img/50b9f9e9-a00b-454f-a4b4-098c9023fe34.png"></img>
+</div>
+
+8.28 21:01 “是五个字的么”“魔力红么”
+<div class="image-container">
+<img src="./img/20250828-220931.png"></img>
+</div>
+
+8.28 21:03 “红桃三可以出什么 这个还不错”
+<div class="image-container">
+<img src="./img/b67436ed-e7f0-450c-b92d-cb709a5f47af.png"></img>
+</div>
+
+> 七大如愿填入了他向往的“三心二意”
+
+8.28 21:05 “七大歧记”
+<div class="image-container">
+<img src="./img/6ad41b79-2077-4f21-900d-a67592123538.png"></img>
+<img src="./img/c69547de-7a2f-4e69-b1d0-b88ca473bec3.png"></img>
+</div>
+
+8.28 21:10 “讲道理可以出一个题，心打个岔啥的”
+<div class="image-container">
+<img src="./img/2cf59d27-65a2-4cca-95d7-1f970ef1427d.png"></img>
+</div>
+
+8.28 21:11 七大学会如何添加房管
+<div class="image-container">
+<img src="./img/808390fa-776c-42e1-884f-9ed72954bbb7.png"></img>
+</div>
+
+“现在有房管了，小心权力狗”
+<div class="image-container">
+<img src="./img/55fa2eec-373b-4f09-a373-50768aaf048b.png"></img>
+</div>
+
+8.28 21:12 “七~”
+<div class="image-container">
+<img src="./img/5c4bb9a6-0549-4ba3-a69b-f667af4e1619.png"></img>
+</div>
+
+8.28 21:13 “这是字么”
+<div class="image-container">
+<img src="./img/cd5caa8f-c589-4bf6-83f7-6f4d0e7651a2.png"></img>
+</div>
+
+8.28 21:15 出恭
+
+8.28 21:16 我在出恭比赛中取得了1分钟的好成绩，你也来试试吧！
+
+8.28 21:20 锐评 “这个七，要是匕首的匕那是合理的”
+<div class="image-container">
+<img src="./img/bfa7ae68-5e42-4418-a290-eb7f5b4d35e6.png"></img>
+</div>
+
+8.28 21:24 弹幕建议开提示，“唉我就~不，我偏不”
+
+8.28 21:28 现场修改题目 “落叶子大神的粉丝不要打我啊”
+<div class="image-container">
+<img src="./img/9271f1c7-5884-43cd-ba87-3b61fef6e4d3.jpg"></img>
+<img src="./img/98c9fe5e-5b64-4f47-885e-8c719128f0b5.png"></img>
+</div>
+
+> “焦心”
+
+8.28 21:35 红葡萄酒“这部不就看出来了”（
+<div class="image-container">
+<img src="./img/ca4a769b-43a4-409c-b58d-c024504b6108.png"></img>
+</div>
+
+8.28 21:40 七大造字“这是字吗”
+<div class="image-container">
+<img src="./img/fc2dff1c-3a04-4925-b6c9-fe5cf2efaf0e.png"></img>
+</div>
+
+8.28 21:40 开始 “三点水加一个来去的来是涞水的涞，三点水加一个去是什么字呢？”
+<div class="image-container">
+<img src="./img/d189bf02-534d-4f54-8958-910dd5ffadc3.jpg"></img>
+</div>
+
+8.28 21:43 “心分之十”
+<div class="image-container">
+<img src="./img/2e8ea614-d704-4ce3-9bee-99e89491232f.jpg"></img>
+</div>
+
+8.28 21:48 心口不一
+<div class="image-container">
+<img src="./img/d88d86b5-eb79-4f1d-8891-8845cd27a84b.jpg"></img>
+</div>
+
+8.28 21:50 “还得是靠弹幕啊”“房管呢，把他封了，把这个24级的封了，把他杀了，难受死他”
+
+> 古有卸磨杀驴 今有七封弹幕
+
+8.28 21:53 琵琶的？瑟？
+<div class="image-container">
+<img src="./img/60ca97f4-2ce9-430c-a01a-31e98e5b9261.jpg"></img>
+<img src="./img/cd7aea38-e5b5-43de-9d34-03cec30c80ec.jpg"></img>
+</div>
+
+8.28 21:55 “来，房管把这个房管给封了”
+
+8.28 21:59 完成「叶子戏」-❤️，继续「三字谜」

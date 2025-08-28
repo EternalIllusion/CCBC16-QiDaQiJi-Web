@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>重要讲话</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 ,user-scalable=no">
+    <meta name="description" content="密码吧吧主七大所发表的重要讲话 - 密码吧吧主七大直播挑战CCBC16纪实">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <style>
+        body { margin: 0; font-family: "微软雅黑", Arial, sans-serif; background: #f7f7f7; }
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            background: url('./img/anno.png') center center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        .navbar {
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            height: 60px;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 30px;
+            font-size: 18px;
+            transition: color 0.2s;
+        }
+        .navbar a:hover {
+            color: #ffd700;
+        }
+        .title {
+            position: absolute;
+            left: 40px;
+            bottom: 80px;
+            color: #fff;
+            font-size: 48px;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+        }
+        .content {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        @media (max-width: 600px) {
+            .banner { height: 180px; }
+            .title { font-size: 28px; left: 16px; bottom: 40px; }
+            .navbar { padding: 0 10px; height: 44px; }
+            .navbar a { font-size: 15px; margin-right: 16px; }
+            .content { padding: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <!--div class="title">重要讲话</div--><a href="./index.html" target="_blank" rel="noopener noreferrer">七大歧记</a>|<a href="./said.html" target="_blank" rel="noopener noreferrer">《七大云》</a>|<a href="./anno.html" target="_blank" rel="noopener noreferrer">重要讲话</a>|<a href="./hist.html" target="_blank" rel="noopener noreferrer">更新历史</a>
+        </div>
+        
+    </div>
+    <div class="content">
+        ${__node_markdown_content__}
+    </div>
+</body>
+</html>
