@@ -2,8 +2,15 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>歌词展示页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 ,user-scalable=no">
+    <title>七大歧记</title>
+    <link rel="preload" href="https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002/result.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!--<link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002/result.css" media="print" onload="this.media='all'; this.onload=null;">-->
+    <noscript>
+        <link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002/result.css">
+    </noscript>
+    <meta name="description" content="七大歧记 - 七大直播挑战CCBC16纪实">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <style>
         body {
             margin: 0;
@@ -12,30 +19,34 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #ffffff; /* 白色背景 */
+            background-color: #ffffff;
             overflow: hidden;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #000000; /* 黑色文字 */
+            color: #000;
+        }
+        
+        body * {
+            font-family:'KingHwa_OldSong';
+            font-weight:'400';
+            transition: all ease .3s;
         }
 
-        #lyrics-container {
+        #items-container {
             width: 100%;
             height: 100%;
             overflow: hidden;
             position: relative;
         }
 
-        #lyrics-list {
+        #items-list {
             list-style: none;
             padding: 0;
             margin: 0;
-            /* 添加一些内边距，防止首尾歌词紧贴边缘 */
             padding-top: 50px;
             padding-bottom: 50px;
         }
 
-        #lyrics-list li {
-            /* 高度自适应内容 */
+        #items-list li {
             min-height: 60px;
             display: flex;
             align-items: center;
@@ -44,7 +55,7 @@
             transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
             opacity: 0.5;
             transform: scale(0.95);
-            color: #555;
+            color: #bbb;
             white-space: normal;
             word-wrap: break-word;
             padding: 15px 20px;
@@ -53,8 +64,7 @@
 
         }
         
-            /* 让#lyrics-list li中的嵌套内容也居中 */
-        #lyrics-list li .embd-list, #lyrics-list li .embd-li {
+        #items-list li .embd-list, #items-list li .embd-li {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -62,84 +72,156 @@
             text-align: center;
         }
 
-        #lyrics-list li.active {
+        #items-list li.active {
             opacity: 1;
             transform: scale(1);
-            color: #000;
+            color: #666;
             font-weight: bold;
         }
 
-        /* 嵌套列表转换后的样式 */
         .embd-list {
             margin: 10px 0;
             padding: 5px 10px;
-            border-left: 2px solid #ccc;
-            text-align: left; /* 嵌套内容左对齐 */
-            /* 继承父元素的宽度 */
+            text-align: left; 
             width: 100%;
         }
 
         p.embd-li {
             margin: 5px 0;
-            font-size: 0.9em;
-            color: #666;
+            font-size: 1.5em;
+            color: #000;
         }
 
-        /* 为嵌入内容提供基本样式 */
-        #lyrics-list li img {
+        #items-list li img {
             max-height: 50px;
             vertical-align: middle;
             margin: 0 5px;
         }
 
-        #lyrics-list li video {
+        #items-list li video {
             max-height: 50px;
             vertical-align: middle;
             margin: 0 5px;
         }
 
         /* 切换按钮样式 */
+
+        .load-anim {
+            font-size: 10px;
+            margin: auto auto;
+            text-indent: -9999em;
+            width: 1rem !important;
+            height: 1rem !important;
+            border-radius: 50%;
+            background: #F1C40F;
+            background: linear-gradient(to right, #F1C40F 10%, rgba(255, 255, 255, 0) 42%);
+            position: relative;
+            animation: loadanim 1.4s infinite linear;
+            -webkit-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+        .load-anim:before {
+            width: 50%;
+            height: 50%;
+            background: #F1C40F;
+            border-radius: 100% 0 0 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+        }
+        .load-anim:after {
+            background: #D35400;
+            width: 75%;
+            height: 75%;
+            border-radius: 50%;
+            content: '';
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+        @-webkit-keyframes loadanim {
+        0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+        }
+        @keyframes loadanim {
+        0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+        }
         #toggle-button {
+            display: flex;
             position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 15px;
-            background-color: #4CAF50; /* 手动模式绿色 */
+            top: 2rem;
+            right: 2rem;
+            padding: .5rem 1rem;
+            height: 2.5rem;
+            background-color: #D35400;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 1.25rem;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 1rem;
             z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            align-items: center;
+            justify-content: center;
         }
-
+        /*
         #toggle-button:hover {
             background-color: #45a049;
         }
-
-        #toggle-button.auto {
-            background-color: #2196F3; /* 自动模式蓝色 */
+        */
+        .auto-man {
+            display: inline;
         }
 
-        #toggle-button.auto:hover {
-            background-color: #1976D2;
+        .auto-auto, .load-anim {
+            display: none;
         }
 
-        /* 回到开头按钮样式 */
+        #toggle-button.auto .auto-auto, #toggle-button.auto .load-anim {
+            display: inline-block !important;
+        }
+
+        #toggle-button.auto .auto-man{
+            display: none !important;
+        }
+
+        #toggle-button:hover {
+            color: #F1C40F;
+        }
+
         #reset-button {
+            display: flex;
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 10px 15px;
-            background-color: #FF9800; /* 橙色 */
+            bottom: 2rem;
+            right: 2rem;
+            padding: .5rem 1rem;
+            height: 2.5rem;
+            background-color: #FF4343;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 1.25rem;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 1rem;
             z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            align-items: center;
+            justify-content: center;
         }
 
         #reset-button:hover {
@@ -148,14 +230,14 @@
     </style>
 </head>
 <body>
-    <button id="toggle-button" class="auto">切换到手动</button>
+    <button id="toggle-button" class="auto"><div class="load-anim"></div><span class="auto-man">手动</span><span class="auto-auto">自动</span></button>
     <button id="reset-button">回到开头</button>
-    <div id="lyrics-container">
-        <ul id="lyrics-list"></ul>
+    <div id="items-container">
+        <ul id="items-list"></ul>
     </div>
 
     <script>
-        const lyricsString = `<html><head></head><body><ul>
+        const itemsString = `<html><head></head><body><ul>
 <li><p>场次一</p>
 </li>
 <li><p>七曰：“有种自己和自己对话的感觉”</p>
@@ -1037,18 +1119,18 @@
         }
 
 
-        const transformedBody = transformNestedUlLi(lyricsString);
+        const transformedBody = transformNestedUlLi(itemsString);
         const processedUl = transformedBody.querySelector('ul');
         
-        const lyricsList = document.getElementById('lyrics-list');
+        const itemsList = document.getElementById('items-list');
         if (processedUl) {
             while (processedUl.firstChild) {
-                lyricsList.appendChild(processedUl.firstChild);
+                itemsList.appendChild(processedUl.firstChild);
             }
         }
 
-        const lyricsItems = document.querySelectorAll('#lyrics-list li');
-        const container = document.getElementById('lyrics-container');
+        const itemsItems = document.querySelectorAll('#items-list li');
+        const container = document.getElementById('items-container');
         const toggleButton = document.getElementById('toggle-button');
         const resetButton = document.getElementById('reset-button');
         
@@ -1056,18 +1138,35 @@
         let isAutoScroll = true;
         let autoScrollInterval;
 
+        // 给列表项添加点击事件，允许用户点击某一行歌词直接跳转
+        itemsItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                stopAutoScroll();
+                currentIndex = index;
+                updateActiveItem();
+            });
+        });
+
         function updateActiveItem() {
-            lyricsItems.forEach((item, index) => {
+            itemsItems.forEach((item, index) => {
                 if (index === currentIndex) {
                     item.classList.add('active');
                 } else {
                     item.classList.remove('active');
                 }
             });
-
-            if (lyricsItems[currentIndex]) {
+            try {
+                if (currentIndex !== 0) {
+                    document.getElementById('reset-button').style.display = 'flex';
+                }else {
+                    document.getElementById('reset-button').style.display = 'none';
+                }
+            } catch (e) {
+                console.error('reset btn error:', e);
+            }
+            if (itemsItems[currentIndex]) {
                 const containerRect = container.getBoundingClientRect();
-                const activeItemRect = lyricsItems[currentIndex].getBoundingClientRect();
+                const activeItemRect = itemsItems[currentIndex].getBoundingClientRect();
                 
                 const scrollAmount = activeItemRect.top - containerRect.top + container.scrollTop - (containerRect.height / 2) + (activeItemRect.height / 2);
                 
@@ -1085,7 +1184,6 @@
             }
             if (isAutoScroll) {
                 isAutoScroll = false;
-                toggleButton.textContent = '切换到自动';
                 toggleButton.classList.remove('auto');
             }
         }
@@ -1094,11 +1192,10 @@
             stopAutoScroll();
             
             isAutoScroll = true;
-            toggleButton.textContent = '切换到手动';
             toggleButton.classList.add('auto');
             
             autoScrollInterval = setInterval(() => {
-                if (currentIndex < lyricsItems.length - 1) {
+                if (currentIndex < itemsItems.length - 1) {
                     currentIndex++;
                     updateActiveItem();
                 } else {
@@ -1108,26 +1205,14 @@
         }
 
         function toggleScrollMode() {
-            stopAutoScroll();
+            console.log('Toggle button clicked. Current mode:', isAutoScroll ? 'Auto' : 'Manual');
             
             if (!isAutoScroll) {
-                if (currentIndex < lyricsItems.length - 1) {
+                if (currentIndex < itemsItems.length - 1) {
                     startAutoScroll();
                 }
             } else {
-            }
-        }
-
-        function handleManualScroll(event) {
-            stopAutoScroll();
-            
-            event.preventDefault();
-            if (event.deltaY > 0 && currentIndex < lyricsItems.length - 1) {
-                currentIndex++;
-                updateActiveItem();
-            } else if (event.deltaY < 0 && currentIndex > 0) {
-                currentIndex--;
-                updateActiveItem();
+                stopAutoScroll();
             }
         }
 
@@ -1137,15 +1222,11 @@
             updateActiveItem();
         }
 
-        toggleButton.addEventListener('click', toggleScrollMode);
-        container.addEventListener('wheel', handleManualScroll);
-        resetButton.addEventListener('click', resetToStart);
-
         let touchStartY = 0;
         let touchEndY = 0;
         let isScrolling = false;
-        const touchThreshold = 30;
-        const preventDefault = (e) => e.preventDefault();
+        const touchThreshold = 15;
+        const sensitivity = 0.3;
 
         function handleTouchStart(event) {
             stopAutoScroll();
@@ -1158,10 +1239,9 @@
             touchEndY = event.touches[0].clientY;
             const deltaY = touchStartY - touchEndY;
             
-            if (Math.abs(deltaY) > 10) {
+            if (Math.abs(deltaY) > touchThreshold) {
                 isScrolling = true;
             }
-            
             if (isScrolling) {
                 event.preventDefault();
             }
@@ -1171,23 +1251,65 @@
             if (!isScrolling) return;
             
             const deltaY = touchStartY - touchEndY;
+            const absDeltaY = Math.abs(deltaY);
             
-            if (Math.abs(deltaY) > touchThreshold) {
-                if (deltaY > 0 && currentIndex < lyricsItems.length - 1) {
-                    currentIndex++;
-                    updateActiveItem();
-                } else if (deltaY < 0 && currentIndex > 0) {
-                    currentIndex--;
-                    updateActiveItem();
-                }
+            let rowsToScroll = 1;
+            
+
+            if (absDeltaY > 325) {
+                rowsToScroll = 5; 
+            } else if (absDeltaY > 250) {
+                rowsToScroll = 4; 
+            } else if (absDeltaY > 175) {
+                rowsToScroll = 3; 
+            } else if (absDeltaY > 100) {
+                rowsToScroll = 2; 
+            }
+
+            let newIndex = currentIndex;
+            if (deltaY > 0) {
+                newIndex = Math.min(currentIndex + rowsToScroll, itemsItems.length - 1);
+            } else {
+                newIndex = Math.max(currentIndex - rowsToScroll, 0);
+            }
+            
+            if (newIndex !== currentIndex) {
+                currentIndex = newIndex;
+                updateActiveItem();
             }
         }
 
+        function handleManualScroll(event) {
+            stopAutoScroll();
+            event.preventDefault();
+            
+            const delta = event.deltaY;
+            let rowsToScroll = 1;
+            
+            if (Math.abs(delta) > 150) {
+                rowsToScroll = 3;
+            } else if (Math.abs(delta) > 100) {
+                rowsToScroll = 2;
+            }
+            
+            if (delta > 0 && currentIndex < itemsItems.length - 1) {
+                currentIndex = Math.min(currentIndex + rowsToScroll, itemsItems.length - 1);
+                updateActiveItem();
+            } else if (delta < 0 && currentIndex > 0) {
+                currentIndex = Math.max(currentIndex - rowsToScroll, 0);
+                updateActiveItem();
+            }
+        }
+
+        toggleButton.addEventListener('click', toggleScrollMode);
+        container.addEventListener('wheel', handleManualScroll, { passive: false });
         container.addEventListener('touchstart', handleTouchStart, { passive: false });
         container.addEventListener('touchmove', handleTouchMove, { passive: false });
         container.addEventListener('touchend', handleTouchEnd);
-        updateActiveItem();
-        //setTimeout(startAutoScroll, 1000);
+        resetButton.addEventListener('click', resetToStart);
+
+        resetToStart();
+        setTimeout(startAutoScroll, 1000);
     </script>
 </body>
 </html>
