@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歌词展示页面</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff; /* 白色背景 */
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #000000; /* 黑色文字 */
+        }
+
+        #lyrics-container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #lyrics-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            /* 添加一些内边距，防止首尾歌词紧贴边缘 */
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        #lyrics-list li {
+            /* 高度自适应内容 */
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+            opacity: 0.5;
+            transform: scale(0.95);
+            color: #555;
+            white-space: normal;
+            word-wrap: break-word;
+            padding: 15px 20px;
+            box-sizing: border-box;
+            flex-direction: column;
+
+        }
+        
+            /* 让#lyrics-list li中的嵌套内容也居中 */
+        #lyrics-list li .embd-list, #lyrics-list li .embd-li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #lyrics-list li.active {
+            opacity: 1;
+            transform: scale(1);
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* 嵌套列表转换后的样式 */
+        .embd-list {
+            margin: 10px 0;
+            padding: 5px 10px;
+            border-left: 2px solid #ccc;
+            text-align: left; /* 嵌套内容左对齐 */
+            /* 继承父元素的宽度 */
+            width: 100%;
+        }
+
+        p.embd-li {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* 为嵌入内容提供基本样式 */
+        #lyrics-list li img {
+            max-height: 50px;
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+
+        #lyrics-list li video {
+            max-height: 50px;
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+
+        /* 切换按钮样式 */
+        #toggle-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #4CAF50; /* 手动模式绿色 */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        #toggle-button:hover {
+            background-color: #45a049;
+        }
+
+        #toggle-button.auto {
+            background-color: #2196F3; /* 自动模式蓝色 */
+        }
+
+        #toggle-button.auto:hover {
+            background-color: #1976D2;
+        }
+
+        /* 回到开头按钮样式 */
+        #reset-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #FF9800; /* 橙色 */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        #reset-button:hover {
+            background-color: #F57C00;
+        }
+    </style>
+</head>
+<body>
+    <button id="toggle-button" class="auto">切换到手动</button>
+    <button id="reset-button">回到开头</button>
+    <div id="lyrics-container">
+        <ul id="lyrics-list"></ul>
+    </div>
+
+    <script>
+        const lyricsString = `${__node_markdown_content__}`;
+
+        function transformNestedUlLi(htmlString) {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(htmlString, 'text/html');
+
+          function processNode(node) {
+            if (!node.children) return;
+
+            const children = [...node.children];
+
+            for (const child of children) {
+              if (child.tagName === 'UL' || child.tagName === 'OL') {
+                if (child.parentNode && child.parentNode.tagName === 'LI') {
+                  //console.log('Replacing nested UL/OL inside LI:', child.outerHTML);
+                  const div = doc.createElement('div');
+                  div.className = 'embd-list';
+                  // 复制属性
+                  // for (const attr of child.attributes) {
+                  //   div.setAttribute(attr.name, attr.value);
+                  // }
+                  while (child.firstChild) {
+                    div.appendChild(child.firstChild);
+                  }
+                  child.parentNode.replaceChild(div, child);
+                  processNode(div);
+                } else {
+                  processNode(child);
+                }
+              } else if (child.tagName === 'LI') {
+                if (child.parentNode && (child.parentNode.tagName === 'DIV' && child.parentNode.classList.contains('embd-list'))) {
+                  //console.log('Replacing nested LI inside DIV:', child.outerHTML);
+                  const p = doc.createElement('p');
+                  p.className = 'embd-li';
+                  while (child.firstChild) {
+                    p.appendChild(child.firstChild);
+                  }
+                  child.parentNode.replaceChild(p, child);
+                  processNode(p);
+                } else {
+                  processNode(child);
+                }
+              } else {
+                processNode(child);
+              }
+            }
+          }
+
+          processNode(doc.body);
+          return doc.body;
+        }
+
+
+        const transformedBody = transformNestedUlLi(lyricsString);
+        const processedUl = transformedBody.querySelector('ul');
+        
+        const lyricsList = document.getElementById('lyrics-list');
+        if (processedUl) {
+            while (processedUl.firstChild) {
+                lyricsList.appendChild(processedUl.firstChild);
+            }
+        }
+
+        const lyricsItems = document.querySelectorAll('#lyrics-list li');
+        const container = document.getElementById('lyrics-container');
+        const toggleButton = document.getElementById('toggle-button');
+        const resetButton = document.getElementById('reset-button');
+        
+        let currentIndex = 0;
+        let isAutoScroll = true;
+        let autoScrollInterval;
+
+        function updateActiveItem() {
+            lyricsItems.forEach((item, index) => {
+                if (index === currentIndex) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+
+            if (lyricsItems[currentIndex]) {
+                const containerRect = container.getBoundingClientRect();
+                const activeItemRect = lyricsItems[currentIndex].getBoundingClientRect();
+                
+                const scrollAmount = activeItemRect.top - containerRect.top + container.scrollTop - (containerRect.height / 2) + (activeItemRect.height / 2);
+                
+                container.scrollTo({
+                    top: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function stopAutoScroll() {
+            if (autoScrollInterval) {
+                clearInterval(autoScrollInterval);
+                autoScrollInterval = null;
+            }
+            if (isAutoScroll) {
+                isAutoScroll = false;
+                toggleButton.textContent = '切换到自动';
+                toggleButton.classList.remove('auto');
+            }
+        }
+
+        function startAutoScroll() {
+            stopAutoScroll();
+            
+            isAutoScroll = true;
+            toggleButton.textContent = '切换到手动';
+            toggleButton.classList.add('auto');
+            
+            autoScrollInterval = setInterval(() => {
+                if (currentIndex < lyricsItems.length - 1) {
+                    currentIndex++;
+                    updateActiveItem();
+                } else {
+                    stopAutoScroll();
+                }
+            }, 3000);
+        }
+
+        function toggleScrollMode() {
+            stopAutoScroll();
+            
+            if (!isAutoScroll) {
+                if (currentIndex < lyricsItems.length - 1) {
+                    startAutoScroll();
+                }
+            } else {
+            }
+        }
+
+        function handleManualScroll(event) {
+            stopAutoScroll();
+            
+            event.preventDefault();
+            if (event.deltaY > 0 && currentIndex < lyricsItems.length - 1) {
+                currentIndex++;
+                updateActiveItem();
+            } else if (event.deltaY < 0 && currentIndex > 0) {
+                currentIndex--;
+                updateActiveItem();
+            }
+        }
+
+        function resetToStart() {
+            stopAutoScroll();
+            currentIndex = 0;
+            updateActiveItem();
+        }
+
+        toggleButton.addEventListener('click', toggleScrollMode);
+        container.addEventListener('wheel', handleManualScroll);
+        resetButton.addEventListener('click', resetToStart);
+
+        let touchStartY = 0;
+        let touchEndY = 0;
+        let isScrolling = false;
+        const touchThreshold = 30;
+        const preventDefault = (e) => e.preventDefault();
+
+        function handleTouchStart(event) {
+            stopAutoScroll();
+            touchStartY = event.touches[0].clientY;
+            touchEndY = touchStartY;
+            isScrolling = false;
+        }
+
+        function handleTouchMove(event) {
+            touchEndY = event.touches[0].clientY;
+            const deltaY = touchStartY - touchEndY;
+            
+            if (Math.abs(deltaY) > 10) {
+                isScrolling = true;
+            }
+            
+            if (isScrolling) {
+                event.preventDefault();
+            }
+        }
+
+        function handleTouchEnd() {
+            if (!isScrolling) return;
+            
+            const deltaY = touchStartY - touchEndY;
+            
+            if (Math.abs(deltaY) > touchThreshold) {
+                if (deltaY > 0 && currentIndex < lyricsItems.length - 1) {
+                    currentIndex++;
+                    updateActiveItem();
+                } else if (deltaY < 0 && currentIndex > 0) {
+                    currentIndex--;
+                    updateActiveItem();
+                }
+            }
+        }
+
+        container.addEventListener('touchstart', handleTouchStart, { passive: false });
+        container.addEventListener('touchmove', handleTouchMove, { passive: false });
+        container.addEventListener('touchend', handleTouchEnd);
+        updateActiveItem();
+        setTimeout(startAutoScroll, 1000);
+    </script>
+</body>
+</html>
+
+
+

@@ -48,7 +48,7 @@ function convertMarkdownToHtml(markdownPath) {
 // 生成最终的 HTML 文件
 function generateHtmlFile(template, content, outputPath) {
     try {
-        const finalHtml = template.replace('${content}', content);
+        const finalHtml = template.replace('${__node_markdown_content__}', content);
         fs.writeFileSync(outputPath, finalHtml, 'utf8');
         console.log(`Generated: ${outputPath}`);
     } catch (error) {
