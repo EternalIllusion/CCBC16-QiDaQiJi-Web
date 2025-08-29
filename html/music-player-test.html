@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>音乐播放器 Web Component (带缓冲提示)</title>
+    <title>音乐播放器 Web Component (带实时进度条)</title>
     <style>
         .music-player-container {
             display: flex;
@@ -42,7 +42,46 @@
         .time-display {
             font-size: 14px;
             color: #666;
+            min-width: 80px; /* 确保时间显示区域宽度稳定 */
+            text-align: right;
         }
+
+        /* --- 新增进度条样式 --- */
+        .progress-container {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 5px;
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .progress-bar::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #1db954; /* Spotify 绿色，可自定义 */
+            cursor: pointer;
+        }
+
+        .progress-bar::-moz-range-thumb {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #1db954;
+            cursor: pointer;
+            border: none; /* 移除默认边框 */
+        }
+        /* ---------------------- */
+
 
         .lyrics-display {
             font-size: 16px;
@@ -54,10 +93,10 @@
 </head>
 <body>
 
-    <h2>自定义音频播放器示例 (带缓冲提示)</h2>
+    <h2>自定义音频播放器示例 (带实时进度条)</h2>
     <p>使用 <code>&lt;div is="music-player"&gt;</code> 标签创建播放器:</p>
 
-    <!-- 示例 1: 正常歌词 -->
+    <!-- 示例 1 -->
     <div is="music-player"
         src="./assets/rap.mp3"
         lyrics="[00:00.000-00:03.000]《淡黄又蓬松》
@@ -109,7 +148,7 @@
 
     <br><br>
 
-    <!-- 示例 2: 包含较长空白区间的歌词 -->
+    <!-- 示例 2 -->
     <div is="music-player"
         src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
         lyrics="[00:00.000-00:03.000]开始
@@ -121,11 +160,12 @@
             constructor() {
                 super();
                 this.isPlaying = false;
-                this.isLoading = true; // 初始状态设为加载中
-                this.hasPlayedOnce = false; // 新增：标记是否已经开始播放过
+                this.isLoading = true;
+                this.hasPlayedOnce = false;
                 this.audio = null;
                 this.lyrics = [];
                 this.lyricsElements = [];
+                this.isSeeking = false; // 新增：标记是否正在拖动进度条
             }
 
             connectedCallback() {
@@ -180,7 +220,46 @@
                         .time-display {
                             font-size: 14px;
                             color: #666;
+                            min-width: 80px;
+                            text-align: right;
                         }
+
+                        /* --- 新增进度条样式 --- */
+                        .progress-container {
+                            width: 100%;
+                            margin-bottom: 10px;
+                        }
+
+                        .progress-bar {
+                            width: 100%;
+                            height: .3rem;
+                            -webkit-appearance: none;
+                            appearance: none;
+                            background-color: #ddd;
+                            border-radius: .15rem;
+                            outline: none;
+                        }
+
+                        .progress-bar::-webkit-slider-thumb {
+                            -webkit-appearance: none;
+                            appearance: none;
+                            width: .75rem;
+                            height: .75rem;
+                            border-radius: 50%;
+                            background-color: #333;
+                            cursor: pointer;
+                        }
+
+                        .progress-bar::-moz-range-thumb {
+                            width: .75rem;
+                            height: .75rem;
+                            border-radius: 50%;
+                            background-color: #333;
+                            cursor: pointer;
+                            border: none;
+                        }
+                        /* ---------------------- */
+
 
                         .lyrics-display {
                             font-size: 16px;
@@ -194,6 +273,11 @@
                             <button class="play-btn loading">⏳</button>
                             <span class="time-display">0:00 / 0:00</span>
                         </div>
+                         <!-- --- 新增进度条 --- -->
+                        <div class="progress-container">
+                            <input type="range" class="progress-bar" min="0" max="100" value="0" step="0.1">
+                        </div>
+                        <!-- ------------------ -->
                         <div class="lyrics-display">加载中...</div>
                     </div>
                 `;
@@ -201,16 +285,18 @@
                 this.playButton = shadow.querySelector('.play-btn');
                 this.timeDisplay = shadow.querySelector('.time-display');
                 this.lyricsDisplay = shadow.querySelector('.lyrics-display');
+                // --- 获取进度条元素 ---
+                this.progressBar = shadow.querySelector('.progress-bar');
+                // -----------------------
 
                 this.audio = new Audio(src);
-                this.audio.preload = 'auto'; // 更积极地预加载
+                this.audio.preload = 'auto';
 
                 this.playButton.addEventListener('click', () => this.togglePlay());
                 this.audio.addEventListener('timeupdate', () => this.updateTimeAndLyrics());
                 this.audio.addEventListener('loadedmetadata', () => this.updateDuration());
                 this.audio.addEventListener('ended', () => this.onEnded());
 
-                // --- 初始加载相关事件 ---
                 this.audio.addEventListener('loadstart', () => {
                     this.isLoading = true;
                     this.updatePlayButton();
@@ -220,7 +306,6 @@
                 this.audio.addEventListener('canplay', () => {
                     this.isLoading = false;
                     this.updatePlayButton();
-                     // 加载完成后更新字幕区域
                     if (this.lyrics.length > 0) {
                          this.lyricsDisplay.textContent = "就绪";
                     } else {
@@ -235,31 +320,58 @@
                     console.error("音频加载失败:", e);
                     this.lyricsDisplay.textContent = "音频加载失败";
                 });
-                // --------------------------
 
-                // --- 中途缓冲相关事件 (新增) ---
+                // --- 中途缓冲相关事件 ---
                 this.audio.addEventListener('waiting', () => {
-                    // 只有在已经开始播放后，waiting 才代表缓冲暂停
                     if (this.hasPlayedOnce) {
                          console.log("音频因缓冲暂停...");
                          this.isLoading = true;
                          this.updatePlayButton();
-                         // 显示缓冲提示
                          this.lyricsDisplay.textContent = "缓冲中...";
                     }
                 });
 
                 this.audio.addEventListener('playing', () => {
-                     // playing 事件触发表示缓冲结束，开始/恢复播放
                      if(this.hasPlayedOnce && this.isLoading) {
                          console.log("缓冲结束，恢复播放...");
                          this.isLoading = false;
                          this.updatePlayButton();
-                         // 恢复字幕显示逻辑
-                         this.updateTimeAndLyrics(); // 立即更新一次字幕
+                         this.updateTimeAndLyrics();
                      }
                 });
-                // -------------------------------
+                // --------------------------
+
+                // --- 新增进度条事件监听 ---
+                // 当用户开始拖动滑块时
+                this.progressBar.addEventListener('mousedown', () => {
+                    this.isSeeking = true;
+                });
+                // 当用户在触摸屏上开始拖动滑块时 (移动端兼容)
+                this.progressBar.addEventListener('touchstart', () => {
+                    this.isSeeking = true;
+                }, { passive: true }); // passive 优化滚动性能
+
+                // 当用户拖动滑块时 (实时更新)
+                this.progressBar.addEventListener('input', (e) => {
+                    if (this.isSeeking && this.audio.duration) {
+                        const seekTime = (e.target.value / 100) * this.audio.duration;
+                        // 实时更新时间显示
+                        this.timeDisplay.textContent = `${this.formatTime(seekTime)} / ${this.totalTimeFormatted || '0:00'}`;
+                        // 注意：此时不设置 audio.currentTime，避免频繁跳转
+                    }
+                });
+
+                // 当用户停止拖动滑块时 (执行跳转)
+                this.progressBar.addEventListener('change', (e) => {
+                    this.isSeeking = false;
+                    if (this.audio.duration) {
+                        const seekTime = (e.target.value / 100) * this.audio.duration;
+                        this.audio.currentTime = seekTime;
+                        // 跳转后立即更新一次显示
+                        this.updateTimeAndLyrics();
+                    }
+                });
+                // ---------------------------
             }
 
             parseLyrics(lyricsString) {
@@ -291,16 +403,10 @@
             }
 
             async togglePlay() {
-                if (this.isLoading && this.hasPlayedOnce) {
-                    // 如果是中途缓冲导致的“加载中”，点击可能无效或需要特殊处理
-                    // 这里我们简单地忽略点击，或者可以尝试重新播放（但通常浏览器会自动处理）
-                    console.log("正在缓冲中，无法手动控制播放/暂停");
+                // 优化：在缓冲或初始加载时阻止操作
+                if ((this.isLoading && this.hasPlayedOnce) || (this.isLoading && !this.hasPlayedOnce)) {
+                    console.log("音频正在加载/缓冲中，无法操作");
                     return;
-                }
-
-                if (this.isLoading && !this.hasPlayedOnce) {
-                     // 初始加载时点击，通常不需要特殊处理，等待 canplay
-                     console.log("初始加载中，等待就绪...");
                 }
 
                 if (this.isPlaying) {
@@ -308,7 +414,6 @@
                 } else {
                     try {
                         await this.audio.play();
-                        // 成功播放后，标记为已播放过
                         this.hasPlayedOnce = true;
                     } catch (error) {
                         if (error.name === 'NotAllowedError') {
@@ -321,26 +426,25 @@
                     }
                 }
                 this.isPlaying = !this.isPlaying;
-                // 注意：在 waiting/playing 事件中已经处理了 isLoading 和按钮状态
-                // 这里只更新 isPlaying 状态，除非是初始播放或手动暂停
-                if(!this.audio.seeking) { // 避免与 waiting/playing 冲突
-                     this.updatePlayButton();
-                }
+                this.updatePlayButton();
             }
 
             updatePlayButton() {
                 if (this.isLoading) {
-                    this.playButton.textContent = '⏳';
+                    this.playButton.textContent = '⧗';
                     this.playButton.classList.add('loading');
                 } else {
-                    this.playButton.textContent = this.isPlaying ? '⏸️' : '▶️';
+                    this.playButton.textContent = this.isPlaying ? '⏸' : '⯈';
                     this.playButton.classList.remove('loading');
                 }
             }
 
             formatTime(seconds) {
-                const mins = Math.floor(seconds / 60);
-                const secs = Math.floor(seconds % 60);
+                // 确保输入是数字且非负
+                seconds = Math.max(0, seconds || 0);
+                const totalSeconds = Math.floor(seconds);
+                const mins = Math.floor(totalSeconds / 60);
+                const secs = totalSeconds % 60;
                 return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
             }
 
@@ -348,13 +452,29 @@
                 const duration = this.audio.duration || 0;
                 this.totalTimeFormatted = this.formatTime(duration);
                 this.timeDisplay.textContent = `0:00 / ${this.totalTimeFormatted}`;
+                // 设置进度条的最大值（虽然默认是100，但明确一下）
+                this.progressBar.max = 100;
             }
 
             updateTimeAndLyrics() {
                 const currentTime = this.audio.currentTime;
                 const duration = this.audio.duration || 0;
                 const totalTimeFormatted = this.totalTimeFormatted || this.formatTime(duration);
-                this.timeDisplay.textContent = `${this.formatTime(currentTime)} / ${totalTimeFormatted}`;
+
+                // --- 更新进度条 ---
+                // 只有在用户没有拖动时才更新进度条，避免冲突
+                if (!this.isSeeking && duration > 0) {
+                    const progressPercent = (currentTime / duration) * 100;
+                    this.progressBar.value = progressPercent;
+                }
+                // ------------------
+
+                // --- 更新时间显示 ---
+                // 同样，只有在用户没有拖动时才更新时间，否则保留拖动时的实时时间
+                if (!this.isSeeking) {
+                   this.timeDisplay.textContent = `${this.formatTime(currentTime)} / ${totalTimeFormatted}`;
+                }
+                // --------------------
 
                 // 处理字幕空白区间
                 if (!this.isLoading && this.lyrics.length > 0) {
@@ -367,15 +487,14 @@
                     }
                     this.lyricsDisplay.textContent = currentLyricText;
                 }
-                 // 如果 isLoading 为 true (初始加载或缓冲中)，则不更新歌词显示，
-                 // 保持 "加载中..." 或 "缓冲中..." 状态
             }
 
             onEnded() {
                 this.isPlaying = false;
-                // this.isLoading = false; // ended 时通常不需要特别设为 false，但可以确保
                 this.updatePlayButton();
                 this.timeDisplay.textContent = `0:00 / ${this.totalTimeFormatted || '0:00'}`;
+                // 重置进度条
+                this.progressBar.value = 0;
                 this.lyricsDisplay.textContent = "播放结束";
             }
 

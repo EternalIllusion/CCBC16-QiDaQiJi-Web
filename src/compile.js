@@ -60,7 +60,12 @@ function readTemplate(templatePath) {
 function convertMarkdownToHtml(markdownPath) {
   try {
     const markdownContent = fs.readFileSync(markdownPath, 'utf8');
-    return addLazyLoading(marked.parse(markdownContent)); // 使用自定义 renderer
+    // 使用 remark / unified 或正则替换
+    htmlOutput = markdownContent.replace(/::: music-player[\s\S]+?:::/g, (match) => {
+      const { src, lyrics } = parseMetadata(match);
+      return `<div is="music-player" src="${src}" lyrics='${escapeHtmlAttr(lyrics)}'></div>`;
+    });
+    return addLazyLoading(marked.parse(htmlOutput)); // 使用自定义 renderer
   } catch (error) {
     console.error(`Error reading or converting Markdown file: ${markdownPath}`, error);
     return null;

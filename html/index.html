@@ -40,6 +40,9 @@
             transition: all ease .3s;
         }
 
+        div[is="music-player"] {
+            display: flex;
+        }
         code {
             color: #45301cbb;
         }
@@ -1093,9 +1096,12 @@ tocList.addEventListener('click', function (event) {
             constructor() {
                 super();
                 this.isPlaying = false;
+                this.isLoading = true;
+                this.hasPlayedOnce = false;
                 this.audio = null;
                 this.lyrics = [];
                 this.lyricsElements = [];
+                this.isSeeking = false; // 新增：标记是否正在拖动进度条
             }
 
             connectedCallback() {
@@ -1113,17 +1119,18 @@ tocList.addEventListener('click', function (event) {
 
                 shadow.innerHTML = `
                     <style>
-                        .music-player-container {
+                       .music-player-container {
                             display: flex;
                             flex-direction: column;
                             align-items: center;
                             justify-content: center;
-                            width: 300px;
-                            padding: 15px;
+                            width: 100%;
+                            padding: .5rem;
                             border: 1px solid #ccc;
-                            border-radius: 8px;
+                            border-radius: .5rem;
                             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
                             font-family: Arial, sans-serif;
+                            background: #ffffff44;
                         }
 
                         .controls {
@@ -1131,7 +1138,7 @@ tocList.addEventListener('click', function (event) {
                             align-items: center;
                             justify-content: space-between;
                             width: 100%;
-                            margin-bottom: 10px;
+                            margin-bottom: .25rem;
                         }
 
                         .play-btn {
@@ -1139,48 +1146,177 @@ tocList.addEventListener('click', function (event) {
                             border: none;
                             font-size: 24px;
                             cursor: pointer;
-                            padding: 5px;
+                            padding: .25rem;
+                        }
+
+                        .play-btn.loading {
+                             opacity: 0.5;
+                             cursor: wait;
                         }
 
                         .time-display {
                             font-size: 14px;
                             color: #666;
+                            min-width: 80px;
+                            text-align: right;
                         }
+
+                        /* --- 新增进度条样式 --- */
+                        .progress-container {
+                            width: 100%;
+                            margin-bottom: .25rem;
+                            display: flex;
+                        }
+
+                        .progress-bar {
+                            width: 100%;
+                            height: .3rem;
+                            -webkit-appearance: none;
+                            appearance: none;
+                            background-color: #ddd;
+                            border-radius: .15rem;
+                            outline: none;
+                        }
+
+                        .progress-bar::-webkit-slider-thumb {
+                            -webkit-appearance: none;
+                            appearance: none;
+                            width: .75rem;
+                            height: .75rem;
+                            border-radius: 50%;
+                            background-color: #333;
+                            cursor: pointer;
+                        }
+
+                        .progress-bar::-moz-range-thumb {
+                            width: .75rem;
+                            height: .75rem;
+                            border-radius: 50%;
+                            background-color: #333;
+                            cursor: pointer;
+                            border: none;
+                        }
+                        /* ---------------------- */
+
 
                         .lyrics-display {
                             font-size: 16px;
                             text-align: center;
-                            min-height: 24px; /* 保证高度稳定 */
+                            min-height: 24px;
+                            transition: opacity 0.2s ease-in-out;
                         }
                     </style>
                     <div class="music-player-container">
                         <div class="controls">
-                            <button class="play-btn">▶️</button>
+                            <button class="play-btn loading">⧗</button>
                             <span class="time-display">0:00 / 0:00</span>
                         </div>
-                        <div class="lyrics-display">未在播放</div>
+                         <!-- --- 新增进度条 --- -->
+                        <div class="progress-container">
+                            <input type="range" class="progress-bar" min="0" max="100" value="0" step="0.1">
+                        </div>
+                        <!-- ------------------ -->
+                        <div class="lyrics-display">加载中...</div>
                     </div>
                 `;
 
                 this.playButton = shadow.querySelector('.play-btn');
                 this.timeDisplay = shadow.querySelector('.time-display');
                 this.lyricsDisplay = shadow.querySelector('.lyrics-display');
+                // --- 获取进度条元素 ---
+                this.progressBar = shadow.querySelector('.progress-bar');
+                // -----------------------
 
-                // 创建 Audio 对象
                 this.audio = new Audio(src);
-                this.audio.preload = 'metadata'; // 预加载元数据以获取时长
+                this.audio.preload = 'auto';
 
                 this.playButton.addEventListener('click', () => this.togglePlay());
                 this.audio.addEventListener('timeupdate', () => this.updateTimeAndLyrics());
                 this.audio.addEventListener('loadedmetadata', () => this.updateDuration());
                 this.audio.addEventListener('ended', () => this.onEnded());
+
+                this.audio.addEventListener('loadstart', () => {
+                    this.isLoading = true;
+                    this.updatePlayButton();
+                    this.lyricsDisplay.textContent = "加载中...";
+                });
+
+                this.audio.addEventListener('canplay', () => {
+                    this.isLoading = false;
+                    this.updatePlayButton();
+                    if (this.lyrics.length > 0) {
+                         this.lyricsDisplay.textContent = "就绪";
+                    } else {
+                         this.lyricsDisplay.textContent = "就绪";
+                    }
+                });
+
+                this.audio.addEventListener('error', (e) => {
+                    this.isLoading = false;
+                    this.isPlaying = false;
+                    this.updatePlayButton();
+                    console.error("音频加载失败:", e);
+                    this.lyricsDisplay.textContent = "音频加载失败";
+                });
+
+                // --- 中途缓冲相关事件 ---
+                this.audio.addEventListener('waiting', () => {
+                    if (this.hasPlayedOnce) {
+                         console.log("音频因缓冲暂停...");
+                         this.isLoading = true;
+                         this.updatePlayButton();
+                         this.lyricsDisplay.textContent = "缓冲中...";
+                    }
+                });
+
+                this.audio.addEventListener('playing', () => {
+                     if(this.hasPlayedOnce && this.isLoading) {
+                         console.log("缓冲结束，恢复播放...");
+                         this.isLoading = false;
+                         this.updatePlayButton();
+                         this.updateTimeAndLyrics();
+                     }
+                });
+                // --------------------------
+
+                // --- 新增进度条事件监听 ---
+                // 当用户开始拖动滑块时
+                this.progressBar.addEventListener('mousedown', () => {
+                    this.isSeeking = true;
+                });
+                // 当用户在触摸屏上开始拖动滑块时 (移动端兼容)
+                this.progressBar.addEventListener('touchstart', () => {
+                    this.isSeeking = true;
+                }, { passive: true }); // passive 优化滚动性能
+
+                // 当用户拖动滑块时 (实时更新)
+                this.progressBar.addEventListener('input', (e) => {
+                    if (this.isSeeking && this.audio.duration) {
+                        const seekTime = (e.target.value / 100) * this.audio.duration;
+                        // 实时更新时间显示
+                        this.timeDisplay.textContent = `${this.formatTime(seekTime)} / ${this.totalTimeFormatted || '0:00'}`;
+                        // 注意：此时不设置 audio.currentTime，避免频繁跳转
+                    }
+                });
+
+                // 当用户停止拖动滑块时 (执行跳转)
+                this.progressBar.addEventListener('change', (e) => {
+                    this.isSeeking = false;
+                    if (this.audio.duration) {
+                        const seekTime = (e.target.value / 100) * this.audio.duration;
+                        this.audio.currentTime = seekTime;
+                        // 跳转后立即更新一次显示
+                        this.updateTimeAndLyrics();
+                    }
+                });
+                // ---------------------------
             }
 
             parseLyrics(lyricsString) {
                 this.lyrics = [];
                 if (!lyricsString) return;
 
-                const lines = lyricsString.split('\n');
+                const lines = lyricsString.split('￥');
                 const timeRegex = /^\[(\d{2}):(\d{2})\.(\d{3})-(\d{2}):(\d{2})\.(\d{3})\]/;
 
                 lines.forEach(line => {
@@ -1201,27 +1337,52 @@ tocList.addEventListener('click', function (event) {
                     }
                 });
 
-                // 按开始时间排序
                 this.lyrics.sort((a, b) => a.startTime - b.startTime);
             }
 
-            togglePlay() {
+            async togglePlay() {
+                // 优化：在缓冲或初始加载时阻止操作
+                if ((this.isLoading && this.hasPlayedOnce) || (this.isLoading && !this.hasPlayedOnce)) {
+                    console.log("音频正在加载/缓冲中，无法操作");
+                    return;
+                }
+
                 if (this.isPlaying) {
                     this.audio.pause();
                 } else {
-                    this.audio.play();
+                    try {
+                        await this.audio.play();
+                        this.hasPlayedOnce = true;
+                    } catch (error) {
+                        if (error.name === 'NotAllowedError') {
+                            console.warn("播放被阻止，可能需要用户交互。");
+                            this.lyricsDisplay.textContent = "请点击按钮开始播放";
+                        } else {
+                            console.error("播放失败:", error);
+                        }
+                        return;
+                    }
                 }
                 this.isPlaying = !this.isPlaying;
                 this.updatePlayButton();
             }
 
             updatePlayButton() {
-                this.playButton.textContent = this.isPlaying ? '⏸️' : '▶️';
+                if (this.isLoading) {
+                    this.playButton.textContent = '⧗';
+                    this.playButton.classList.add('loading');
+                } else {
+                    this.playButton.textContent = this.isPlaying ? '⏸' : '⯈';
+                    this.playButton.classList.remove('loading');
+                }
             }
 
             formatTime(seconds) {
-                const mins = Math.floor(seconds / 60);
-                const secs = Math.floor(seconds % 60);
+                // 确保输入是数字且非负
+                seconds = Math.max(0, seconds || 0);
+                const totalSeconds = Math.floor(seconds);
+                const mins = Math.floor(totalSeconds / 60);
+                const secs = totalSeconds % 60;
                 return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
             }
 
@@ -1229,35 +1390,53 @@ tocList.addEventListener('click', function (event) {
                 const duration = this.audio.duration || 0;
                 this.totalTimeFormatted = this.formatTime(duration);
                 this.timeDisplay.textContent = `0:00 / ${this.totalTimeFormatted}`;
+                // 设置进度条的最大值（虽然默认是100，但明确一下）
+                this.progressBar.max = 100;
             }
 
             updateTimeAndLyrics() {
                 const currentTime = this.audio.currentTime;
                 const duration = this.audio.duration || 0;
                 const totalTimeFormatted = this.totalTimeFormatted || this.formatTime(duration);
-                this.timeDisplay.textContent = `${this.formatTime(currentTime)} / ${totalTimeFormatted}`;
 
-                // 更新字幕显示
-                let currentLyric = "暂无字幕";
-                for (const lyric of this.lyrics) {
-                    if (currentTime >= lyric.startTime && currentTime <= lyric.endTime) {
-                        currentLyric = lyric.text;
-                        break;
-                    }
+                // --- 更新进度条 ---
+                // 只有在用户没有拖动时才更新进度条，避免冲突
+                if (!this.isSeeking && duration > 0) {
+                    const progressPercent = (currentTime / duration) * 100;
+                    this.progressBar.value = progressPercent;
                 }
-                this.lyricsDisplay.textContent = currentLyric;
+                // ------------------
+
+                // --- 更新时间显示 ---
+                // 同样，只有在用户没有拖动时才更新时间，否则保留拖动时的实时时间
+                if (!this.isSeeking) {
+                   this.timeDisplay.textContent = `${this.formatTime(currentTime)} / ${totalTimeFormatted}`;
+                }
+                // --------------------
+
+                // 处理字幕空白区间
+                if (!this.isLoading && this.lyrics.length > 0) {
+                    let currentLyricText = "";
+                    for (const lyric of this.lyrics) {
+                        if (currentTime >= lyric.startTime && currentTime <= lyric.endTime) {
+                            currentLyricText = lyric.text;
+                            break;
+                        }
+                    }
+                    this.lyricsDisplay.textContent = currentLyricText;
+                }
             }
 
             onEnded() {
                 this.isPlaying = false;
                 this.updatePlayButton();
-                // 可选：重置进度和字幕
                 this.timeDisplay.textContent = `0:00 / ${this.totalTimeFormatted || '0:00'}`;
+                // 重置进度条
+                this.progressBar.value = 0;
                 this.lyricsDisplay.textContent = "播放结束";
             }
 
             disconnectedCallback() {
-                // 清理工作（如果需要）
                 if (this.audio) {
                     this.audio.pause();
                     this.audio = null;
@@ -1265,7 +1444,6 @@ tocList.addEventListener('click', function (event) {
             }
         }
 
-        // 定义自定义元素
         customElements.define('music-player', MusicPlayer, { extends: 'div' });
     </script>
 </body>
