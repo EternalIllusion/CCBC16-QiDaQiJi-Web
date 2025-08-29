@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐播放器 Web Component (带缓冲提示)</title>
+    <style>
+        .music-player-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 300px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-family: Arial, sans-serif;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .play-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .play-btn.loading {
+             opacity: 0.5;
+             cursor: wait;
+        }
+
+        .time-display {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .lyrics-display {
+            font-size: 16px;
+            text-align: center;
+            min-height: 24px;
+            transition: opacity 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>自定义音频播放器示例 (带缓冲提示)</h2>
+    <p>使用 <code>&lt;div is="music-player"&gt;</code> 标签创建播放器:</p>
+
+    <!-- 示例 1: 正常歌词 -->
+    <div is="music-player"
+        src="./assets/rap.mp3"
+        lyrics="[00:00.000-00:03.000]《淡黄又蓬松》
+[00:03.000-00:06.000]填词：温姐welkin25
+[00:06.000-00:09.000]填词：七千加Sevenkplus
+[00:09.000-00:12.000]作曲：七大Seven
+[00:12.000-00:13.000]演唱：豆包
+[00:13.000-00:13.911]想玩解谜
+[00:13.911-00:14.868]请读规则
+[00:14.868-00:16.177]再去题海中航行
+[00:16.177-00:17.246]不要作弊
+[00:17.246-00:18.322]会成为反例
+[00:18.322-00:19.607]敲响这警钟长鸣
+[00:19.607-00:21.072]通过puzzle了解世界
+[00:21.072-00:22.321]提取中英暗号
+[00:22.321-00:23.403]乖小孩搞密码
+[00:23.403-00:25.257]也不算什么离经叛道
+[00:25.257-00:27.261]跟新交的队友讲讲题目
+[00:27.261-00:28.338]再聊聊挚爱
+[00:28.338-00:28.889]一边hunt
+[00:28.889-00:29.708]一边八卦
+[00:29.708-00:31.055]就是这么的逍遥自在
+[00:31.055-00:31.875]三五队员
+[00:31.875-00:34.162]协力才能保证推塔足够
+[00:34.162-00:36.214]比赛就是群殴
+[00:36.214-00:36.719]没人跟你单打独斗
+[00:36.719-00:37.971]反爆难题花样
+[00:37.971-00:39.816]逃课要懂得趋福避祸
+[00:39.816-00:40.880]一切努力智慧
+[00:40.880-00:42.687]都将在最终瓜熟蒂落
+[00:42.687-00:44.000]这三脚猫的填词
+[00:44.000-00:45.425]不带任何双关隐喻
+[00:45.425-00:47.076]我说上句你接下句
+[00:47.076-00:48.337]也是种抛砖引玉
+[00:48.337-00:49.803]押韵押得这么6
+[00:49.803-00:51.419]我也花了些许心思
+[00:51.419-00:52.521]不管认不认识
+[00:52.521-00:54.118]欢迎各路旧雨新知
+[00:54.118-00:55.584]找到字句里的线索
+[00:55.584-00:57.268]这乐趣好比赢钱
+[00:57.268-00:58.512]于细微处见真章
+[00:58.512-00:59.964]真是句至理名言
+[00:59.964-01:01.458]就算比赛只能当个
+[01:01.458-01:03.094]分母的匆匆过客
+[01:03.094-01:03.796]愈挫愈勇
+[01:03.796-01:06.146]玩的就是极致的苦中作乐
+[01:08.735-01:10.147]就是极致
+[01:10.848-01:12.000]苦中作乐"></div>
+
+    <br><br>
+
+    <!-- 示例 2: 包含较长空白区间的歌词 -->
+    <div is="music-player"
+        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+        lyrics="[00:00.000-00:03.000]开始
+[00:10.000-00:15.000]中间有很长的空白
+[00:25.000-00:30.000]结束"></div>
+
+    <script>
+        class MusicPlayer extends HTMLDivElement {
+            constructor() {
+                super();
+                this.isPlaying = false;
+                this.isLoading = true; // 初始状态设为加载中
+                this.hasPlayedOnce = false; // 新增：标记是否已经开始播放过
+                this.audio = null;
+                this.lyrics = [];
+                this.lyricsElements = [];
+            }
+
+            connectedCallback() {
+                const src = this.getAttribute('src');
+                const lyricsAttr = this.getAttribute('lyrics');
+
+                if (!src) {
+                    console.error('MusicPlayer: 未提供音频源 (src 属性)');
+                    return;
+                }
+
+                this.parseLyrics(lyricsAttr);
+
+                const shadow = this.attachShadow({ mode: 'open' });
+
+                shadow.innerHTML = `
+                    <style>
+                       .music-player-container {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            width: 300px;
+                            padding: 15px;
+                            border: 1px solid #ccc;
+                            border-radius: 8px;
+                            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                            font-family: Arial, sans-serif;
+                        }
+
+                        .controls {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            width: 100%;
+                            margin-bottom: 10px;
+                        }
+
+                        .play-btn {
+                            background: none;
+                            border: none;
+                            font-size: 24px;
+                            cursor: pointer;
+                            padding: 5px;
+                        }
+
+                        .play-btn.loading {
+                             opacity: 0.5;
+                             cursor: wait;
+                        }
+
+                        .time-display {
+                            font-size: 14px;
+                            color: #666;
+                        }
+
+                        .lyrics-display {
+                            font-size: 16px;
+                            text-align: center;
+                            min-height: 24px;
+                            transition: opacity 0.2s ease-in-out;
+                        }
+                    </style>
+                    <div class="music-player-container">
+                        <div class="controls">
+                            <button class="play-btn loading">⏳</button>
+                            <span class="time-display">0:00 / 0:00</span>
+                        </div>
+                        <div class="lyrics-display">加载中...</div>
+                    </div>
+                `;
+
+                this.playButton = shadow.querySelector('.play-btn');
+                this.timeDisplay = shadow.querySelector('.time-display');
+                this.lyricsDisplay = shadow.querySelector('.lyrics-display');
+
+                this.audio = new Audio(src);
+                this.audio.preload = 'auto'; // 更积极地预加载
+
+                this.playButton.addEventListener('click', () => this.togglePlay());
+                this.audio.addEventListener('timeupdate', () => this.updateTimeAndLyrics());
+                this.audio.addEventListener('loadedmetadata', () => this.updateDuration());
+                this.audio.addEventListener('ended', () => this.onEnded());
+
+                // --- 初始加载相关事件 ---
+                this.audio.addEventListener('loadstart', () => {
+                    this.isLoading = true;
+                    this.updatePlayButton();
+                    this.lyricsDisplay.textContent = "加载中...";
+                });
+
+                this.audio.addEventListener('canplay', () => {
+                    this.isLoading = false;
+                    this.updatePlayButton();
+                     // 加载完成后更新字幕区域
+                    if (this.lyrics.length > 0) {
+                         this.lyricsDisplay.textContent = "就绪";
+                    } else {
+                         this.lyricsDisplay.textContent = "就绪";
+                    }
+                });
+
+                this.audio.addEventListener('error', (e) => {
+                    this.isLoading = false;
+                    this.isPlaying = false;
+                    this.updatePlayButton();
+                    console.error("音频加载失败:", e);
+                    this.lyricsDisplay.textContent = "音频加载失败";
+                });
+                // --------------------------
+
+                // --- 中途缓冲相关事件 (新增) ---
+                this.audio.addEventListener('waiting', () => {
+                    // 只有在已经开始播放后，waiting 才代表缓冲暂停
+                    if (this.hasPlayedOnce) {
+                         console.log("音频因缓冲暂停...");
+                         this.isLoading = true;
+                         this.updatePlayButton();
+                         // 显示缓冲提示
+                         this.lyricsDisplay.textContent = "缓冲中...";
+                    }
+                });
+
+                this.audio.addEventListener('playing', () => {
+                     // playing 事件触发表示缓冲结束，开始/恢复播放
+                     if(this.hasPlayedOnce && this.isLoading) {
+                         console.log("缓冲结束，恢复播放...");
+                         this.isLoading = false;
+                         this.updatePlayButton();
+                         // 恢复字幕显示逻辑
+                         this.updateTimeAndLyrics(); // 立即更新一次字幕
+                     }
+                });
+                // -------------------------------
+            }
+
+            parseLyrics(lyricsString) {
+                this.lyrics = [];
+                if (!lyricsString) return;
+
+                const lines = lyricsString.split('\n');
+                const timeRegex = /^\[(\d{2}):(\d{2})\.(\d{3})-(\d{2}):(\d{2})\.(\d{3})\]/;
+
+                lines.forEach(line => {
+                    const match = line.match(timeRegex);
+                    if (match) {
+                        const startMinutes = parseInt(match[1], 10);
+                        const startSeconds = parseInt(match[2], 10);
+                        const startMilliseconds = parseInt(match[3], 10);
+                        const endMinutes = parseInt(match[4], 10);
+                        const endSeconds = parseInt(match[5], 10);
+                        const endMilliseconds = parseInt(match[6], 10);
+
+                        const startTime = startMinutes * 60 + startSeconds + startMilliseconds / 1000;
+                        const endTime = endMinutes * 60 + endSeconds + endMilliseconds / 1000;
+                        const text = line.replace(timeRegex, '').trim();
+
+                        this.lyrics.push({ startTime, endTime, text });
+                    }
+                });
+
+                this.lyrics.sort((a, b) => a.startTime - b.startTime);
+            }
+
+            async togglePlay() {
+                if (this.isLoading && this.hasPlayedOnce) {
+                    // 如果是中途缓冲导致的“加载中”，点击可能无效或需要特殊处理
+                    // 这里我们简单地忽略点击，或者可以尝试重新播放（但通常浏览器会自动处理）
+                    console.log("正在缓冲中，无法手动控制播放/暂停");
+                    return;
+                }
+
+                if (this.isLoading && !this.hasPlayedOnce) {
+                     // 初始加载时点击，通常不需要特殊处理，等待 canplay
+                     console.log("初始加载中，等待就绪...");
+                }
+
+                if (this.isPlaying) {
+                    this.audio.pause();
+                } else {
+                    try {
+                        await this.audio.play();
+                        // 成功播放后，标记为已播放过
+                        this.hasPlayedOnce = true;
+                    } catch (error) {
+                        if (error.name === 'NotAllowedError') {
+                            console.warn("播放被阻止，可能需要用户交互。");
+                            this.lyricsDisplay.textContent = "请点击按钮开始播放";
+                        } else {
+                            console.error("播放失败:", error);
+                        }
+                        return;
+                    }
+                }
+                this.isPlaying = !this.isPlaying;
+                // 注意：在 waiting/playing 事件中已经处理了 isLoading 和按钮状态
+                // 这里只更新 isPlaying 状态，除非是初始播放或手动暂停
+                if(!this.audio.seeking) { // 避免与 waiting/playing 冲突
+                     this.updatePlayButton();
+                }
+            }
+
+            updatePlayButton() {
+                if (this.isLoading) {
+                    this.playButton.textContent = '⏳';
+                    this.playButton.classList.add('loading');
+                } else {
+                    this.playButton.textContent = this.isPlaying ? '⏸️' : '▶️';
+                    this.playButton.classList.remove('loading');
+                }
+            }
+
+            formatTime(seconds) {
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+            }
+
+            updateDuration() {
+                const duration = this.audio.duration || 0;
+                this.totalTimeFormatted = this.formatTime(duration);
+                this.timeDisplay.textContent = `0:00 / ${this.totalTimeFormatted}`;
+            }
+
+            updateTimeAndLyrics() {
+                const currentTime = this.audio.currentTime;
+                const duration = this.audio.duration || 0;
+                const totalTimeFormatted = this.totalTimeFormatted || this.formatTime(duration);
+                this.timeDisplay.textContent = `${this.formatTime(currentTime)} / ${totalTimeFormatted}`;
+
+                // 处理字幕空白区间
+                if (!this.isLoading && this.lyrics.length > 0) {
+                    let currentLyricText = "";
+                    for (const lyric of this.lyrics) {
+                        if (currentTime >= lyric.startTime && currentTime <= lyric.endTime) {
+                            currentLyricText = lyric.text;
+                            break;
+                        }
+                    }
+                    this.lyricsDisplay.textContent = currentLyricText;
+                }
+                 // 如果 isLoading 为 true (初始加载或缓冲中)，则不更新歌词显示，
+                 // 保持 "加载中..." 或 "缓冲中..." 状态
+            }
+
+            onEnded() {
+                this.isPlaying = false;
+                // this.isLoading = false; // ended 时通常不需要特别设为 false，但可以确保
+                this.updatePlayButton();
+                this.timeDisplay.textContent = `0:00 / ${this.totalTimeFormatted || '0:00'}`;
+                this.lyricsDisplay.textContent = "播放结束";
+            }
+
+            disconnectedCallback() {
+                if (this.audio) {
+                    this.audio.pause();
+                    this.audio = null;
+                }
+            }
+        }
+
+        customElements.define('music-player', MusicPlayer, { extends: 'div' });
+    </script>
+
+</body>
+</html>

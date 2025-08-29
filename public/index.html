@@ -3695,14 +3695,14 @@
 
 <p>8.28 22:48 “大家请看，这个字念图书馆”</p>
 <div class="image-container">
-<img src="./img/d13d0b6c-3b12-434c-a0eb-ef5742f412a9.jpg" loading="lazy">
+<img src="./img/57e494b2-7d6d-479f-b6a4-a938ab026dac.jpg" loading="lazy">
 </div>
 
 <p>8.28 22:56 搜索哈耶克的资料 “维也纳大学，ES校友”</p>
 <p>8.28 22:57 不小心看了解析</p>
 <p>8.28 22:59 遵循你的直觉</p>
 <div class="image-container">
-<img src="./img/d13d0b6c-3b12-434c-a0eb-ef5742f412a9.jpg" loading="lazy">
+<img src="./img/5d92872e-98a5-4ff2-9c58-da11eb865493.jpg" loading="lazy">
 </div>
 
 <p>8.28 23:00 “哦那是个空” （猛吸深吸疯狂的大口吸维他柠檬茶）（尴尬而不失礼貌的笑）“换首歌转换一下心情”</p>
@@ -4479,6 +4479,186 @@ tocList.addEventListener('click', function (event) {
             toggleSidebar();
         }
         refreshSidebarBtn();
+
+
+        class MusicPlayer extends HTMLDivElement {
+            constructor() {
+                super();
+                this.isPlaying = false;
+                this.audio = null;
+                this.lyrics = [];
+                this.lyricsElements = [];
+            }
+
+            connectedCallback() {
+                const src = this.getAttribute('src');
+                const lyricsAttr = this.getAttribute('lyrics');
+
+                if (!src) {
+                    console.error('MusicPlayer: 未提供音频源 (src 属性)');
+                    return;
+                }
+
+                this.parseLyrics(lyricsAttr);
+
+                const shadow = this.attachShadow({ mode: 'open' });
+
+                shadow.innerHTML = `
+                    <style>
+                        .music-player-container {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            width: 300px;
+                            padding: 15px;
+                            border: 1px solid #ccc;
+                            border-radius: 8px;
+                            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                            font-family: Arial, sans-serif;
+                        }
+
+                        .controls {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            width: 100%;
+                            margin-bottom: 10px;
+                        }
+
+                        .play-btn {
+                            background: none;
+                            border: none;
+                            font-size: 24px;
+                            cursor: pointer;
+                            padding: 5px;
+                        }
+
+                        .time-display {
+                            font-size: 14px;
+                            color: #666;
+                        }
+
+                        .lyrics-display {
+                            font-size: 16px;
+                            text-align: center;
+                            min-height: 24px; /* 保证高度稳定 */
+                        }
+                    </style>
+                    <div class="music-player-container">
+                        <div class="controls">
+                            <button class="play-btn">▶️</button>
+                            <span class="time-display">0:00 / 0:00</span>
+                        </div>
+                        <div class="lyrics-display">未在播放</div>
+                    </div>
+                `;
+
+                this.playButton = shadow.querySelector('.play-btn');
+                this.timeDisplay = shadow.querySelector('.time-display');
+                this.lyricsDisplay = shadow.querySelector('.lyrics-display');
+
+                // 创建 Audio 对象
+                this.audio = new Audio(src);
+                this.audio.preload = 'metadata'; // 预加载元数据以获取时长
+
+                this.playButton.addEventListener('click', () => this.togglePlay());
+                this.audio.addEventListener('timeupdate', () => this.updateTimeAndLyrics());
+                this.audio.addEventListener('loadedmetadata', () => this.updateDuration());
+                this.audio.addEventListener('ended', () => this.onEnded());
+            }
+
+            parseLyrics(lyricsString) {
+                this.lyrics = [];
+                if (!lyricsString) return;
+
+                const lines = lyricsString.split('\n');
+                const timeRegex = /^\[(\d{2}):(\d{2})\.(\d{3})-(\d{2}):(\d{2})\.(\d{3})\]/;
+
+                lines.forEach(line => {
+                    const match = line.match(timeRegex);
+                    if (match) {
+                        const startMinutes = parseInt(match[1], 10);
+                        const startSeconds = parseInt(match[2], 10);
+                        const startMilliseconds = parseInt(match[3], 10);
+                        const endMinutes = parseInt(match[4], 10);
+                        const endSeconds = parseInt(match[5], 10);
+                        const endMilliseconds = parseInt(match[6], 10);
+
+                        const startTime = startMinutes * 60 + startSeconds + startMilliseconds / 1000;
+                        const endTime = endMinutes * 60 + endSeconds + endMilliseconds / 1000;
+                        const text = line.replace(timeRegex, '').trim();
+
+                        this.lyrics.push({ startTime, endTime, text });
+                    }
+                });
+
+                // 按开始时间排序
+                this.lyrics.sort((a, b) => a.startTime - b.startTime);
+            }
+
+            togglePlay() {
+                if (this.isPlaying) {
+                    this.audio.pause();
+                } else {
+                    this.audio.play();
+                }
+                this.isPlaying = !this.isPlaying;
+                this.updatePlayButton();
+            }
+
+            updatePlayButton() {
+                this.playButton.textContent = this.isPlaying ? '⏸️' : '▶️';
+            }
+
+            formatTime(seconds) {
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+            }
+
+            updateDuration() {
+                const duration = this.audio.duration || 0;
+                this.totalTimeFormatted = this.formatTime(duration);
+                this.timeDisplay.textContent = `0:00 / ${this.totalTimeFormatted}`;
+            }
+
+            updateTimeAndLyrics() {
+                const currentTime = this.audio.currentTime;
+                const duration = this.audio.duration || 0;
+                const totalTimeFormatted = this.totalTimeFormatted || this.formatTime(duration);
+                this.timeDisplay.textContent = `${this.formatTime(currentTime)} / ${totalTimeFormatted}`;
+
+                // 更新字幕显示
+                let currentLyric = "暂无字幕";
+                for (const lyric of this.lyrics) {
+                    if (currentTime >= lyric.startTime && currentTime <= lyric.endTime) {
+                        currentLyric = lyric.text;
+                        break;
+                    }
+                }
+                this.lyricsDisplay.textContent = currentLyric;
+            }
+
+            onEnded() {
+                this.isPlaying = false;
+                this.updatePlayButton();
+                // 可选：重置进度和字幕
+                this.timeDisplay.textContent = `0:00 / ${this.totalTimeFormatted || '0:00'}`;
+                this.lyricsDisplay.textContent = "播放结束";
+            }
+
+            disconnectedCallback() {
+                // 清理工作（如果需要）
+                if (this.audio) {
+                    this.audio.pause();
+                    this.audio = null;
+                }
+            }
+        }
+
+        // 定义自定义元素
+        customElements.define('music-player', MusicPlayer, { extends: 'div' });
     </script>
 </body>
 </html>
