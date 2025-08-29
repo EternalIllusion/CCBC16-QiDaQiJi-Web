@@ -6,8 +6,30 @@ const cheerio = require('cheerio');
 
 function addLazyLoading(html) {
   const $ = cheerio.load(html);
+
   $('img:not(.banner)').each(function() {
     $(this).attr('loading', 'lazy');
+  });
+
+  $('video').each(function() {
+    const $video = $(this);
+    if (!$video.attr('preload')) {
+      $video.attr('preload', 'metadata');
+    }
+  });
+
+  $('audio').each(function() {
+    const $audio = $(this);
+    if (!$audio.attr('preload')) {
+      $audio.attr('preload', 'metadata');
+    }
+  });
+
+  $('iframe').each(function() {
+    const $iframe = $(this);
+    if (!$iframe.attr('loading')) {
+      $iframe.attr('loading', 'lazy');
+    }
   });
   return $.html();
 }
