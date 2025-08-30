@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信用点消耗确认</title>
+</head>
+<body>
+    <div id="ccb-popup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 2034; color: #007CC5;">
+        <div role="dialog" aria-modal="true" aria-describedby="msg-box-content" style="background-color: #ffffffe6; border-radius: .75rem; padding: 12px 0px; box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1); width: 40rem; max-width: 90%; position: relative;" aria-label="信用点消耗确认">
+            <div style="padding: 0 2rem;" tabindex="-1">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem;">
+                    <div style="font-size: 1.5rem;"><span>信用点消耗确认</span></div>
+                    <button type="button" style="background-color: transparent; border: none; cursor: pointer; outline: none; position: absolute; right: 0; top: 0; width: 2rem; height: 2rem; display: flex; justify-content: center; align-items: center;" aria-label="Close this dialog">
+                        <i style="width: 1rem; height: 1rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+                                <path fill="#007CC5" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"></path>
+                            </svg>
+                        </i>
+                    </button>
+                </div>
+                <div id="msg-box-content" style="padding: 0 2rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <i style="width: 2.25rem; height: 2.25rem; ">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+                                <path fill="#f9931d" d="M512 64a448 448 0 1 1 0 896 448 448 0 0 1 0-896m0 192a58.432 58.432 0 0 0-58.24 63.744l23.36 256.384a35.072 35.072 0 0 0 69.76 0l23.296-256.384A58.432 58.432 0 0 0 512 256m0 512a51.2 51.2 0 1 0 0-102.4 51.2 51.2 0 0 0 0 102.4"></path>
+                            </svg>
+                        </i>
+                        <div>
+                            <p style="font-size: 18px; line-height: 1.75; margin: 0;">正在获取HINT #1，本次消耗50信用点，消耗后剩余2147483637信用点，确定要继续吗？</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: flex-end; padding: 0;">
+                    <button aria-disabled="false" type="button" style="padding: .5rem 20px; border: none; cursor: pointer; outline: none; margin-left: .5rem; border-radius: .5rem; font-size: 14px; background-color: #fcfcfc; color: rgb(96, 98, 102); border: 1px solid rgb(220, 223, 230);"><span>取消</span></button>
+                    <button aria-disabled="false" type="button" style="padding: .5rem 20px; border: none; cursor: pointer; outline: none; margin-left: .5rem; border-radius: .5rem; font-size: 14px; background-color: #007CC5; color: white; border: 1px solid #007CC5;"><span>确定</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
