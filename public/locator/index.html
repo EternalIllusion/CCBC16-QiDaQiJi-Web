@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>七大❤️史官❤️在线❤️刨坟</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .video-selector {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .subtitle-list {
+            margin-top: 20px;
+        }
+        .subtitle-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .subtitle-item:hover {
+            background-color: #f9f9f9;
+        }
+        .real-time {
+            font-weight: bold;
+            color: #333;
+        }
+        .subtitle-text {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .srt-time {
+            font-size: 12px;
+            color: #999;
+        }
+        .loading {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+        .error {
+            color: #d32f2f;
+            background-color: #ffebee;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        i {
+            color: #999;
+        }
+        .subtitle-item.highlighted {
+            border-color: red;
+            background-color: #ff000033;
+        }
+
+        .real-time, .srt-time {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .button-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .button-container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .action-button {
+            padding: 10px 15px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-size: 14px;
+            align-items: start;
+            justify-content: left;
+        }
+
+        #copyButton {
+            background-color: #AB47BC;
+            color: #f5f5f5;
+        }
+
+        #copyButton:hover {
+            background-color: #D500F9;
+        }
+
+        #functionButton {
+            background-color: #2196F3;
+            color: #f5f5f5;
+        }
+
+        #functionButton:hover {
+            background-color: #00E5FF;
+        }
+
+        #message {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #FDD835;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1001;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        #message.show {
+            opacity: 1;
+        }
+        .item-meta {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>史官字幕刨坟工具</h1>
+        
+        <div class="video-selector">
+            <label for="video-select">选择视频:</label>
+            <select id="video-select">
+                <option value="">-- 请选择视频 --</option>
+            </select>
+        </div>
+        
+        <div id="subtitle-container"></div>
+    </div>
+
+    
+    <div class="button-container" id="buttonContainer">
+        <button class="action-button" id="copyButton">Ctrl+C: 复制字幕</button>
+        <button class="action-button" id="functionButton">C: 定位视频</button>
+    </div>
+    <div id="message"></div>
+    <script src="../js/playback.js"></script>
+    <script>
+        // 视频数据
+        const videoData = dataList;
+
+        // 初始化视频选择器
+        function initVideoSelector() {
+            const select = document.getElementById('video-select');
+            
+            videoData.forEach((video, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${video.date} - ${video.bvid}`;
+                select.appendChild(option);
+            });
+            
+            select.addEventListener('change', handleVideoSelect);
+        }
+
+        // 处理视频选择事件
+        function handleVideoSelect(event) {
+            const index = event.target.value;
+            const container = document.getElementById('subtitle-container');
+            
+            if (index === '') {
+                container.innerHTML = '';
+                return;
+            }
+            
+            const video = videoData[index];
+            
+            // 显示加载信息
+            container.innerHTML = '<div class="loading">正在加载字幕...</div>';
+            
+            // 加载字幕
+            loadSubtitles(video);
+        }
+
+        // 加载字幕文件
+        async function loadSubtitles(video) {
+            const container = document.getElementById('subtitle-container');
+            container.innerHTML = '';
+            
+            try {
+                // 为每个播放创建字幕列表
+                for (let i = 0; i < video.playbacks.length; i++) {
+                    const playback = video.playbacks[i];
+                    const startTime = Object.keys(playback)[0];
+                    const srtFilename = `${video.bvid}.p${i+1}.srt`;
+                    const srtPath = `./srt/${srtFilename}`;
+                    
+                    try {
+                        const response = await fetch(srtPath);
+                        
+                        if (!response.ok) {
+                            throw new Error(`字幕文件 ${srtFilename} 无法加载 (${response.status})`);
+                        }
+                        
+                        const srtContent = await response.text();
+                        const subtitles = parseSRT(srtContent);
+                        const calculatedSubtitles = calculateRealTimes(subtitles, startTime);
+                        
+                        // 创建播放标题
+                        const playbackTitle = document.createElement('h3');
+                        playbackTitle.textContent = `播放 ${i+1} (开始时间: ${startTime})`;
+                        container.appendChild(playbackTitle);
+                        
+                        // 显示字幕列表
+                        displaySubtitles(calculatedSubtitles, video.date, container, i+1, video.bvid);
+                    } catch (error) {
+                        console.error(error);
+                        const errorDiv = document.createElement('div');
+                        errorDiv.className = 'error';
+                        errorDiv.textContent = `加载字幕文件 ${srtFilename} 时出错: ${error.message}`;
+                        container.appendChild(errorDiv);
+                    }
+                }
+            } catch (error) {
+                container.innerHTML = `<div class="error">加载字幕时发生错误: ${error.message}</div>`;
+            }
+        }
+
+        // 解析SRT字幕文件
+        function parseSRT(data) {
+            const lines = data.split(/\r?\n/);
+            const subtitles = [];
+            let subtitle = null;
+            
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                
+                if (!line) {
+                    if (subtitle) {
+                        subtitles.push(subtitle);
+                        subtitle = null;
+                    }
+                    continue;
+                }
+                
+                if (!subtitle) {
+                    subtitle = {
+                        index: parseInt(line, 10),
+                        time: '',
+                        text: ''
+                    };
+                    continue;
+                }
+                
+                if (line.includes('-->')) {
+                    subtitle.time = line;
+                    continue;
+                }
+                
+                if (subtitle.text) {
+                    subtitle.text += '\n' + line;
+                } else {
+                    subtitle.text = line;
+                }
+            }
+            
+            if (subtitle) {
+                subtitles.push(subtitle);
+            }
+            
+            return subtitles;
+        }
+
+        // 计算现实时间
+        function calculateRealTimes(subtitles, startTime, startDate = "") {
+            // 将开始时间转换为秒
+            const [startHours, startMinutes, startSeconds] = startTime.split(':').map(Number);
+            const startTotalSeconds = startHours * 3600 + startMinutes * 60 + startSeconds;
+            
+            return subtitles.map(subtitle => {
+                const timeMatch = subtitle.time.match(/(\d{2}):(\d{2}):(\d{2}),(\d{3}) --> (\d{2}):(\d{2}):(\d{2}),(\d{3})/);
+                
+                if (timeMatch) {
+                    const [, startHour, startMin, startSec, startMs, endHour, endMin, endSec, endMs] = timeMatch;
+                    
+                    // 计算字幕开始时间相对于视频开始的秒数
+                    const subtitleStartSeconds = 
+                        parseInt(startHour) * 3600 + 
+                        parseInt(startMin) * 60 + 
+                        parseInt(startSec) + 
+                        parseInt(startMs) / 1000;
+                    
+                    // 计算现实时间
+                    const realStartTotalSeconds = startTotalSeconds + subtitleStartSeconds;
+                    const realStartTime = formatTime(realStartTotalSeconds);
+                    const realStartTimeMin = formatTimeMin(realStartTotalSeconds);
+                    
+                    // 计算字幕结束时间相对于视频开始的秒数
+                    const subtitleEndSeconds = 
+                        parseInt(endHour) * 3600 + 
+                        parseInt(endMin) * 60 + 
+                        parseInt(endSec) + 
+                        parseInt(endMs) / 1000;
+                    
+                    // 计算现实时间
+                    const realEndTotalSeconds = startTotalSeconds + subtitleEndSeconds;
+                    const realEndTime = formatTime(realEndTotalSeconds);
+                    
+                    return {
+                        ...subtitle,
+                        realStartTime,
+                        realEndTime,
+                        realTimeRange: `${realStartTime}.${startMs} -> ${realEndTime}.${endMs}`,
+                        realStartTimeMin,
+                        startTimeSecond: subtitleStartSeconds
+                    };
+                }
+                
+                return subtitle;
+            });
+        }
+
+        // 格式化时间为 HH:MM:SS
+        function formatTime(totalSeconds) {
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = Math.floor(totalSeconds % 60);
+            
+            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        // 格式化时间为 HH:MM
+        function formatTimeMin(totalSeconds) {
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            
+            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+        }
+        /**
+         * 将包含溢出小时数的时间字符串（如 "8.19 25:14"）转换为正确的日期时间格式（如 "8.20 1:14"）。
+         * 
+         * @param {string} timeStr - 输入的时间字符串，格式为 "M.D H:M" 或 "M.D HH:MM"，其中小时数可能大于24。
+         * @param {number} [year=2025] - 参考年份，默认为2025年（可根据需要调整）。
+         * @returns {string} 转换后的正确时间字符串，格式为 "M.D H:MM"。
+         *                   如果输入格式不正确或日期无效，返回原字符串。
+         */
+        function convertOverflowTime(timeStr, year = 2025) {
+            // 使用正则表达式解析输入字符串
+            // 匹配 月.日 小时:分钟，小时和分钟可以是1位或2位
+            const pattern = /^(\d{1,2})\.(\d{1,2})\s+(\d{1,3}):(\d{1,2})$/;
+            const match = timeStr.trim().match(pattern);
+            
+            if (!match) {
+                console.warn(`输入格式不正确: '${timeStr}'`);
+                return timeStr; // 格式不匹配，返回原字符串
+            }
+            
+            const [, monthStr, dayStr, hourStr, minuteStr] = match;
+            const month = parseInt(monthStr, 10);
+            const day = parseInt(dayStr, 10);
+            const hour = parseInt(hourStr, 10);
+            const minute = parseInt(minuteStr, 10);
+            
+            try {
+                // 创建一个 Date 对象，从给定的月、日、小时、分钟开始
+                // 注意：JavaScript 的 Date 月份是从 0 开始的 (0=Jan, 11=Dec)
+                // 所以需要 month - 1
+                const baseDate = new Date(year, month - 1, day, hour, minute);
+                
+                // 检查日期是否有效（例如，防止 2月30日）
+                if (isNaN(baseDate.getTime())) {
+                    console.error(`无效的日期: '${timeStr}'`);
+                    return timeStr;
+                }
+                
+                // Date 对象会自动处理溢出的小时数，将其进位到天数
+                // 例如：8月19日25:14 会变成 8月20日1:14
+                
+                // 提取转换后的日期和时间组件
+                const convertedMonth = baseDate.getMonth() + 1; // getMonth() 返回 0-11，所以 +1
+                const convertedDay = baseDate.getDate();
+                const convertedHour = baseDate.getHours();
+                const convertedMinute = baseDate.getMinutes();
+                
+                // 格式化输出：月.日 时:分（分钟补零）
+                // 保持小时为原样（不补零），分钟始终为2位数
+                return `${convertedMonth}.${convertedDay} ${convertedHour}:${String(convertedMinute).padStart(2, '0')}`;
+                
+            } catch (error) {
+                console.error(`处理日期时出错: '${timeStr}' -> ${error.message}`);
+                return timeStr;
+            }
+        }
+        // 显示字幕列表
+        function displaySubtitles(subtitles, date, container, pid, bvid) {
+            const list = document.createElement('div');
+            list.className = 'subtitle-list';
+            
+            subtitles.forEach(subtitle => {
+                const item = document.createElement('div');
+                item.className = 'subtitle-item';
+                const preTimestamp = `${date} ${subtitle.realStartTimeMin}`;
+                item.innerHTML = `
+                    <div class="real-time">${date} ${subtitle.realStartTime}<span class="item-meta">${subtitle.startTimeSecond}￥${pid}￥${bvid}</span></div>
+                    <div class="subtitle-text"><i>${convertOverflowTime(preTimestamp)}</i> "${subtitle.text}"</div>
+                    <div class="srt-time">(${subtitle.realTimeRange})</div>
+                `;
+                
+                list.appendChild(item);
+            });
+            
+            container.appendChild(list);
+        }
+
+        // 初始化应用
+        document.addEventListener('DOMContentLoaded', () => {
+            initVideoSelector();
+        });
+
+        let highlightedItem = null;
+        const buttonContainer = document.getElementById('buttonContainer');
+        const messageEl = document.getElementById('message');
+        const copyButton = document.getElementById('copyButton');
+        const functionButton = document.getElementById('functionButton');
+        const moreContentBtn = document.getElementById('moreContentBtn');
+
+        // --- 使用事件委托处理点击 ---
+        document.body.addEventListener('click', function(event) {
+            // 检查被点击的元素或其父元素是否是 .subtitle-item
+            const clickedItem = event.target.closest('.subtitle-item');
+
+            if (clickedItem) {
+                // 移除之前高亮的项
+                if (highlightedItem) {
+                    highlightedItem.classList.remove('highlighted');
+                }
+                // 高亮当前点击的项
+                clickedItem.classList.add('highlighted');
+                highlightedItem = clickedItem;
+
+                // 显示按钮
+                buttonContainer.classList.add('show');
+            }
+        });
+        // --- 事件委托结束 ---
+
+        // 复制功能
+        function performCopy() {
+            if (highlightedItem) {
+                const textToCopy = highlightedItem.querySelector('.subtitle-text').innerText;
+                copyTextToClipboard(textToCopy);
+            }
+        }
+
+        // 执行函数功能
+        function performFunction() {
+            if (highlightedItem) {
+                const textToProcess = highlightedItem.querySelector('.item-meta').innerText;
+                try{
+                    url = getPlaybackLink(textToProcess);
+                    showMessage(`定位成功！正在跳转……`);
+                    linkact(url);
+                } catch(err){
+                    console.error('execCommand 复制失败: ', err);
+                    showMessage(`复制失败: ${err}`);
+
+                }
+            }
+        }
+
+        // 复制文本到剪贴板
+        function copyTextToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                try {
+                    navigator.clipboard.writeText(text);
+                    showMessage(`复制成功: ${text.substring(0, 30)}...`);
+                } catch(e) {
+                    console.error('现代复制方法失败: ', err);
+                    showMessage(`复制失败: ${text.substring(0, 30)}...`);
+                }
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                textArea.style.top = "0";
+                textArea.style.left = "0";
+                textArea.style.width = "2em";
+                textArea.style.height = "2em";
+                textArea.style.padding = "0";
+                textArea.style.border = "none";
+                textArea.style.outline = "none";
+                textArea.style.boxShadow = "none";
+                textArea.style.background = "transparent";
+                textArea.style.opacity = "0";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    const successful = document.execCommand('copy');
+                    if (!successful) {
+                        console.warn('execCommand 复制可能未成功');
+                        showMessage(`复制可能未成功: ${text.substring(0, 30)}...`);
+                    }
+                } catch (err) {
+                    console.error('execCommand 复制失败: ', err);
+                    showMessage(`复制失败: ${err}`);
+                }
+                document.body.removeChild(textArea);
+                showMessage(`复制成功: ${text.substring(0, 30)}...`);
+            }
+        }
+
+        // 显示消息提示
+        function showMessage(msg) {
+            messageEl.innerText = msg;
+            messageEl.classList.add('show');
+            clearTimeout(messageEl.timeoutId);
+            messageEl.timeoutId = setTimeout(() => {
+                messageEl.classList.remove('show');
+            }, 2000);
+        }
+
+        // 按钮事件监听
+        copyButton.addEventListener('click', performCopy);
+        functionButton.addEventListener('click', performFunction);
+
+        // 键盘事件监听
+        document.addEventListener('keydown', function(event) {
+            if (!highlightedItem) return;
+
+            if (event.ctrlKey && event.key === 'c') {
+                event.preventDefault();
+                performCopy();
+            }
+
+            if ((event.key === 'c' || event.key === 'C') && !event.ctrlKey) {
+                 // 防止在输入框等地方按C时触发
+                if (event.target.tagName.toLowerCase() === 'input' || 
+                    event.target.tagName.toLowerCase() === 'textarea') {
+                    return;
+                }
+                event.preventDefault();
+                performFunction();
+            }
+        });
+        function linkact(href) {
+            if (!href || typeof href !== 'string') {
+                console.error('Invalid href');
+                return;
+            }
+            const url = /^https?:\/\//i.test(href) ? href : 'https://' + href;
+            const a = document.createElement('a');
+            a.href = url;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+        function getPlaybackLink(text) {
+            const match = text.match(/(\d+\.\d+)￥(\d+)￥(BV\w+)/);
+            if (!match) {
+                throw new Error("输入格式不正确");
+            }
+            const secondsWithMs = parseFloat(match[1]);
+            const p = match[2];
+            const bv = match[3];
+            const totalSeconds = Math.floor(secondsWithMs);
+            const t = totalSeconds;
+            const url = `https://www.bilibili.com/video/${bv}/?p=${p}&t=${t}`;
+            return url;
+        }
+    </script>
+
+</body>
+</html>
+
+
+

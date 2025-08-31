@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字幕高亮与复制/执行工具 (事件委托)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            position: relative;
+            min-height: 100vh;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .subtitle-item {
+            border: 2px solid transparent;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: border-color 0.2s ease;
+        }
+
+        .subtitle-item.highlighted {
+            border-color: red;
+        }
+
+        .real-time, .srt-time {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .subtitle-text {
+            margin: 5px 0;
+        }
+
+        .subtitle-text i {
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        /* 按钮容器 */
+        .button-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .button-container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 按钮样式 */
+        .action-button {
+            padding: 10px 15px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-size: 14px;
+        }
+
+        #copyButton {
+            background-color: #28a745; /* 绿色 */
+        }
+
+        #copyButton:hover {
+            background-color: #218838;
+        }
+
+        #functionButton {
+            background-color: #007bff; /* 蓝色 */
+        }
+
+        #functionButton:hover {
+            background-color: #0069d9;
+        }
+
+        #message {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #17a2b8; /* 青色 */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1001;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        #message.show {
+            opacity: 1;
+        }
+
+        /* 示例：添加更多字幕项 */
+        #moreContentBtn {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="subtitle-item">
+        <div class="real-time">8.19 25:18:51</div>
+        <div class="subtitle-text"><i>8.20 1:18</i> "拿录播来下饭"</div>
+        <div class="srt-time">(25:18:51.660 -&gt; 25:18:53.060)</div>
+    </div>
+
+    <div class="subtitle-item">
+        <div class="real-time">8.19 25:19:05</div>
+        <div class="subtitle-text"><i>8.20 1:19</i> "今天天气不错"</div>
+        <div class="srt-time">(25:19:05.120 -&gt; 25:19:07.450)</div>
+    </div>
+
+    <div class="subtitle-item">
+        <div class="real-time">8.19 25:19:20</div>
+        <div class="subtitle-text"><i>8.20 1:20</i> "一起出去走走吧"</div>
+        <div class="srt-time">(25:19:20.000 -&gt; 25:19:22.300)</div>
+    </div>
+
+    <!-- 可以动态添加更多内容来测试性能 -->
+    <button id="moreContentBtn">添加更多字幕项 (测试性能)</button>
+
+    <div class="button-container" id="buttonContainer">
+        <button class="action-button" id="copyButton">Ctrl+C: 复制字幕</button>
+        <button class="action-button" id="functionButton">C: 执行函数</button>
+    </div>
+    <div id="message"></div>
+
+    <script>
+        let highlightedItem = null;
+        const buttonContainer = document.getElementById('buttonContainer');
+        const messageEl = document.getElementById('message');
+        const copyButton = document.getElementById('copyButton');
+        const functionButton = document.getElementById('functionButton');
+        const moreContentBtn = document.getElementById('moreContentBtn');
+
+        // --- 使用事件委托处理点击 ---
+        document.body.addEventListener('click', function(event) {
+            // 检查被点击的元素或其父元素是否是 .subtitle-item
+            const clickedItem = event.target.closest('.subtitle-item');
+
+            if (clickedItem) {
+                // 移除之前高亮的项
+                if (highlightedItem) {
+                    highlightedItem.classList.remove('highlighted');
+                }
+                // 高亮当前点击的项
+                clickedItem.classList.add('highlighted');
+                highlightedItem = clickedItem;
+
+                // 显示按钮
+                buttonContainer.classList.add('show');
+            }
+        });
+        // --- 事件委托结束 ---
+
+        // 复制功能
+        function performCopy() {
+            if (highlightedItem) {
+                const textToCopy = highlightedItem.querySelector('.subtitle-text').innerText;
+                copyTextToClipboard(textToCopy);
+                showMessage(`已复制: ${textToCopy.substring(0, 30)}...`);
+            }
+        }
+
+        // 执行函数功能
+        function performFunction() {
+            if (highlightedItem) {
+                const textToProcess = highlightedItem.querySelector('.subtitle-text').innerText;
+                getPlaybackLink(textToProcess);
+                showMessage(`已执行函数，处理: ${textToProcess.substring(0, 30)}...`);
+            }
+        }
+
+        // 复制文本到剪贴板
+        function copyTextToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).catch(err => {
+                    console.error('现代复制方法失败: ', err);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                textArea.style.top = "0";
+                textArea.style.left = "0";
+                textArea.style.width = "2em";
+                textArea.style.height = "2em";
+                textArea.style.padding = "0";
+                textArea.style.border = "none";
+                textArea.style.outline = "none";
+                textArea.style.boxShadow = "none";
+                textArea.style.background = "transparent";
+                textArea.style.opacity = "0";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    const successful = document.execCommand('copy');
+                    if (!successful) {
+                        console.warn('execCommand 复制可能未成功');
+                    }
+                } catch (err) {
+                    console.error('execCommand 复制失败: ', err);
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+
+        // 显示消息提示
+        function showMessage(msg) {
+            messageEl.innerText = msg;
+            messageEl.classList.add('show');
+            clearTimeout(messageEl.timeoutId);
+            messageEl.timeoutId = setTimeout(() => {
+                messageEl.classList.remove('show');
+            }, 2000);
+        }
+
+        // 按钮事件监听
+        copyButton.addEventListener('click', performCopy);
+        functionButton.addEventListener('click', performFunction);
+
+        // 键盘事件监听
+        document.addEventListener('keydown', function(event) {
+            if (!highlightedItem) return;
+
+            if (event.ctrlKey && event.key === 'c') {
+                event.preventDefault();
+                performCopy();
+            }
+
+            if ((event.key === 'c' || event.key === 'C') && !event.ctrlKey) {
+                 // 防止在输入框等地方按C时触发
+                if (event.target.tagName.toLowerCase() === 'input' || 
+                    event.target.tagName.toLowerCase() === 'textarea') {
+                    return;
+                }
+                event.preventDefault();
+                performFunction();
+            }
+        });
+
+        // 模拟的 getPlaybackLink 函数
+        function getPlaybackLink(text) {
+            console.log("调用 getPlaybackLink 函数，传入文本:", text);
+            // 这里可以添加实际的逻辑
+        }
+
+        // --- 添加更多内容以测试性能 ---
+        moreContentBtn.addEventListener('click', function() {
+            const container = document.body; // 或者一个特定的容器div
+            let newContent = '';
+            for (let i = 0; i < 100; i++) {
+                newContent += `
+                <div class="subtitle-item">
+                    <div class="real-time">8.19 25:20:${String(i).padStart(2, '0')}</div>
+                    <div class="subtitle-text"><i>8.20 1:20</i> "这是第 ${i+1} 个动态添加的字幕项"</div>
+                    <div class="srt-time">(25:20:${String(i).padStart(2, '0')}.000 -&gt; 25:20:${String(i+1).padStart(2, '0')}.000)</div>
+                </div>`;
+            }
+            // 使用 insertAdjacentHTML 更高效地插入大量HTML
+            container.insertAdjacentHTML('beforeend', newContent);
+            console.log("已添加100个新的字幕项");
+        });
+        // --- 添加内容结束 ---
+    </script>
+
+</body>
+</html>
+
+
+
