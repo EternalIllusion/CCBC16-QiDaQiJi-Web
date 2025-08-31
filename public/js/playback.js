@@ -57,6 +57,14 @@ function getPlaybackURL(targetDateTimeStr) {
         },
         {
             "date": "8.23",
+            "bvid": "呜呜呜苏联笑话被审核拿下了",
+            "url": "./404.html",
+            "playbacks": [
+                { "21:18:26": "0:29:33" }
+            ]
+        },
+        {
+            "date": "8.23",
             "bvid": "BV1MReBzfEy8",
             "playbacks": [
                 { "21:48:00": "2:00:10" },
@@ -103,6 +111,22 @@ function getPlaybackURL(targetDateTimeStr) {
                 { "22:30:12": "1:51:58" }
             ]
         },
+        {
+            "date": "8.29",
+            "bvid": "BV1SrhozzEif",
+            "playbacks": [
+                { "20:30:00": "2:00:11" },
+                { "22:30:12": "1:53:41" }
+            ]
+        },
+        {
+            "date": "8.30",
+            "bvid": "BV1cWhBzgEbJ",
+            "playbacks": [
+                { "20:30:00": "2:00:11" },
+                { "22:30:12": "1:16:44" }
+            ]
+        },
     ];
     /**
      * 将 HH:mm:ss 或 HH:mm 格式的时间字符串转换为总秒数
@@ -126,25 +150,19 @@ function getPlaybackURL(targetDateTimeStr) {
      */
     function parseDate(dateStr) {
         const [month, day] = dateStr.split('.').map(Number);
-        // 注意：JavaScript Date 的月份是 0-indexed (0-11)
         return new Date(DEFAULT_YEAR, month - 1, day);
     }
 
     try {
-        // --- 1. 解析输入 ---
         const dateTimeParts = targetDateTimeStr.trim().split(' ');
         if (dateTimeParts.length !== 2) {
             throw new Error("目标时间格式无效，请使用 'MM.DD HH:mm' 或 'MM.DD HH:mm:ss' 格式。");
         }
         const targetDateStr = dateTimeParts[0];
         const targetTimeStr = dateTimeParts[1];
-
-        // --- 2. 验证并处理JSON数据列表 ---
         if (!Array.isArray(dataList) || dataList.length === 0) {
             throw new Error("JSON数据列表格式无效或为空。");
         }
-
-        // --- 3. 计算目标时间戳 ---
         const targetDateObj = parseDate(targetDateStr);
         if (isNaN(targetDateObj.getTime())) {
             throw new Error(`无法解析目标日期: ${targetDateStr}`);
@@ -152,23 +170,15 @@ function getPlaybackURL(targetDateTimeStr) {
         const [hours, minutes, seconds = 0] = targetTimeStr.split(':').map(Number);
         targetDateObj.setHours(hours, minutes, seconds, 0);
         const targetTimestamp = targetDateObj.getTime();
-
-        // --- 4. 遍历数据列表，查找匹配的直播日期 ---
         for (const data of dataList) {
             if (!data || !data.date || !data.bvid || !Array.isArray(data.playbacks)) {
-                // 跳过格式不正确的单个数据项
                 continue;
             }
-
-            // --- 5. 计算当前直播日期的时间戳 ---
             const liveDateObj = parseDate(data.date);
             if (isNaN(liveDateObj.getTime())) {
-                // 跳过日期解析失败的项
                 continue;
             }
             const liveStartOfDayTimestamp = liveDateObj.getTime();
-
-            // --- 6. 处理当前直播日期的回放列表 ---
             const playbackList = data.playbacks.map((item, index) => {
                 const startTimeStr = Object.keys(item)[0];
                 const durationStr = Object.values(item)[0];
@@ -180,8 +190,6 @@ function getPlaybackURL(targetDateTimeStr) {
                     durationSeconds: timeStringToSeconds(durationStr)
                 };
             });
-
-            // --- 7. 查找目标时间对应的回放分P ---
             let foundPlayback = null;
             let elapsedSecondsInVideo = 0;
 
@@ -192,25 +200,50 @@ function getPlaybackURL(targetDateTimeStr) {
                 if (targetTimestamp >= playbackStartTimestamp && targetTimestamp <= playbackEndTimestamp) {
                     foundPlayback = playback;
                     elapsedSecondsInVideo = Math.floor((targetTimestamp - playbackStartTimestamp) / 1000);
-                    // 找到匹配项，跳出内层循环
                     break;
                 }
             }
-
-            // --- 8. 如果找到匹配项，则生成URL并返回 ---
             if (foundPlayback) {
-                const url = `https://www.bilibili.com/video/${data.bvid}/?p=${foundPlayback.index}&t=${elapsedSecondsInVideo}`;
-                return {
-                    success: true,
-                    message: `成功定位回放时间。`,
-                    details: {
-                        p: foundPlayback.index,
-                        t: elapsedSecondsInVideo,
-                        url: url,
-                        bvid: data.bvid,
-                        liveDate: data.date
+                if (data.bvid.includes("BV")){
+                    const url = `https://www.bilibili.com/video/${data.bvid}/?p=${foundPlayback.index}&t=${elapsedSecondsInVideo}`;
+                    return {
+                        success: true,
+                        message: `成功定位回放时间。`,
+                        details: {
+                            p: foundPlayback.index,
+                            t: elapsedSecondsInVideo,
+                            url: url,
+                            bvid: data.bvid,
+                            liveDate: data.date
+                        }
+                    };
+                } else {
+                    if (data.url){
+                        return {
+                            success: true,
+                            message: `成功匹配。`,
+                            details: {
+                                p: foundPlayback.index,
+                                t: elapsedSecondsInVideo,
+                                url: data.url,
+                                bvid: data.bvid,
+                                liveDate: data.date
+                            }
+                        };
+                    } else {
+                        return {
+                            success: true,
+                            message: data.bvid,
+                            details: {
+                                p: foundPlayback.index,
+                                t: elapsedSecondsInVideo,
+                                url: '#',
+                                bvid: data.bvid,
+                                liveDate: data.date
+                            }
+                        };
                     }
-                };
+                }
             }
             // 如果未找到，继续检查下一个直播日期
         }
