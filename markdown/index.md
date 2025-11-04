@@ -1,6 +1,23 @@
 # 写在最前
 
-### 七大歧记·本篇 已经完结了，内容不再有大变动的时候将会同步网站，所有直播回放和可用的字幕均已收录
+### 叶子戏牌正式开售！
+
+[【淘宝】「密码菌CCBC16限量纪念牌叶子戏叶牌解谜谜题礼品收藏」 ](https://e.tb.cn/h.SL5CZOC2Ydg895T?tk=BY2vfTFGPnK)
+
+<div class="image-container">
+<img src="./img/12DE66F6DF1CD4A46F7D9AF664BA714B.jpg"></img>
+<img src="./img/B461074B8DD6567D1A7FF635C4FCDE4E.jpg"></img>
+<img src="./img/D2CBEAAEE72EF7AE1037E6806D1117B4.jpg"></img>
+</div>
+
+<div class="image-container">
+<img src="./img/1071C49CD365D7958CF12A8A7D88FBFE.jpg"></img>
+<img src="./img/207AAA5AD306AF36E31B40BF24DE513C.jpg"></img>
+<img src="./img/211F23BC095CD5CE63C23204465527B0.jpg"></img>
+<img src="./img/AB675FB6C4F18BDA1B1A57C91E617923.jpg"></img>
+</div>
+
+### 七大歧记·本篇 已经完结了，将会于近期同步网站，所有直播回放和可用的字幕均已收录
 
 **[【贡献内容】](https://docs.qq.com/aio/DWXdOem1jaHNGZEdo)**
 
